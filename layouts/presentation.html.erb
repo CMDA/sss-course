@@ -39,6 +39,7 @@
     </div>
 
     <script src="/vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="/vendor/highlightjs/highlight.pack.js"></script>
 
     <script>
 
@@ -60,7 +61,7 @@
           { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
