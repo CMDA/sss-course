@@ -83,6 +83,11 @@ $linkColorHover: lighten( $linkColor, 20% );
     margin-bottom: 1em;
   }
 
+  section img{
+    border: 0 none;
+    background: none
+  }
+
   h1 .large{
     font-size: 2em;
     display: block;
