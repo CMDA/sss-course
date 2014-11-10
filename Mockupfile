@@ -1,0 +1,18 @@
+require 'sass/plugin/rack'
+require 'roger/rack/sleep'
+
+Sass::Plugin.options[:style] = :expanded
+Sass::Plugin.options[:template_location] = {
+  "./html/stylesheets" => "./html/stylesheets",
+  "./html/vendor/revealjs/css/theme/template" => "./html/vendor/revealjs/css/theme/template",  
+}
+
+mockup.serve do |s|  
+  s.use Sass::Plugin::Rack
+  s.use Roger::Rack::Sleep
+end
+
+
+mockup.release do |r|
+  r.use :sass
+end

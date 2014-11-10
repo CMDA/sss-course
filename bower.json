@@ -1,0 +1,21 @@
+{
+  "name": "server-side-scripting-in-nodejs-course",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DigitPaint/server-side-scripting-in-nodejs-course",
+  "authors": [
+    "Flurin Egger <flurin@digitpaint.nl>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "html/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~2.6.2"
+  }
+}
