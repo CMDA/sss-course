@@ -1,10 +1,398 @@
 ---
-title: "Lesson 1 - Server Side Scriptin in NodeJS"
+title: "Lesson 1 - Server Side Scriptin in Node.js"
 layout: "presentation"
 ---
 
 <section>
-  <h1 class="title">Server Side Scriptin in NodeJS</h1>
+  <h1 class="title">Server Side Scriptin in Node.js</h1>
   <p>Lesson 1</p>
 </section>
 
+
+<section lang="nl">
+
+  <section>
+    <h1>Introductie</h1>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Leerdoelen
+
+      * ...
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Lessen
+
+      * 7 hoorcolleges
+      * 8 werkcolleges
+      * 2 deeltoetsen
+      * 1 eindopdracht
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Deeltoetsen
+
+      ## Deeltoets 1
+      Schriftelijk (15 min) in het werkcollege
+      
+      ## Deeltoets 2
+      In code (30-45 min) tijdens het werkcollege
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Eindopdracht
+
+      * ...
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Boek
+
+      Elke week 1-2 hoofdstukken
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Hoorcollege
+
+      * Nieuw lesmateraal
+      * Uitleg nieuwe opdrachten
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Werkcollege
+
+      * Behandelen opdrachten van vorige week
+      * Werken aan opdrachten (als je deze allemaal kunt maken kun je ook de deeltoets)
+      * Vragen stellen
+    </script>
+  </section>  
+</section>
+
+<section>
+
+  <section>
+    <h1>Before we start...</h1>
+    <p>... we have some expectations</p>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Terminal
+
+      * Basic terminal/powershell knowledge (`cd`/`mkdir`/etc.)
+      * Get to know this stuff here:
+      ** http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
+      ** http://cli.learncodethehardway.org/book/
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Editor
+
+      * You have a text-editor installed and know how to use it
+      * Some good editors:
+      ** Sublime text
+      ** Brackets
+      ** Textmate
+    </script>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>The Node eco-system</h1>
+    <p>... and how to get started</p>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # What is Node.js?
+
+      > Node.js® is a platform built on Chrome''s JavaScript runtime for easily building fast, scalable network applications. 
+      > Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Installing Node.js 
+
+      on Windows or OS X
+
+      1. Go to http:///nodejs.org
+      1. Click "install"
+      1. Follow the instructions on screen
+      1. Done!
+    </script>
+  </section>  
+
+  <section>
+    <h1>Test the installation</h1>
+
+    <pre class="terminal--powershell"><code data-trim class="powershell">
+PS C:\Users> node -v
+v0.10.33
+    </code></pre>
+
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node -v
+v0.10.33
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>REPL</h1>
+
+    <span class="fragment"><strong>R</strong>ead</span>
+    <span class="fragment">- <strong>E</strong>val</span>
+    <span class="fragment">- <strong>P</strong>rint</span>
+    <span class="fragment">- <strong>L</strong>oop</span>
+  </section>
+
+  <section>
+    <h1>REPL</h1>
+    <p>DEMO</p>
+  </section>
+
+  <section>
+    <div class="protip">
+      #protip: Use the REPL to test small snippets of your code.
+    </div>
+  </section>
+
+  <section>
+    <h1>NPM</h1>
+
+    <span class="fragment"><strong>N</strong>ode</span>
+    <span class="fragment"><strong>P</strong>ackage</span>
+    <span class="fragment"><strong>M</strong>anager</span>
+  </section>
+
+
+</section>
+
+
+<div class="hidden">
+
+
+  ## REPL
+
+  Voorbeeld
+
+  [TODO] Uitwerken
+
+  ```1 + 2 -> 3```
+
+  ```function(){
+    return "henk"
+  }
+  ```
+
+  ```var a = "b"```
+
+  ## NPM
+
+  Node Package Manager
+
+  * Tool om je dependencies mee te beheren en packages te installeren.
+
+  ## Npm.org
+
+  * Lijst van packages / libraries
+
+  * SCREENSHOT + DEMO
+
+  ## npm install
+
+  * Installeren van packages (`npm install underscore`)
+  * Packages worden geïnstalleerd in de huidige directory in de `node_modules` directory
+  * `npm install -g ...` installeert systeembreed.
+
+  ## Package gebruiken
+
+  * `var _ = require('underscore');`
+  * `_.map([1,2,3,4], function(v){ return v * 2; })
+
+  * DEMO repl
+
+  ## package.json
+
+  * Opslaan van wat er daadwerkelijk gebruikt is zodat iemand anders ook weer alle dependencies kan installeren.
+
+  ## package.json genereren
+
+  * `npm init`
+  * Genereer een package.json
+
+  ## Dependencies opslaan
+
+  * `npm install --save underscore`
+  * Nu staat in `package.json` dependencies ....
+  * #protip zorg dat _alle_ dependencies in package.json staan!
+
+  ## Een project van iemand anders draaien
+
+  * Git clone/unzip/whatever
+  * `npm install`
+
+  ## Debug
+
+  * Hoe te debugging
+
+  ## JSHint
+
+  * Checkt syntax en voorkomt meest suffe fouten. Wij hebben een standaardconfiguratie opgezet.
+
+  ```npm -g install jshint```
+
+  ## Console output
+
+  * Console.log / Console.dir
+
+  ## Debugger
+
+  * Stopt de uitvoer en laat je de code op die plek inspecteren.
+
+  * ``debugger``
+
+  * DEMO
+
+  ---
+
+  # JS
+
+  ## Flow
+
+  * if/else
+  * for(){}
+  * while(condition){}
+  * switch(value){case "one": ...; break; default: ....; break;}
+  * function(){}
+  * try{} catch(){}
+
+  ## Modules laden
+
+  * Alles in één bestand is niet handig
+  * Een module is één bestand.
+  * ```require("tools");```
+  * Maar in tegenstelling tot andere talen kun je nu niet zomaar functies en objecten van uit "tools" gebruiken.
+  *```
+    var tools = require("tools");
+    tools.capitalize("node FTW!");
+    ```
+
+  ## Modules schrijven
+
+  * Je moet aangeven wat je wilt exposen
+
+  ``` 
+    var tools = {
+      capitalize : function(){
+      // ...
+      };
+    }
+    module.exports = tools;
+  ```
+
+  * #protip je kunt van alles teruggeven, het hoeft geen object te zijn.
+
+  * DEMO
+
+  ## Async
+
+  * Code wordt onafhankelijk van elkaar uitgevoerd. De volgorde is dus niet gegarandeerd.
+
+  Voorbeeld van sync code:
+  ```
+  var file = readFile("bestand.txt");
+  output(file);
+  console.log("klaar");
+  ```
+
+  Voorbeeld van async code:
+  ```
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar");
+  });
+  console.log("onbekend of we klaar zijn");
+  ```
+
+  * Alles in node is in principe async
+
+  * TODO diagrammetje
+
+  ## Callbacks
+
+  * Functie die aangeroepen wordt als iets "klaar" is. 
+
+  ```
+  var klaar_callback = function(file){
+    output(file);
+    console.log("klaar");
+  };
+  readfile("bestand.txt", klaar_callback);
+  console.log("onbekend of we klaar zijn");
+  ```
+
+  ## Events
+
+  * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
+
+  * Denk aan jQuery click.
+
+  * TODO VOORBEELDJE
+
+  ## Hello World
+
+  * TODO voorbeeldje
+
+  ## Samenvatting
+
+  * Node installeren en REPL draaien
+  * NPM packages installeren en gebruik package.json
+  * Debugging met console.log/console.dir en debugger
+  * Basis JS control flow
+  * Modules
+  * Async, callbacks en events
+
+  ## Huiswerk
+
+  * Lezen: 
+    Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
+    Appendix A5 (p 363 t/m 366)
+    Appendix B1 t/m B3.2 (p 367 t/m 371) 
+
+  * Node installeren
+
+  ## Opdrachten voor deze week in het werkcollege
+
+  * Je node installatie draait (node -v)
+  * Clone voorbeeldproject/set up project
+  * Maak een Hello World terminal voorbeeld
+  * Maak een hello_world functie in een los bestand en laad die in met `require()`
+  * Maak een hello world in je browser
+
+  ## Bronnen
+
+  ...
+
+</div>
