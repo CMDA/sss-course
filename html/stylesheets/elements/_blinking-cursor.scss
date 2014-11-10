@@ -1,0 +1,19 @@
+.blinking-cursor {
+  animation: 1s blink step-end infinite;
+}
+
+.blinking-cursor:before{
+  content: "|";
+  font-size: 80%;
+  vertical-align: top;
+}
+
+@keyframes "blink" {
+  from,to {
+  opacity: 0;
+}
+ 50% {
+    opacity: 1;
+ }
+
+}

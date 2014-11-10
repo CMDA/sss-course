@@ -168,6 +168,55 @@ v0.10.33
   </section>
 
   <section>
+    <h2>To start the REPL</h2>
+    <pre class="terminal-unix"><code data-trim data-noescape class="bash">
+$ node 
+> <span class="blinking-cursor"></span>
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Some examples</h2>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node 
+> 2 + 3
+5
+> 0 == true
+false
+> 1 == true
+true # always use ===
+> 1 === true
+false
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Test your modules</h2>
+    <p>Given you've written a <small>small</small> module, square.js</p>
+    <pre class="javascript"><code>
+// square.js
+var square = function(x){
+  return x * x;
+};
+
+module.exports = square;
+    </code></pre>
+  </section>
+
+    <section>
+      <p>You can easily load this, and test it</p>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node # start the repl
+> var square = require('./square.js')
+undefined
+> square
+[Function]
+> square(2)
+4
+    </code></pre>
+    </section>
+
+  <section>
     <h1>REPL</h1>
     <p>DEMO</p>
   </section>
