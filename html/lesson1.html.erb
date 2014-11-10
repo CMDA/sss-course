@@ -170,23 +170,23 @@ v0.10.33
   <section>
     <h1>To start the REPL</h1>
     <pre class="terminal-unix"><code data-trim data-noescape class="bash">
-$ node 
-> <span class="blinking-cursor"></span>
+  $ node 
+  > <span class="blinking-cursor"></span>
     </code></pre>
   </section>
 
   <section>
     <h1>Some examples</h1>
     <pre class="terminal-unix"><code data-trim class="bash">
-$ node 
-> 2 + 3
-5
-> 0 == true
-false
-> 1 == true
-true # always use ===
-> 1 === true
-false
+  $ node 
+  > 2 + 3
+  5
+  > 0 == true
+  false
+  > 1 == true
+  true # always use ===
+  > 1 === true
+  false
     </code></pre>
   </section>
 
@@ -194,25 +194,25 @@ false
     <h1>Test your modules</h1>
     <p>Given you've written a <small>small</small> module, square.js</p>
     <pre class="javascript"><code>
-// square.js
-var square = function(x){
-  return x * x;
-};
+  // square.js
+  var square = function(x){
+    return x * x;
+  };
 
-module.exports = square;
+  module.exports = square;
     </code></pre>
   </section>
 
     <section>
       <p>You can easily load this, and test it</p>
     <pre class="terminal-unix"><code data-trim class="bash">
-$ node # start the repl
-> var square = require('./square.js')
-undefined
-> square
-[Function]
-> square(2)
-4
+  $ node # start the repl
+  > var square = require('./square.js')
+  undefined
+  > square
+  [Function]
+  > square(2)
+  4
     </code></pre>
     </section>
 
@@ -244,7 +244,7 @@ undefined
     </blockquote>
   </section>
 
-  <section>
+    <section>
     <h1>npm.org</h1>
 
     <img src="/assets/lesson1/screenshot-npm-org.png" alt="npm.org" class="image--bottom">
@@ -325,6 +325,138 @@ undefined
 
 </section>
 
+<section>
+
+  <section>
+    <h1>Javascript</h1>
+    <p>Quick overview</p>
+  </section>
+
+  <section>
+    <h1>Flow</h1>
+  </section>
+
+  <section>
+    <h2>if/else</h2>
+    <p>The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</p>
+      <pre class="javascript"><code>
+  if (condition)
+     statement1  
+  [else
+    statement2]
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>try{} catch(){}</h2>
+    <p>The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown.</p>
+    <pre class="javascript"><code>
+  try {
+    throw "myException"; // generates an exception
+  } catch (e) {
+    // statements to handle any exceptions
+    logMyErrors(e); // pass exception object to error handler
+  }</code></pre>
+  </section>
+
+  <section>
+    <h2>for(){}</h2>
+    <p>The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
+    <pre class="javascript"><code>
+  for ([initialization]; [condition]; [final-expression]) 
+    statements
+    </code></pre>
+  </section>
+  
+  <section>
+    <h2>while</h2>
+    <p>The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.</p>
+    <pre class="javascript"><code>
+  while (condition) { 
+    statement 
+  }
+    </code></pre>
+  </section>
+    
+  <section>
+    <h2>function(){}</h2>
+    <p>The function statement declares function with the specified parameters.</p>
+    <pre class="javascript"><code>
+  function name([param,[, param,[..., param]]]) { 
+    [statements] 
+  }
+    </code></pre>
+  </section>
+  
+  <section>
+    <h1>Modules</h1>
+  </section>
+
+  <section>
+    <h2>Write a module</h2>
+    <p>Javascript module are flexible, they can return:</p>
+    <ul>
+      <li>Objects</li>
+      <li>Functions</li>
+      <li>Variables</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Example module</h2>
+    <pre class="javascript"><code>
+  // tools.js
+  var tools = {
+    titlelize : function(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+  };
+  module.exports = tools;
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Load a module</h2>
+    <p>A module is a single file.</p>
+    <pre class="javascript"><code>
+  var tools = require('tools');
+  tools.capitalize("node FTW!"); // => Node FTW!
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Async</h1>
+    <p></p>
+  </section>
+
+
+</section>
+
+<section>
+
+  <section data-markdown>
+    <script type="text/template">
+    # Samenvatting
+
+    * Node installeren en REPL draaien
+    * NPM packages installeren en gebruik package.json
+    * Debugging met console.log/console.dir en debugger
+    * Basis JS control flow
+    * Modules
+    * Async, callbacks en events
+    </script>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Werkcollege en huiswerk</h1>
+  </section>
+
+</section>
+
 
 
 
@@ -357,41 +489,6 @@ undefined
   ---
 
   # JS
-
-  ## Flow
-
-  * if/else
-  * for(){}
-  * while(condition){}
-  * switch(value){case "one": ...; break; default: ....; break;}
-  * function(){}
-  * try{} catch(){}
-
-  ## Modules laden
-
-  * Alles in één bestand is niet handig
-  * Een module is één bestand.
-  * ```require("tools");```
-  * Maar in tegenstelling tot andere talen kun je nu niet zomaar functies en objecten van uit "tools" gebruiken.
-  *```
-    var tools = require("tools");
-    tools.capitalize("node FTW!");
-    ```
-
-  ## Modules schrijven
-
-  * Je moet aangeven wat je wilt exposen
-
-  ``` 
-    var tools = {
-      capitalize : function(){
-      // ...
-      };
-    }
-    module.exports = tools;
-  ```
-
-  * #protip je kunt van alles teruggeven, het hoeft geen object te zijn.
 
   * DEMO
 
@@ -444,15 +541,7 @@ undefined
 
   * TODO voorbeeldje
 
-  ## Samenvatting
-
-  * Node installeren en REPL draaien
-  * NPM packages installeren en gebruik package.json
-  * Debugging met console.log/console.dir en debugger
-  * Basis JS control flow
-  * Modules
-  * Async, callbacks en events
-
+  
   ## Huiswerk
 
   * Lezen: 
