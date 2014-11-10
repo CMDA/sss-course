@@ -31,5 +31,6 @@ PLATFORMS
 
 DEPENDENCIES
   pry
+  redcarpet
   roger
   roger_sass

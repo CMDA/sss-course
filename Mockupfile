@@ -12,7 +12,6 @@ mockup.serve do |s|
   s.use Roger::Rack::Sleep
 end
 
-
 mockup.release do |r|
   r.use :sass
 end

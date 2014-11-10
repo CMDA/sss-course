@@ -1,0 +1,27 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p><%= @site[:description] %></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <!-- {% if page.url == site.baseurl %} active{% endif %} -->
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    <a class="sidebar-nav-item" href="/lectures">Lectures overview</a>
+    <!-- <a class="sidebar-nav-item" href="/about">About</a> -->
+
+    <a class="sidebar-nav-item" href="<%= @site[:github][:repo] %>">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v (TODO: git version)</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; All rights reserved.
+    </p>
+  </div>
+</div>
