@@ -9,6 +9,11 @@
 
   ul{
     margin-bottom: 0em;
+    // padding-left: 1em;
+  }
+
+  li{
+    list-style: disc;
   }
 
   & > ul{
@@ -19,17 +24,26 @@
     list-style: none;
   }
 
+  & > ul > li > ul{
+    padding-left: 1.2em;
+  }
+
   li li li{
     display: none;
   }
+
   @media (min-width: 1260px){
     position: absolute;
     width: 200px;
     left: -220px;
     top: 0;
 
+    & > ul > li > a{
+      display: none;
+    }
+
     li li li{
-      display: block;
+      display: list-item;
     }
   }
 }
