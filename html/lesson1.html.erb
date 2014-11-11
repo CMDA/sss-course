@@ -449,49 +449,30 @@ undefined
   </section>
 
 
-  <!-- * Code wordt onafhankelijk van elkaar uitgevoerd. De volgorde is dus niet gegarandeerd.
-
-  Voorbeeld van sync code:
-  ```
-  var file = readFile("bestand.txt");
-  output(file);
-  console.log("klaar");
-  ```
-
-  Voorbeeld van async code:
-  ```
-  readfile("bestand.txt", function(file){
-    output(file);
-    console.log("klaar");
-  });
-  console.log("onbekend of we klaar zijn");
-  ```
-
-  * Alles in node is in principe async -->
-
-</section>
-
-<section>
-
-  <section data-markdown>
-    <script type="text/template">
-    # Samenvatting
-
-    * Node installeren en REPL draaien
-    * NPM packages installeren en gebruik package.json
-    * Debugging met console.log/console.dir en debugger
-    * Basis JS control flow
-    * Modules
-    * Async, callbacks en events
-    </script>
+  <section>
+    <h2>Async diagram</h2>
   </section>
 
-</section>
+  <section>
+    <h1>Working with asynchronous calls</h1>
+    <ul>
+      <li>Callbacks</li>
+      <li>Events</li>
+    </ul>
+  </section>
 
-<section>
 
   <section>
-    <h1>Werkcollege en huiswerk</h1>
+    <h2>Callbacks</h2>
+      * Functie die aangeroepen wordt als iets "klaar" is. 
+      * Promises
+  </section>
+
+  <section>
+    <h2>Events</h2>
+      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
+      * Denk aan jQuery click.
+      * TODO VOORBEELDJE
   </section>
 
 </section>
@@ -612,6 +593,31 @@ if(a == true){
 
 </section>
 
+<section>
+
+  <section data-markdown>
+    <script type="text/template">
+    # Samenvatting
+
+    * Node installeren en REPL draaien
+    * NPM packages installeren en gebruik package.json
+    * Debugging met console.log en debugger
+    * Basis JS control flow
+    * Modules
+    * Async, callbacks en events
+    </script>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Werkcollege en huiswerk</h1>
+  </section>
+
+</section>
+
 
 <div class="hidden">
   ---
@@ -620,31 +626,7 @@ if(a == true){
 
   * DEMO
 
-  ## Async
 
-
-  * TODO diagrammetje
-
-  ## Callbacks
-
-  * Functie die aangeroepen wordt als iets "klaar" is. 
-
-  ```
-  var klaar_callback = function(file){
-    output(file);
-    console.log("klaar");
-  };
-  readfile("bestand.txt", klaar_callback);
-  console.log("onbekend of we klaar zijn");
-  ```
-
-  ## Events
-
-  * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
-
-  * Denk aan jQuery click.
-
-  * TODO VOORBEELDJE
 
   ## Hello World
 
