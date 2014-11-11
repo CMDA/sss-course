@@ -5,5 +5,12 @@
 @import 'vendor/poole';
 @import 'vendor/lanyon';
 
+// Toc element
+@import 'elements/toc';
+
+.container{
+  position: relative;
+}
+
 // Highlight support
 // @import ''

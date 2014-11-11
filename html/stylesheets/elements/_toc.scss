@@ -1,0 +1,36 @@
+.md-toc{
+  font-size: 16px;
+  font-size: 0.9rem;
+
+  h2{
+    margin-top: 0.3em;
+    font-size: 1.25rem;
+  }
+
+  ul{
+    margin-bottom: 0em;
+  }
+
+  & > ul{
+    padding: 0;
+  }
+  & > ul > li{
+    margin: 0;
+    list-style: none;
+  }
+
+  li li li{
+    display: none;
+  }
+  @media (min-width: 1260px){
+    position: absolute;
+    width: 200px;
+    left: -220px;
+    top: 0;
+
+    li li li{
+      display: block;
+    }
+  }
+}
+

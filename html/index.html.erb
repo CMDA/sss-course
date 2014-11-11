@@ -39,5 +39,14 @@ markdown_extensions = {
 %>
 
 <% doc = File.read('readme.md') %>
+<% toc = Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC.new({:nesting_level => 3}), markdown_extensions) %>
 <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options), markdown_extensions) %>
+
+<div class="md-toc">
+  <h2>Table of Content</h2>
+  <%= toc.render(doc) %>    
+</div>
+
 <%= markdown.render(doc) %>
+
+
