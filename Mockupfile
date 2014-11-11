@@ -13,5 +13,11 @@ mockup.serve do |s|
 end
 
 mockup.release do |r|
-  r.use :sass
+   r.use(:sass)
+
+  r.cleanup "**/.DS_Store"
+  r.cleanup "**/.sass-cache"
+  r.cleanup "**/stylesheets/src"  
+  
+  r.finalize GitBranch, :branch => "gh-pages", :remote => "git@github.com:Digitpaint/server-side-scripting-in-nodejs-course.git"
 end
