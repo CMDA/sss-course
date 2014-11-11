@@ -404,11 +404,11 @@ undefined
   <section>
     <h2>Example module</h2>
     <pre class="javascript"><code>
-  // tools.js
+  // string-helpers.js
   var tools = {
-    titleize : function(string){
+    humanize : function(string){
       return string.charAt(0).toUpperCase() + string.slice(1);
-    };
+    }
   };
   module.exports = tools;
     </code></pre>
@@ -419,15 +419,55 @@ undefined
     <p>A module is a single file.</p>
     <pre class="javascript"><code>
   var tools = require('tools');
-  tools.titleize("node FTW!"); // => Node FTW!
+  tools.humanize("node FTW!"); // => Node FTW!
     </code></pre>    
   </section>
 
   <section>
     <h1>Async</h1>
-    <p></p>
+    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
   </section>
 
+  <section>
+    <h2>Synchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
+  output(file); <span class="fragment">// ... and done</span>
+  console.log("klaar");
+    </code></pre>        
+  </section>
+
+  <section>
+    <h2>Asynchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
+  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
+  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
+    </code></pre>        
+  </section>
+
+
+  <!-- * Code wordt onafhankelijk van elkaar uitgevoerd. De volgorde is dus niet gegarandeerd.
+
+  Voorbeeld van sync code:
+  ```
+  var file = readFile("bestand.txt");
+  output(file);
+  console.log("klaar");
+  ```
+
+  Voorbeeld van async code:
+  ```
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar");
+  });
+  console.log("onbekend of we klaar zijn");
+  ```
+
+  * Alles in node is in principe async -->
 
 </section>
 
@@ -582,25 +622,6 @@ if(a == true){
 
   ## Async
 
-  * Code wordt onafhankelijk van elkaar uitgevoerd. De volgorde is dus niet gegarandeerd.
-
-  Voorbeeld van sync code:
-  ```
-  var file = readFile("bestand.txt");
-  output(file);
-  console.log("klaar");
-  ```
-
-  Voorbeeld van async code:
-  ```
-  readfile("bestand.txt", function(file){
-    output(file);
-    console.log("klaar");
-  });
-  console.log("onbekend of we klaar zijn");
-  ```
-
-  * Alles in node is in principe async
 
   * TODO diagrammetje
 
