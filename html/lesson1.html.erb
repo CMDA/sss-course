@@ -322,7 +322,6 @@ undefined
       <li class="fragment">That's it!</li>
     </ol>
   </section> 
-
 </section>
 
 <section>
@@ -457,35 +456,124 @@ undefined
 
 </section>
 
+<section>
+  <section>
+    <h1>Debugging</h1>
+  </section>
 
+  <section>
+    <h1>Console output</h1>
+    <p>Printing output to the console</p>
+  </section>
+
+  <section>
+    <h1><code>console.log()</code></h1>
+    <pre class="editor"><code data-trim class="javascript">
+// Why doesn't this work!?
+var a = 100;
+console.log("Debug value", a);
+console.log("String 1: %s and Numer 2: %d", "string", 3);
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Further console functions</h1>
+    <ul>
+      <li><code>console.time(label)</code></li>
+      <li><code>console.timeEnd(label)</code></li>
+      <li><code>console.trace(message)</code></li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h1>node-inspector</h1>
+    <p>Stop execution and inspect the current callstack</p>
+  </section>
+
+  <section>
+    <h1>Install node-inspector</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ npm install -g node-inspector
+...
+$ node-debug -v
+v0.7.4
+    </code></pre>  
+  </section>
+
+  <section>
+    <h1><code>debugger</code> statement</h1>
+    <pre class="editor"><code data-trim class="javascript">
+var a = "bug!";
+function potentiallyBuggyCode(param) {
+  var b = "another bug!";
+  // do potentially buggy stuff to examine, step through, etc.
+  debugger;  
+}
+potentiallyBuggyCode("thing");
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Running node-inspector</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node-debug buggycode.js
+Node Inspector is now available from http://localhost:8080/debug?port=5858
+Debugging `html/assets/lesson1/debugger.js`
+
+debugger listening on port 5858
+    </code></pre>  
+  </section>  
+
+  <section>
+    <h1>node-inspector in action</h1>
+    <p>DEMO</p>
+  </section>
+
+  <section>
+    <h1>JSHint</h1>
+
+    <blockquote>
+      JSHint is a community-driven tool to detect errors and potential problems in JavaScript code and to enforce your team's coding conventions.
+      <cite>jshint.com</cite>
+    </blockquote>
+  </section>
+
+  <section>
+    <h1>Install JSHint</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ npm install -g jshint
+...
+$ jshint -v
+jshint v2.5.10
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Using JSHint</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ jshint &lt;filename&gt;
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Using JSHint</h1>
+    <pre class="editor"><code data-trim class="javascript">
+// Let's put in some syntax errors!
+var a = ;
+
+if(a == true){
+  console.log("yes!")
+}
+    </code></pre>
+
+    <p>jshint html/assets/lesson1/faulty.js</p>
+  </section>
+
+</section>
 
 
 <div class="hidden">
-
-
-
-  ## Debug
-
-  * Hoe te debugging
-
-  ## JSHint
-
-  * Checkt syntax en voorkomt meest suffe fouten. Wij hebben een standaardconfiguratie opgezet.
-
-  ```npm -g install jshint```
-
-  ## Console output
-
-  * Console.log / Console.dir
-
-  ## Debugger
-
-  * Stopt de uitvoer en laat je de code op die plek inspecteren.
-
-  * ``debugger``
-
-  * DEMO
-
   ---
 
   # JS
