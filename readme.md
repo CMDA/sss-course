@@ -69,11 +69,11 @@ Voor de deeltoetsen geldt dat geen cijfer zal worden geven. Pass/fail
 1. Async, callbacks en events
 
 #### Opdracht
-* Lezen
-** Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
+* [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
+** Chapter 3, t/m 3.2.3 (p 27 t/m 58)
 ** Appendix A5 (p 363 t/m 366)
 ** Appendix B1 t/m B3.2 (p 367 t/m 371) 
-* [Opdracht 1](://github.com/)
+* [Opdracht 1](://github.com/server-side-scripting-in-nodejs-exercise1)
 
 ### Week X
 ### Week X
