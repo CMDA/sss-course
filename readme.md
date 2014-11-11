@@ -88,4 +88,6 @@ Voor de deeltoetsen geldt dat geen cijfer zal worden geven. Pass/fail
 ### Aanbevolen achtergrondinformatie
 
 ### Tools
- 
+* Command line
+  * http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line 
+  * http://cli.learncodethehardway.org/book/
