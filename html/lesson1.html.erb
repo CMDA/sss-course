@@ -78,9 +78,13 @@ layout: "presentation"
     </ul>
   </section>
 
+  <section>
+    <h1>Boek</h1>
 
-      Elke week 1-2 hoofdstukken
-    </script>
+    <p>Elke week 1-2 hoofdstukken</p>
+
+    <p>TODO: PLAATJE BOEK</p>
+
   </section>  
 
   <section data-markdown>
@@ -97,7 +101,7 @@ layout: "presentation"
       # Werkcollege
 
       * Behandelen opdrachten van vorige week
-      * Werken aan opdrachten (als je deze allemaal kunt maken kun je ook de deeltoets)
+      * Werken aan opdrachten (als je deze allemaal kunt maken kun je ook de deeltoets/eindtoets halen)
       * Vragen stellen
     </script>
   </section>  
@@ -284,6 +288,11 @@ v0.10.33
     </blockquote>
   </section>
 
+  <section>
+    <h1>Why packages?</h1>
+    <p>TODO</p>
+  </section>
+
     <section>
     <h1>npm.org</h1>
 
@@ -350,12 +359,6 @@ undefined
   </section>
 
   <section>
-    <div class="protip">
-    #protip Don't put <code>node_module</code> in version control, put <code>package.json</code> in version control instead.
-    </div>
-  </section>
-
-  <section>
     <h1><code>npm init</code></h1>
     <p>Generate a package.json</p>
     <pre><code>$ npm init</code></pre>
@@ -364,8 +367,20 @@ undefined
   <section>
     <h1>Save dependencies</h1>
 
-    * `npm install --save underscore`
+    <pre><code class="bash">
+$ npm install --save underscore
+    </code></pre>
 
+  </section>
+
+  <section>
+    <h1>DEMO</h1>
+  </section>
+
+  <section>
+    <div class="protip">
+    #protip Don't put <code>node_modules</code> in version control, put <code>package.json</code> in version control instead.
+    </div>
   </section>
 
   <section>
@@ -499,6 +514,10 @@ if(a == true){
     <p>jshint html/assets/lesson1/faulty.js</p>
   </section>
 
+  <section>
+    TODO: you can also do this from your texteditor
+  </section>
+
 </section>
 
 <section>
@@ -515,11 +534,12 @@ if(a == true){
   <section>
     <h2>if/else</h2>
     <p>The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</p>
-      <pre class="javascript"><code>
-  if (condition)
-     statement1  
-  [else
-    statement2]
+    <pre><code class="javascript" data-trim>
+if (condition) {
+  statement1  
+} else {
+  statement2
+}
     </code></pre>
   </section>
 
@@ -541,6 +561,12 @@ if(a == true){
     <pre class="javascript"><code>
   for ([initialization]; [condition]; [final-expression]) 
     statements
+    </code></pre>
+
+    <pre><code class="javascript" data-trim>
+for(var i=0; i < 10; i++){
+  // ...
+}
     </code></pre>
   </section>
   
@@ -566,6 +592,17 @@ if(a == true){
   
   <section>
     <h1>Modules</h1>
+  </section>
+
+  <section>
+    <h1>What is a module?</h1>
+    <p>
+      A way to structure your project and share your code
+    </p>
+    <ul>
+      <li>A file (or a package)</li>
+      <li>It returns something</li>
+    </ul>
   </section>
 
   <section>
