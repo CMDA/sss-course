@@ -1,23 +1,29 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: git@github.com:edwinvdgraaf/roger.git
+  revision: 980b3acd515e34e3a59f15aba5f1bc0c957a0396
+  branch: fix-gh-pages
   specs:
-    coderay (1.1.0)
-    hpricot (0.8.6)
-    method_source (0.8.2)
-    mime-types (2.3)
-    pry (0.9.12.3)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
-      slop (~> 3.4)
-    rack (1.5.2)
-    redcarpet (3.1.2)
-    roger (0.12.3)
+    roger (0.12.4)
       hpricot (>= 0.6.4)
       mime-types (~> 2.2)
       rack (>= 1.0.0)
       redcarpet (>= 3.1.1)
       thor (~> 0.16.0)
       tilt (~> 2.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    hpricot (0.8.6)
+    method_source (0.8.2)
+    mime-types (2.4.3)
+    pry (0.9.12.3)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    rack (1.5.2)
+    redcarpet (3.1.2)
     roger_sass (1.0.1)
       roger (>= 0.11.0)
       sass
@@ -32,5 +38,5 @@ PLATFORMS
 DEPENDENCIES
   pry
   redcarpet
-  roger
+  roger!
   roger_sass
