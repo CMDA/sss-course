@@ -553,76 +553,37 @@ if(a == true){
 
   <section>
     <h2>Example module</h2>
-    <pre class="javascript"><code>
-  // string-helpers.js
-  var tools = {
-    humanize : function(string){
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-  };
-  module.exports = tools;
+    <pre><code class="javascript" data-trim>
+// version.js
+module.exports = "1.0.0";
     </code></pre>
+
+    <pre><code class="javascript" data-trim>
+// main.js
+var version = require("./version");
+console.log(version); // Outputs 1.0.0
+    </code></pre>
+
+
   </section>
 
   <section>
-    <h2>Load a module</h2>
-    <p>A module is a single file.</p>
-    <pre class="javascript"><code>
-  var tools = require('tools');
-  tools.humanize("node FTW!"); // => Node FTW!
+    <h2>Example module</h2>
+    <pre><code class="javascript" data-trim>
+// string-helpers.js
+var tools = {
+  humanize : function(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+};
+module.exports = tools;
     </code></pre>    
-  </section>
 
-  <section>
-    <h1>Async</h1>
-    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
-  </section>
-
-  <section>
-    <h2>Synchronous code</h2>
-    <pre class="javascript"><code data-noescape>
-  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
-  output(file); <span class="fragment">// ... and done</span>
-  console.log("klaar");
-    </code></pre>        
-  </section>
-
-  <section>
-    <h2>Asynchronous code</h2>
-    <pre class="javascript"><code data-noescape>
-  readfile("bestand.txt", function(file){
-    output(file);
-    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
-  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
-  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
-    </code></pre>        
-  </section>
-
-
-  <section>
-    <h2>Async diagram</h2>
-  </section>
-
-  <section>
-    <h1>Working with asynchronous calls</h1>
-    <ul>
-      <li>Callbacks</li>
-      <li>Events</li>
-    </ul>
-  </section>
-
-
-  <section>
-    <h2>Callbacks</h2>
-      * Functie die aangeroepen wordt als iets "klaar" is. 
-      * Promises
-  </section>
-
-  <section>
-    <h2>Events</h2>
-      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
-      * Denk aan jQuery click.
-      * TODO VOORBEELDJE
+    <pre><code class="javascript" data-trim>
+// main.js
+var tools = require('tools');
+tools.humanize("node FTW!"); // => Node FTW!
+    </code></pre>
   </section>
 
 </section>

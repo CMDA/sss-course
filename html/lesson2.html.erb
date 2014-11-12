@@ -1,0 +1,103 @@
+---
+title: "Lesson 2 - Server Side Scriptin in Node.js"
+layout: "presentation"
+---
+
+<section>
+  <h1 class="title">Server Side Scripting in <img src="/assets/logo-nodejs.svg"></h1>
+  <p>Lesson 2</p>
+</section>
+
+
+<section>
+  <section>
+    <h1>Async</h1>
+    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
+  </section>
+
+  <section>
+    <h2>Synchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
+  output(file); <span class="fragment">// ... and done</span>
+  console.log("klaar");
+    </code></pre>        
+  </section>
+
+  <section>
+    <h2>Asynchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
+  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
+  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
+    </code></pre>        
+  </section>
+
+
+  <section>
+    <h2>Async diagram</h2>
+  </section>
+
+  <section>
+    <h1>Working with asynchronous calls</h1>
+    <ul>
+      <li>Callbacks</li>
+      <li>Events</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>Callbacks</h2>
+      * Functie die aangeroepen wordt als iets "klaar" is. 
+      * Promises
+  </section>
+
+  <section>
+    <h2>Events</h2>
+      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
+      * Denk aan jQuery click.
+      * TODO VOORBEELDJE
+  </section>
+
+</section>
+
+
+<div class="hidden">
+  ---
+
+  # JS
+
+  * DEMO
+
+
+
+  ## Hello World
+
+  * TODO voorbeeldje
+
+  
+  ## Huiswerk
+
+  * Lezen: 
+    Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
+    Appendix A5 (p 363 t/m 366)
+    Appendix B1 t/m B3.2 (p 367 t/m 371) 
+
+  * Node installeren
+
+  ## Opdrachten voor deze week in het werkcollege
+
+  * Je node installatie draait (node -v)
+  * Clone voorbeeldproject/set up project
+  * Maak een Hello World terminal voorbeeld
+  * Maak een hello_world functie in een los bestand en laad die in met `require()`
+  * Maak een hello world in je browser
+
+  ## Bronnen
+
+  ...
+
+</div>
