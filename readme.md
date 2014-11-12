@@ -17,11 +17,6 @@ Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er 
 * Realtime communicatie met client-side scripts
 
 
-## Contactpersonen
-[TODO]
-* 
-
-
 ## Leerdoelen
 * De student heeft een degelijke basis in Node.js en kan zelfstandig hierop gebaseerde systemen analyseren en naar behoefte aanpassen.
 * De student kent de basisprincipes van een imperatieve programmeertaal: variabelen, sequentiële uitvoering, controlestructuren.
@@ -51,25 +46,18 @@ Het programma bestaat uit een serie hoor- en werkcolleges. In de hoorcolleges be
 * Vragen stellen
 
 ### Huiswerk & opdrachten
-Het huiswerk wordt per week vastgelegd in het [weekoverzicht](#weekoverzicht). 
+Het huiswerk wordt per week in het [weekoverzicht](#weekoverzicht) opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Tijdens de cursus zal github gebruikt worden om efficiënt code te kunnen delen. Enerzijds met je mede-studenten, maar ook met ons zodat wij snel jouw code kunnen zien en kunnen testen. 
 
-2 uur lezen, 2 uur opdracht voorbereiden
+Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, verder kunnen jullie bij onduidelijkheden [de issues van dit project](https://github.com/CMDA/sss-course/issues) gebruiken. Daarnaast waarderen wij het enorm als je ons helpt het lesmateriaal te verbeteren door een pull-request te sturen.  
 
-Voor iedere opdracht wordt een bootstraped project aangeleverd. 
 
-### Workflow
-
+#### Workflow
+[TODO]
 1. Fork 
 2. Clone
 3. Open project in IDE, modify, test, clone etc.
 4. Commit your changes
 5. To save ->  Push
-
-Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. 
-
-Github zal gebruikt worden om efficiënt code te kunnen delen, zodat wij snel jouw code kunnen zien en kunnen testen. 
-
-Pull-request
 
 ### Toetsing
 Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met een opbouwende moeilijkheidsgraad. In deze toetsen lost de student programmeerproblemen op met behulp van Node.js & Javascript. Beoordeling van en feedback op de gemaakte deeltoetsen worden tijdens de eerstvolgende practica gegeven, het is dus zaak dat studenten bij alle practica aanwezig zijn. Als alle toetsen voldoende zijn afgerond bestaat het eindcijfer uit het cijfer voor de eindopdracht. De eerste twee deeltoetsen worden alleen beoordeeld met voldoende/onvoldoende. Er is een algemene herkansing voor studenten die niet alle deeltoetsen voldoende hebben afgerond. Deze herkansing bestaat uit een praktijkgerichte opdracht die de totale stof uit alle deeltoetsen beslaat.
@@ -119,7 +107,16 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 In deze weken zal geen nieuwe stof behandeld worden. Tijdens het werkcollege in week 7 zal er een samenvatting van de voor de eindopdracht belangrijke stof plaats vinden.
 
 
+## Contactinformatie
+Als je vragen hebt kun je met de volgende gegevens contact met ons opnemen. Wel willen wij je vragen om voor algemene zaken [een issue](https://github.com/CMDA/sss-course/issues/new) hier op GitHub te maken. Het is handig om deze [pagina te volgen](https://github.com/CMDA/sss-course/subscription) zodat je op de hoogte blijft als er updates zijn.
+
+* Flurin Egger <[TODO]>
+* Edwin van der Graaf <[e.r.van.der.graaf@hva.nl](mailto://e.r.van.der.graaf@hva.nl)>
+* Vincent Vijn <[v.l.vijn@hva.nl](mailto://v.l.vijn@hva.nl)>
+
+
 ## Bronnen
+
 Het boek: [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/) zal als belangrijke leidraad van deze cursus worden gebruikt. Wekelijks zullen diverse hoofdstukken hieruit worden behandeld. 
 
 ### Voorkennis
@@ -135,3 +132,4 @@ Het boek: [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 20
   - [GitHub](https://help.github.com/)
   - [GitHub for Mac](https://mac.github.com/)
   - [GitHub for Windows](https://windows.github.com/)
+
