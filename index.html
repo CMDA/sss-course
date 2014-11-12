@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Server Side Scriptin in NodeJS</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="stylesheets/general.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <!--   
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
+  -->
+
+</head>
+
+  <body class="layout-reverse">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>All course information on the server side scripting course.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <!-- {% if page.url == site.baseurl %} active{% endif %} -->
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    <a class="sidebar-nav-item" href="/lectures">Lectures overview</a>
+    <!-- <a class="sidebar-nav-item" href="/about">About</a> -->
+
+    <a class="sidebar-nav-item" href="https://github.com/DigitPaint/server-side-scripting-in-nodejs-course">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v (TODO: git version)</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; All rights reserved.
+    </p>
+  </div>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Server side scripting in node.js</a>
+            <small>Course information</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+
+
+<div class="md-toc">
+  <h2>Table of Content</h2>
+  <ul>
+<li>
+<a href="#server-side-scripting-in-nodejs">Server side scripting in Nodejs</a>
+<ul>
+<li>
+<a href="#introductie">Introductie</a>
+<ul>
+<li>
+<a href="#lesstof">Lesstof</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#contactpersonen">Contactpersonen</a>
+</li>
+<li>
+<a href="#leerdoelen">Leerdoelen</a>
+</li>
+<li>
+<a href="#benodigde-voorkennis">Benodigde voorkennis</a>
+</li>
+<li>
+<a href="#werkwijze">Werkwijze</a>
+<ul>
+<li>
+<a href="#hoorcolleges">Hoorcolleges</a>
+</li>
+<li>
+<a href="#werkcolleges">Werkcolleges</a>
+</li>
+<li>
+<a href="#huiswerk-&-opdrachten">Huiswerk &amp; opdrachten</a>
+</li>
+<li>
+<a href="#workflow">Workflow</a>
+</li>
+<li>
+<a href="#toetsing">Toetsing</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#weekoverzicht">Weekoverzicht</a>
+<ul>
+<li>
+<a href="#week-1">Week 1</a>
+</li>
+<li>
+<a href="#week-2">Week 2</a>
+</li>
+<li>
+<a href="#week-3">Week 3</a>
+</li>
+<li>
+<a href="#week-4">Week 4</a>
+</li>
+<li>
+<a href="#week-5">Week 5</a>
+</li>
+<li>
+<a href="#week-6">Week 6</a>
+</li>
+<li>
+<a href="#week-7-&-8">Week 7 &amp; 8</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#bronnen">Bronnen</a>
+<ul>
+<li>
+<a href="#voorkennis">Voorkennis</a>
+</li>
+<li>
+<a href="#aanbevolen-literatuur">Aanbevolen literatuur</a>
+</li>
+<li>
+<a href="#tools">Tools</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    
+</div>
+
+<h1 id="server-side-scripting-in-nodejs">Server side scripting in Nodejs</h1>
+
+<p><strong><em>See this README with a table of contents <a href="http://google.com">here</a>.</em></strong></p>
+
+<h2 id="introductie">Introductie</h2>
+
+<p>Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er natuurlijk ook taken die je beter op de server kunt uitvoeren: data opslaan, gebruikers accounts, data uitwisselen met externe diensten, etc. In het server-side scripting leer je hoe je in JavaScript met Node.js een applicatie kunt maken voor het server side werk. Aangezien je vaak moet werken met databases om data op te kunnen slaan is het verstandig om naast dit vak ook te kiezen voor het profileringsvak Storage. </p>
+
+<h3 id="lesstof">Lesstof</h3>
+
+<ul>
+<li>Werken met een Node.js server</li>
+<li>Templating</li>
+<li>Communicatie met externe dienste (API’s)</li>
+<li>Afhandelen &amp; validatie van formulieren</li>
+<li>Veilig verwerken van gebruikersdata</li>
+<li>Unittesten</li>
+<li>Werken met bestanden en databases</li>
+<li>Realtime communicatie met client-side scripts</li>
+</ul>
+
+<h2 id="contactpersonen">Contactpersonen</h2>
+
+<p>[TODO]
+* </p>
+
+<h2 id="leerdoelen">Leerdoelen</h2>
+
+<ul>
+<li>De student heeft een degelijke basis in Node.js en kan zelfstandig hierop gebaseerde systemen analyseren en naar behoefte aanpassen.</li>
+<li>De student kent de basisprincipes van een imperatieve programmeertaal: variabelen, sequentiële uitvoering, controlestructuren.</li>
+<li>De student ziet het nut van het gebruik van functies en kan functies toepassen om een web- applicatie gestructureerd op te bouwen.</li>
+<li>De student is in staat om met behulp van Node.js verbinding te leggen met een MySQL database en daar gegevens uit op te halen en in te muteren.</li>
+<li>De student kan de geleerde basisprincipes zelfstandig combineren en toepassen om eenvoudige programmeerproblemen op te lossen.</li>
+</ul>
+
+<h2 id="benodigde-voorkennis">Benodigde voorkennis</h2>
+
+<ul>
+<li>Basis javascript kennis, </li>
+<li>Terminal kennis (zie <a href="#tools">Tools</a> voor extra resource)</li>
+<li>Git en een GitHub-account</li>
+</ul>
+
+<h2 id="werkwijze">Werkwijze</h2>
+
+<p>Het programma bestaat uit een serie hoor- en werkcolleges. In de hoorcolleges behandelen we elke week alles rondom een bepaald onderwerp, in de werkcolleges werk je elke week aan een opdracht om je dat onderwerp verder eigen te maken. Er zijn in totaal drie deeltoetsen waarvan de eerste twee tijdens het practicum uitgevoerd moeten worden. De eindopdracht wordt thuis gemaakt en moet bij de docent worden ingeleverd.</p>
+
+<h3 id="hoorcolleges">Hoorcolleges</h3>
+
+<ul>
+<li>Maandag (8.30u)</li>
+<li>Nieuw lesmateriaal wordt uitgelegd</li>
+<li>Uitleg huiswerkopdrachten</li>
+<li>Presentatie na afloop online</li>
+</ul>
+
+<h3 id="werkcolleges">Werkcolleges</h3>
+
+<ul>
+<li>Behandelen opdrachten van vorige week</li>
+<li>Werken aan de nieuwe opdracht</li>
+<li>Vragen stellen</li>
+</ul>
+
+<h3 id="huiswerk-&amp;-opdrachten">Huiswerk &amp; opdrachten</h3>
+
+<p>Het huiswerk wordt per week vastgelegd in het <a href="#weekoverzicht">weekoverzicht</a>. </p>
+
+<p>2 uur lezen, 2 uur opdracht voorbereiden</p>
+
+<p>Voor iedere opdracht wordt een bootstraped project aangeleverd. </p>
+
+<h3 id="workflow">Workflow</h3>
+
+<ol>
+<li>Fork </li>
+<li>Clone</li>
+<li>Open project in IDE, modify, test, clone etc.</li>
+<li>Commit your changes</li>
+<li>To save -&gt;  Push</li>
+</ol>
+
+<p>Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. </p>
+
+<p>Github zal gebruikt worden om efficiënt code te kunnen delen, zodat wij snel jouw code kunnen zien en kunnen testen. </p>
+
+<p>Pull-request</p>
+
+<h3 id="toetsing">Toetsing</h3>
+
+<p>Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met een opbouwende moeilijkheidsgraad. In deze toetsen lost de student programmeerproblemen op met behulp van Node.js &amp; Javascript. Beoordeling van en feedback op de gemaakte deeltoetsen worden tijdens de eerstvolgende practica gegeven, het is dus zaak dat studenten bij alle practica aanwezig zijn. Als alle toetsen voldoende zijn afgerond bestaat het eindcijfer uit het cijfer voor de eindopdracht. De eerste twee deeltoetsen worden alleen beoordeeld met voldoende/onvoldoende. Er is een algemene herkansing voor studenten die niet alle deeltoetsen voldoende hebben afgerond. Deze herkansing bestaat uit een praktijkgerichte opdracht die de totale stof uit alle deeltoetsen beslaat.</p>
+
+<h2 id="weekoverzicht">Weekoverzicht</h2>
+
+<h3 id="week-1">Week 1</h3>
+
+<ol>
+<li>Node installeren en REPL draaien</li>
+<li>NPM packages installeren en gebruik package.json</li>
+<li>Debugging met console.log/console.dir en debugger</li>
+<li>Basis JS control flow</li>
+<li>Modules</li>
+<li>Async, callbacks en events</li>
+</ol>
+
+<h4 id="opdracht">Opdracht</h4>
+
+<ul>
+<li><a href="http://www.manning.com/cantelon/">Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014</a>
+
+<ul>
+<li>Chapter 3, t/m 3.2.3 (p 27 t/m 58)</li>
+<li>Appendix A5 (p 363 t/m 366)</li>
+<li>Appendix B1 t/m B3.2 (p 367 t/m 371) </li>
+</ul></li>
+<li><a href="http://github.com/Digitpaint/server-side-scripting-in-nodejs-exercise1">Opdracht 1</a></li>
+</ul>
+
+<h3 id="week-2">Week 2</h3>
+
+<ol>
+<li>Appserver</li>
+<li>Templating</li>
+<li>REST (externe diensten)</li>
+</ol>
+
+<h3 id="week-3">Week 3</h3>
+
+<ol>
+<li>Forms</li>
+<li>Sessions</li>
+<li>Validaties</li>
+<li>Security XSS</li>
+</ol>
+
+<h3 id="week-4">Week 4</h3>
+
+<ol>
+<li>Unittesten</li>
+</ol>
+
+<h3 id="week-5">Week 5</h3>
+
+<ol>
+<li>Databases</li>
+<li>MySQL</li>
+<li>Security (injection)</li>
+<li>Files</li>
+</ol>
+
+<h3 id="week-6">Week 6</h3>
+
+<ol>
+<li>Realtime</li>
+</ol>
+
+<h3 id="week-7-&amp;-8">Week 7 &amp; 8</h3>
+
+<p>In deze weken zal geen nieuwe stof behandeld worden. Tijdens het werkcollege in week 7 zal er een samenvatting van de voor de eindopdracht belangrijke stof plaats vinden.</p>
+
+<h2 id="bronnen">Bronnen</h2>
+
+<p>Het boek: <a href="http://www.manning.com/cantelon/">Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014</a> zal als belangrijke leidraad van deze cursus worden gebruikt. Wekelijks zullen diverse hoofdstukken hieruit worden behandeld. </p>
+
+<h3 id="voorkennis">Voorkennis</h3>
+
+<h3 id="aanbevolen-literatuur">Aanbevolen literatuur</h3>
+
+<h3 id="tools">Tools</h3>
+
+<ul>
+<li>Command line
+
+<ul>
+<li><a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
+<li><a href="http://cli.learncodethehardway.org/book/">http://cli.learncodethehardway.org/book/</a></li>
+</ul></li>
+<li>GIT
+
+<ul>
+<li><a href="http://git-scm.com/book/en/v2">Pro Git</a> [<a href="http://git-scm.com/book/nl/v1">NL</a>]</li>
+<li><a href="https://help.github.com/">GitHub</a></li>
+<li><a href="https://mac.github.com/">GitHub for Mac</a></li>
+<li><a href="https://windows.github.com/">GitHub for Windows</a></li>
+</ul></li>
+</ul>
+
+
+
+
+        <div class="pagination">
+
+        </div>
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

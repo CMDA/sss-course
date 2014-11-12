@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 1 - Server Side Scriptin in Node.js</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Flurin Egger">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="stylesheets/theme.css" id="theme" />
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      if(window.location.search.match( /print-/gi )){
+        document.write( '<link rel="stylesheet" href="/vendor/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css">' );        
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/vendor/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+  <h1 class="title">Server Side Scriptin in Node.js</h1>
+  <p>Lesson 1</p>
+</section>
+
+
+<section lang="nl">
+
+  <section>
+    <h1>Introductie</h1>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Leerdoelen
+
+      * ...
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Lessen
+
+      * 7 hoorcolleges
+      * 8 werkcolleges
+      * 2 deeltoetsen
+      * 1 eindopdracht
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Deeltoetsen
+
+      ## Deeltoets 1
+      Schriftelijk (15 min) in het werkcollege
+      
+      ## Deeltoets 2
+      In code (30-45 min) tijdens het werkcollege
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Eindopdracht
+
+      * ...
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Boek
+
+      Elke week 1-2 hoofdstukken
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Hoorcollege
+
+      * Nieuw lesmateraal
+      * Uitleg nieuwe opdrachten
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Werkcollege
+
+      * Behandelen opdrachten van vorige week
+      * Werken aan opdrachten (als je deze allemaal kunt maken kun je ook de deeltoets)
+      * Vragen stellen
+    </script>
+  </section>  
+</section>
+
+<section>
+
+  <section>
+    <h1>Before we start...</h1>
+    <p>... we have some expectations</p>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # Terminal
+
+      * Basic terminal/powershell knowledge (`cd`/`mkdir`/etc.)
+      * Get to know this stuff here:
+      ** http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
+      ** http://cli.learncodethehardway.org/book/
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Editor
+
+      * You have a text-editor installed and know how to use it
+      * Some good editors:
+        * Sublime text
+        * Brackets
+        * Textmate
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # GIT
+      * All code is on GitHub
+      * You have a GitHub account
+      * And now how to fork, commit and push
+    </script>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>The Node eco-system</h1>
+    <p>... and how to get started</p>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+      # What is Node.js?
+
+      > Node.js® is a platform built on Chrome''s JavaScript runtime for easily building fast, scalable network applications. 
+      > Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+    </script>
+  </section>  
+
+  <section data-markdown>
+    <script type="text/template">
+      # Installing Node.js 
+
+      on Windows or OS X
+
+      1. Go to http:///nodejs.org
+      1. Click "install"
+      1. Follow the instructions on screen
+      1. Done!
+    </script>
+  </section>  
+
+  <section>
+    <h1>Test the installation</h1>
+
+    <pre class="terminal--powershell"><code data-trim class="powershell">
+PS C:\Users> node -v
+v0.10.33
+    </code></pre>
+
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node -v
+v0.10.33
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>REPL</h1>
+
+    <span class="fragment"><strong>R</strong>ead</span>
+    <span class="fragment">- <strong>E</strong>val</span>
+    <span class="fragment">- <strong>P</strong>rint</span>
+    <span class="fragment">- <strong>L</strong>oop</span>
+  </section>
+
+  <section>
+    <h1>To start the REPL</h1>
+    <pre class="terminal-unix"><code data-trim data-noescape class="bash">
+  $ node 
+  > <span class="blinking-cursor"></span>
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Some examples</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+  $ node 
+  > 2 + 3
+  5
+  > 0 == true
+  false
+  > 1 == true
+  true # always use ===
+  > 1 === true
+  false
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Test your modules</h1>
+    <p>Given you've written a <small>small</small> module, square.js</p>
+    <pre class="javascript"><code>
+  // square.js
+  var square = function(x){
+    return x * x;
+  };
+
+  module.exports = square;
+    </code></pre>
+  </section>
+
+    <section>
+      <p>You can easily load this, and test it</p>
+    <pre class="terminal-unix"><code data-trim class="bash">
+  $ node # start the repl
+  > var square = require('./square.js')
+  undefined
+  > square
+  [Function]
+  > square(2)
+  4
+    </code></pre>
+    </section>
+
+  <section>
+    <h1>REPL</h1>
+    <p>DEMO</p>
+  </section>
+
+  <section>
+    <div class="protip">
+      #protip: Use the REPL to test small snippets of your code.
+    </div>
+  </section>
+
+  <section>
+    <h1><img src="assets/lesson1/logo-npm.svg" alt="NPM" class="seamless" /></h1>
+
+    <span class="fragment"><strong>n</strong>ode</span>
+    <span class="fragment"><strong>p</strong>ackage</span>
+    <span class="fragment"><strong>m</strong>anager</span>
+  </section>
+
+  <section>
+    <h1>What is npm?</h1>
+
+    <blockquote>
+      npm runs through the command line and <strong>manages dependencies</strong> for an application. It also allows users to <strong>install Node.js applications that are available on the npm registry.</strong>
+      <cite url="http://en.wikipedia.org/wiki/Npm_(software)">Wikipedia</cite>
+    </blockquote>
+  </section>
+
+    <section>
+    <h1>npm.org</h1>
+
+    <img src="assets/lesson1/screenshot-npm-org.png" alt="npm.org" class="image--bottom" />
+  </section>
+
+  <section>
+    <h1><code>npm install</code></h1>
+
+    <ul>
+      <li>Use <code>npm install underscore</code> to install a package into your project.</li>
+      <li>Packages are installed in the current directory's subdirectory <code>node_modules</code></li>
+      <li>Use <code>npm install -g packagename</code> to install a package globally</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>DEMO</h1>
+  </section>
+
+  <section>
+    <h1>Using an installed package</h1>
+
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node
+> var u = require('underscore')
+undefined
+> u.map([1,2,3,4], function(v){ return v * 2; })
+[ 2, 4, 6, 8 ]
+    </code></pre>
+
+  </section>
+
+  <section>
+    <h1><code>package.json</code></h1>
+    <p>
+      Store your project's <strong>metadata</strong> including <strong>dependencies</strong> in a file so someone else can use your project.
+    </p>
+  </section>
+
+  <section>
+    <h1>Example</h1>
+    <pre><code data-noescape data-trim class="json">
+{
+  "name": "my-awesome-lib",
+  "version": "0.0.1",
+  "description": "First exercise for server-side 
+                  scripting in node.js course",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "request": "~2.47.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": ["nodejs", "course"],
+  "license": "MIT"
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <div class="protip">
+    #protip Don't put <code>node_module</code> in version control, put <code>package.json</code> in version control instead.
+    </div>
+  </section>
+
+  <section>
+    <h1><code>npm init</code></h1>
+    <p>Generate a package.json</p>
+    <pre><code>$ npm init</code></pre>
+  </section>
+
+  <section>
+    <h1>Save dependencies</h1>
+
+    * `npm install --save underscore`
+
+  </section>
+
+  <section>
+    <div class="protip">
+    #protip Make sure you put <strong>all</strong> dependencies in package.json
+    </div>
+  </section> 
+
+  <section>
+    <h1>Starting someone else's project</h1>
+
+    <ol>
+      <li class="fragment">Git clone / unzip / whatever</li>
+      <li class="fragment"><code>npm install</code></li>
+      <li class="fragment">That's it!</li>
+    </ol>
+  </section> 
+</section>
+
+<section>
+
+  <section>
+    <h1>Javascript</h1>
+    <p>Quick overview</p>
+  </section>
+
+  <section>
+    <h1>Flow</h1>
+  </section>
+
+  <section>
+    <h2>if/else</h2>
+    <p>The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</p>
+      <pre class="javascript"><code>
+  if (condition)
+     statement1  
+  [else
+    statement2]
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>try{} catch(){}</h2>
+    <p>The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown.</p>
+    <pre class="javascript"><code>
+  try {
+    throw "myException"; // generates an exception
+  } catch (e) {
+    // statements to handle any exceptions
+    logMyErrors(e); // pass exception object to error handler
+  }</code></pre>
+  </section>
+
+  <section>
+    <h2>for(){}</h2>
+    <p>The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
+    <pre class="javascript"><code>
+  for ([initialization]; [condition]; [final-expression]) 
+    statements
+    </code></pre>
+  </section>
+  
+  <section>
+    <h2>while</h2>
+    <p>The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.</p>
+    <pre class="javascript"><code>
+  while (condition) { 
+    statement 
+  }
+    </code></pre>
+  </section>
+    
+  <section>
+    <h2>function(){}</h2>
+    <p>The function statement declares function with the specified parameters.</p>
+    <pre class="javascript"><code>
+  function name([param,[, param,[..., param]]]) { 
+    [statements] 
+  }
+    </code></pre>
+  </section>
+  
+  <section>
+    <h1>Modules</h1>
+  </section>
+
+  <section>
+    <h2>Write a module</h2>
+    <p>Javascript module are flexible, they can return:</p>
+    <ul>
+      <li>Objects</li>
+      <li>Functions</li>
+      <li>Variables</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Example module</h2>
+    <pre class="javascript"><code>
+  // string-helpers.js
+  var tools = {
+    humanize : function(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  };
+  module.exports = tools;
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Load a module</h2>
+    <p>A module is a single file.</p>
+    <pre class="javascript"><code>
+  var tools = require('tools');
+  tools.humanize("node FTW!"); // => Node FTW!
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Async</h1>
+    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
+  </section>
+
+  <section>
+    <h2>Synchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
+  output(file); <span class="fragment">// ... and done</span>
+  console.log("klaar");
+    </code></pre>        
+  </section>
+
+  <section>
+    <h2>Asynchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
+  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
+  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
+    </code></pre>        
+  </section>
+
+
+  <section>
+    <h2>Async diagram</h2>
+  </section>
+
+  <section>
+    <h1>Working with asynchronous calls</h1>
+    <ul>
+      <li>Callbacks</li>
+      <li>Events</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>Callbacks</h2>
+      * Functie die aangeroepen wordt als iets "klaar" is. 
+      * Promises
+  </section>
+
+  <section>
+    <h2>Events</h2>
+      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
+      * Denk aan jQuery click.
+      * TODO VOORBEELDJE
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h1>Debugging</h1>
+  </section>
+
+  <section>
+    <h1>Console output</h1>
+    <p>Printing output to the console</p>
+  </section>
+
+  <section>
+    <h1><code>console.log()</code></h1>
+    <pre class="editor"><code data-trim class="javascript">
+// Why doesn't this work!?
+var a = 100;
+console.log("Debug value", a);
+console.log("String 1: %s and Numer 2: %d", "string", 3);
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Further console functions</h1>
+    <ul>
+      <li><code>console.time(label)</code></li>
+      <li><code>console.timeEnd(label)</code></li>
+      <li><code>console.trace(message)</code></li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h1>node-inspector</h1>
+    <p>Stop execution and inspect the current callstack</p>
+  </section>
+
+  <section>
+    <h1>Install node-inspector</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ npm install -g node-inspector
+...
+$ node-debug -v
+v0.7.4
+    </code></pre>  
+  </section>
+
+  <section>
+    <h1><code>debugger</code> statement</h1>
+    <pre class="editor"><code data-trim class="javascript">
+var a = "bug!";
+function potentiallyBuggyCode(param) {
+  var b = "another bug!";
+  // do potentially buggy stuff to examine, step through, etc.
+  debugger;  
+}
+potentiallyBuggyCode("thing");
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Running node-inspector</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ node-debug buggycode.js
+Node Inspector is now available from http://localhost:8080/debug?port=5858
+Debugging `html/assets/lesson1/debugger.js`
+
+debugger listening on port 5858
+    </code></pre>  
+  </section>  
+
+  <section>
+    <h1>node-inspector in action</h1>
+    <p>DEMO</p>
+  </section>
+
+  <section>
+    <h1>JSHint</h1>
+
+    <blockquote>
+      JSHint is a community-driven tool to detect errors and potential problems in JavaScript code and to enforce your team's coding conventions.
+      <cite>jshint.com</cite>
+    </blockquote>
+  </section>
+
+  <section>
+    <h1>Install JSHint</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ npm install -g jshint
+...
+$ jshint -v
+jshint v2.5.10
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Using JSHint</h1>
+    <pre class="terminal-unix"><code data-trim class="bash">
+$ jshint &lt;filename&gt;
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Using JSHint</h1>
+    <pre class="editor"><code data-trim class="javascript">
+// Let's put in some syntax errors!
+var a = ;
+
+if(a == true){
+  console.log("yes!")
+}
+    </code></pre>
+
+    <p>jshint html/assets/lesson1/faulty.js</p>
+  </section>
+
+</section>
+
+<section>
+
+  <section data-markdown>
+    <script type="text/template">
+    # Samenvatting
+
+    * Node installeren en REPL draaien
+    * NPM packages installeren en gebruik package.json
+    * Debugging met console.log en debugger
+    * Basis JS control flow
+    * Modules
+    * Async, callbacks en events
+    </script>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Werkcollege en huiswerk</h1>
+  </section>
+
+</section>
+
+
+<div class="hidden">
+  ---
+
+  # JS
+
+  * DEMO
+
+
+
+  ## Hello World
+
+  * TODO voorbeeldje
+
+  
+  ## Huiswerk
+
+  * Lezen: 
+    Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
+    Appendix A5 (p 363 t/m 366)
+    Appendix B1 t/m B3.2 (p 367 t/m 371) 
+
+  * Node installeren
+
+  ## Opdrachten voor deze week in het werkcollege
+
+  * Je node installatie draait (node -v)
+  * Clone voorbeeldproject/set up project
+  * Maak een Hello World terminal voorbeeld
+  * Maak een hello_world functie in een los bestand en laad die in met `require()`
+  * Maak een hello world in je browser
+
+  ## Bronnen
+
+  ...
+
+</div>
+      </div>
+    </div>
+
+    <script src="vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="vendor/highlightjs/highlight.pack.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        width: 1000,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
