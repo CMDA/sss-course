@@ -19,5 +19,5 @@ mockup.release do |r|
   r.cleanup "**/.sass-cache"
   r.cleanup "**/stylesheets/src"  
   
-  r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:Digitpaint/server-side-scripting-in-nodejs-course.git"
+  r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
 end

@@ -83,7 +83,6 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 1. Debugging met console.log/console.dir en debugger
 1. Basis JS control flow
 1. Modules
-1. Async, callbacks en events
 
 #### Opdracht
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
@@ -95,6 +94,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 ### Week 2
 1. Appserver
 1. Templating
+1. Async, callbacks en events
 1. REST (externe diensten)
 
 ### Week 3
