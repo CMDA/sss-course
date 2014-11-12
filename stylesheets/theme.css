@@ -177,6 +177,7 @@ body {
 .reveal h1 {
   font-size: 2.2em;
   text-shadow: none;
+  margin-bottom: 0.5em;
 }
 .reveal h2 {
   font-size: 1.3em;
@@ -207,9 +208,8 @@ body {
   padding: 2rem;
   transform: translate(-50%, 2rem);
 }
-.reveal section .seamless {
-  background: none;
-  border: none;
+.reveal .title img {
+  height: 1em;
 }
 .reveal blockquote {
   font-style: normal;
