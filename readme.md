@@ -1,4 +1,4 @@
-# Server side scripting in Nodejs
+# Server side scripting in Node.js
 
 ***See this README with a table of contents [here](http://google.com).***
 
@@ -15,6 +15,11 @@ Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er 
 * Unittesten
 * Werken met bestanden en databases
 * Realtime communicatie met client-side scripts
+
+
+## Contactpersonen
+[TODO]
+* 
 
 
 ## Leerdoelen
