@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 2 - Server Side Scriptin in Node.js</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Flurin Egger">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="stylesheets/theme.css" id="theme" />
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      if(window.location.search.match( /print-/gi )){
+        document.write( '<link rel="stylesheet" href="/vendor/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css">' );        
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/vendor/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
+  <p>Lesson 2</p>
+</section>
+
+
+<section>
+  <section>
+    <h1>Async</h1>
+    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
+  </section>
+
+  <section>
+    <h2>Synchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
+  output(file); <span class="fragment">// ... and done</span>
+  console.log("klaar");
+    </code></pre>        
+  </section>
+
+  <section>
+    <h2>Asynchronous code</h2>
+    <pre class="javascript"><code data-noescape>
+  readfile("bestand.txt", function(file){
+    output(file);
+    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
+  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
+  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
+    </code></pre>        
+  </section>
+
+
+  <section>
+    <h2>Async diagram</h2>
+  </section>
+
+  <section>
+    <h1>Working with asynchronous calls</h1>
+    <ul>
+      <li>Callbacks</li>
+      <li>Events</li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>Callbacks</h2>
+      * Functie die aangeroepen wordt als iets "klaar" is. 
+      * Promises
+  </section>
+
+  <section>
+    <h2>Events</h2>
+      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
+      * Denk aan jQuery click.
+      * TODO VOORBEELDJE
+  </section>
+
+</section>
+
+
+<div class="hidden">
+  ---
+
+  # JS
+
+  * DEMO
+
+
+
+  ## Hello World
+
+  * TODO voorbeeldje
+
+  
+  ## Huiswerk
+
+  * Lezen: 
+    Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
+    Appendix A5 (p 363 t/m 366)
+    Appendix B1 t/m B3.2 (p 367 t/m 371) 
+
+  * Node installeren
+
+  ## Opdrachten voor deze week in het werkcollege
+
+  * Je node installatie draait (node -v)
+  * Clone voorbeeldproject/set up project
+  * Maak een Hello World terminal voorbeeld
+  * Maak een hello_world functie in een los bestand en laad die in met `require()`
+  * Maak een hello world in je browser
+
+  ## Bronnen
+
+  ...
+
+</div>
+      </div>
+    </div>
+
+    <script src="vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="vendor/highlightjs/highlight.pack.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        width: 1000,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
