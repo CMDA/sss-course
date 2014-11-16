@@ -36,45 +36,101 @@
       <div class="slides">
         <section>
   <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
-  <p>Lesson 1</p>
+  <p>SSS &mdash; Lesson 1</p>
 </section>
 
 
 <section lang="nl">
 
   <section>
+    <h1>Today</h1>
+    <ol>
+      <li>Introductie</li>
+      <li>Expectations</li>
+      <li>Getting started</li>
+      <li>Javascript</li>
+      <li>Wrap up</li>
+    </ol>
+  </section>
+
+  <section>
     <h1>Introductie</h1>
   </section>
 
+  <section>
+    <h1>Wie</h1>
+
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <h2>Vincent Vijn</h2>
+        <p>HvA</p>
+      </div>
+      <div class="side-by-side__content">
+        <h2>Edwin van der Graaf</h2>
+        <p>Digitpaint</p>
+      </div>
+      <div class="side-by-side__content">
+        <h2>Flurin Egger</h2>
+        <p>Digitpaint</p>
+      </div>
+    </div>
+  </section>
 
   <section>
-    <h1>Table of contents</h1>
-    <ul>
-      <li>....TODO</li>
-    </ul>
+    <h1>Organisatie</h1>
+    <p>https://github.com/CMDA/sss-course</p>
+
+    <aside class="notes">
+      * Verwijzingen daarheen in Moodle
+      * Inleveren van zaken ook via github, we zullen later nog terugkomen hoe we de koppeling github account <-> studennr gaan doen
+    </aside>
+  </section>
+
+  <section>
+    <h1>Heb je vragen?</h1>
+
+    <p class="fragment">Github issues!</p>
+
+    <aside class="notes">
+      * Geen e-mail tenzij het om een prive aangelegenheid gaat.
+      * Heb je aanvullingen? Maak een pull request!
+    </aside>
   </section>
 
   <section>
     <h1>Leerdoelen</h1>
+
+    <aside class="notes">
+      * De student heeft een degelijke basis in Node.js en kan zelfstandig hierop gebaseerde systemen analyseren en naar behoefte aanpassen.
+      * De student kent de basisprincipes van een imperatieve programmeertaal: variabelen, sequentiële uitvoering, controlestructuren.
+      * De student ziet het nut van het gebruik van functies en kan functies toepassen om een web- applicatie gestructureerd op te bouwen.
+      * De student is in staat om met behulp van Node.js verbinding te leggen met een MySQL database en daar gegevens uit op te halen en in te muteren.
+      * De student kan de geleerde basisprincipes zelfstandig combineren en toepassen om eenvoudige programmeerproblemen op te lossen.
+    </aside>
   </section>
 
   <section>
-    <h1>Waarom node?</h1>
-    <p>
-      Node is geen doel op zich, je leert om een applicatie te maken.
+    <h1>Node.js is geen doel op zich ...</h1>
+    <p class="fragment">
+      ... je leert de basisprincipes van een applicatie maken.
     </p>
+
+    <aside class="notes">
+      * Studenten die vorig jaar PHP deden; het gaat om de principes, niet om de taal.
+      * Als je starks aan 't werk gaat zul je ook met andere talen te maken krijgen.
+    </aside>
   </section>
 
 
-  <section data-markdown>
-    <script type="text/template">
-      # Lessen
+  <section>
+    <h1>Lessen</h1>
 
-      * 7 hoorcolleges
-      * 8 werkcolleges
-      * 2 deeltoetsen
-      * 1 eindopdracht
-    </script>
+    <ul>
+      <li>7 hoorcolleges</li>
+      <li>8 werkcolleges</li>
+      <li>2 deeltoetsen</li>
+      <li>1 eindopdracht</li>
+    </ul>
   </section>
 
   <section>
@@ -84,13 +140,13 @@
       <div class="side-by-side__content">
         <h2>Deeltoets 1</h2>
         <p>Schriftelijk (15 min) in het werkcollege</p>
-        <p>Pass/Fail</p>
+        <p>Deze toets is <strong>Pass/Fail</strong></p>
       </div>
 
       <div class="side-by-side__content">
         <h2>Deeltoets 2</h2>
         <p>In code (30-45 min) tijdens het werkcollege</p>
-        <p>Pass/Fail</p>
+        <p>Deze toets is <strong>Pass/Fail</strong></p>
       </div>
     </div>
   </section>
@@ -98,14 +154,14 @@
   <section>
     <h1>Eindopdracht</h1>
     <p>Het maken van een echte applicatie</p>
-    <p>Cijfer</p>
-  </section>  
+    <p>Voor deze toets krijg je een <strong>cijfer</strong></p>
+  </section>
 
   <section>
     <h1>Herkansing</h1>
     <ul>
       <li>Eén opdracht voor deeltoets</li>
-      <li>Verbeteren eindopdracht</li>
+      <li>De eindopdracht mag je verbeteren</li>
     </ul>
   </section>
 
@@ -114,18 +170,17 @@
 
     <p>Elke week 1-2 hoofdstukken</p>
 
-    <p>TODO: PLAATJE BOEK</p>
+    <img src="assets/lesson1/book.jpg" class="bottom" />
 
-  </section>  
+  </section>
 
-  <section data-markdown>
-    <script type="text/template">
-      # Hoorcollege
-
-      * Nieuw lesmateraal
-      * Uitleg nieuwe opdrachten
-    </script>
-  </section>  
+  <section>
+    <h1>Hoorcollege</h1>
+    <ul>
+      <li>Nieuw lesmateraal</li>
+      <li>Uitleg nieuwe opdrachten</li>
+    </ul>
+    </section>
 
   <section data-markdown>
     <script type="text/template">
@@ -135,7 +190,7 @@
       * Werken aan opdrachten (als je deze allemaal kunt maken kun je ook de deeltoets/eindtoets halen)
       * Vragen stellen
     </script>
-  </section>  
+  </section>
 </section>
 
 <section>
@@ -145,92 +200,129 @@
     <p>... we have some expectations</p>
   </section>
 
-  <section data-markdown>
-    <script type="text/template">
-      # Terminal
+  <section>
+    <h1 class="terminal--line">Terminal<span class="blinking-cursor"></span></h1>
 
-      * Basic terminal/powershell knowledge (`cd`/`mkdir`/etc.)
-      * Get to know this stuff here:
-      ** http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
-      ** http://cli.learncodethehardway.org/book/
-    </script>
-  </section>  
+    <p>Basic terminal/powershell knowledge (`cd`/`mkdir`/etc.)</p>
 
-  <section data-markdown>
-    <script type="text/template">
-      # Editor
-
-      * You have a text-editor installed and know how to use it
-      * Some good editors:
-        * Sublime text
-        * Brackets
-        * Textmate
-    </script>
+    <div class="fragment subsection">
+      <h2>Resources:</h2>
+      <ul>
+        <li>http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</li>
+        <li>http://cli.learncodethehardway.org/book/</li>
+      </ul>
+    </div>
   </section>
 
-  <section data-markdown>
-    <script type="text/template">
-      # GIT
-      * All code is on GitHub
-      * You have a GitHub account
-      * And now how to fork, commit and push
-    </script>
+  <section>
+    <h1>Text editor</h1>
+
+    <p>You have <strong>text-editor</strong> and are not afraid to use it</p>
+
+    <div class="fragment subsection">
+      <h2>Editors</h2>
+      <ul>
+        <li>Sublime text</li>
+        <li>Brackes</li>
+        <li>VIM</li>
+      </ul>
+    </div>
   </section>
 
+  <section>
+    <h1><img src="assets/lesson1/logo-git.svg" /></h1>
+
+    <p>
+      You have basic knowledge of git an you know how to <strong>clone</strong>, <strong>commit</strong>, <strong>push</strong> and <strong>pull</strong>.
+    </p>
+
+    <div class="fragment subsection">
+      <h2>Resources</h2>
+      <ul>
+        <li>http://git-scm.com/</li>
+        <li>http://git-scm.com/book/en/v2</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h1><img src="assets/lesson1/logo-github-mark.svg" /> Github</h1>
+
+    <ul>
+      <li>You have an account</li>
+      <li>You know how to fork</li>
+    </ul>
+  </section>
+
+</section>
+
+<section data-background="/assets/lesson1/party.gif">
+  <h1 class="fragment">Let's get this party started!</h1>
 </section>
 
 <section>
 
   <section>
-    <h1>The Node eco-system</h1>
+    <h1>The Node.js eco-system</h1>
     <p>... and how to get started</p>
   </section>
 
-  <section data-markdown>
-    <script type="text/template">
-      # What is Node.js?
-
-      > Node.js® is a platform built on Chrome''s JavaScript runtime for easily building fast, scalable network applications. 
-      > Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
-
-    </script>
-  </section>  
-
   <section>
-    <h1>Stuff you can do with Node.js</h1>
-    <ul>
-      <li>(terminal) scripts (Grunt, Less, ...)</li>
-      <li>desktop applications (Brackets, Atom, PopcornTime, ...)</li>
-      <li>web applications (PayPal, Uber, Netflix, LinkedIn, AirBnb, ...)</li>
-      <li>hardware (johnny-five, tessel, espruino, ...)</li>
-    </ul>
+    <h1>What is Node.js?</h1>
+
+    <blockquote>
+      <p>Node.js® is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.</p>
+      <p>Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.</p>
+    </blockquote>
   </section>
 
-  <section data-markdown>
-    <script type="text/template">
-      # Installing Node.js 
+  <section>
+    <h1>What can we use it for?</h1>
+    <ul>
+      <li class="fragment">(terminal) scripts</li>
+      <li class="fragment">desktop applications</li>
+      <li class="fragment">web applications</li>
+      <li class="fragment">hardware</li>
+    </ul>
 
-      on Windows or OS X
+    <aside class="notes">
+     * (terminal) scripts (Grunt, Less, ...)
+     * desktop applications (Brackets, Atom, PopcornTime, ...)
+     * web applications (PayPal, Uber, Netflix, LinkedIn, AirBnb, ...)
+     * hardware (johnny-five, tessel, espruino, ...)
+    </aside>
+  </section>
 
-      1. Go to http:///nodejs.org
-      1. Click "install"
-      1. Follow the instructions on screen
-      1. Done!
-    </script>
-  </section>  
+  <section>
+    <h1>Installing Node.js<sup>*</sup></h1>
+
+    <ol>
+      <li>Go to http:///nodejs.org</li>
+      <li>Click "install"</li>
+      <li>Follow the instructions on screen</li>
+      <li>Done!</li>
+    </ol>
+
+    <p><small>* on Windows or OS X</small></p>
+  </section>
 
   <section>
     <h1>Test the installation</h1>
 
-    <pre class="terminal--powershell"><code data-trim class="powershell">
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <pre class="terminal--powershell"><code data-trim class="powershell">
 PS C:\Users> node -v
 v0.10.33
-    </code></pre>
-
-    <pre class="terminal-unix"><code data-trim class="bash">
+        </code></pre>
+      </div>
+      <div class="side-by-side__content">
+        <pre class="terminal--osx"><code data-trim class="bash">
 $ node -v
 v0.10.33
-    </code></pre>
+        </code></pre>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -244,50 +336,53 @@ v0.10.33
 
   <section>
     <h1>To start the REPL</h1>
-    <pre class="terminal-unix"><code data-trim data-noescape class="bash">
-  $ node 
-  > <span class="blinking-cursor"></span>
+    <pre class="terminal--osx"><code data-trim data-noescape class="bash">
+$ node
+><span class="blinking-cursor"></span>
     </code></pre>
   </section>
 
   <section>
     <h1>Some examples</h1>
-    <pre class="terminal-unix"><code data-trim class="bash">
-  $ node 
-  > 2 + 3
-  5
-  > 0 == true
-  false
-  > 1 == true
-  true # always use ===
-  > 1 === true
-  false
+    <pre class="terminal--osx"><code data-trim data-noescape class="bash">
+$ node
+> 2 + 3
+5
+> 0 == true
+false
+> 1 == true
+true # always use ===
+> 1 === true
+false
+><span class="blinking-cursor"></span>
     </code></pre>
   </section>
 
   <section>
-    <h1>Test your modules</h1>
-    <p>Given you've written a <small>small</small> module, square.js</p>
-    <pre class="javascript"><code>
-  // square.js
-  var square = function(x){
-    return x * x;
-  };
+    <h1>Test modules</h1>
+    <p>Given you've written a small module, square.js</p>
+    <pre><code data-trim class="javascript">
+// square.js
+var square = function(x){
+  return x * x;
+};
 
-  module.exports = square;
+module.exports = square;
     </code></pre>
   </section>
 
     <section>
-      <p>You can easily load this, and test it</p>
-    <pre class="terminal-unix"><code data-trim class="bash">
-  $ node # start the repl
-  > var square = require('./square.js')
-  undefined
-  > square
-  [Function]
-  > square(2)
-  4
+      <h1>Test modules</h1>
+
+    <pre class="terminal--osx"><code data-trim data-noescape class="bash">
+$ node # start the repl
+> var square = require('./square.js')
+undefined
+> square
+[Function]
+> square(2)
+4
+><span class="blinking-cursor"></span>
     </code></pre>
     </section>
 
@@ -298,7 +393,7 @@ v0.10.33
 
   <section>
     <div class="protip">
-      #protip: Use the REPL to test small snippets of your code.
+      Use the REPL to test small snippets of your code.
     </div>
   </section>
 
@@ -321,7 +416,11 @@ v0.10.33
 
   <section>
     <h1>Why packages?</h1>
-    <p>TODO</p>
+    <ul>
+      <li>Re-use of code</li>
+      <li>Distributable</li>
+      <li>Installable</li>
+    </ul>
   </section>
 
     <section>
@@ -341,13 +440,9 @@ v0.10.33
   </section>
 
   <section>
-    <h1>DEMO</h1>
-  </section>
-
-  <section>
     <h1>Using an installed package</h1>
 
-    <pre class="terminal-unix"><code data-trim class="bash">
+    <pre class="terminal--osx"><code data-trim class="bash">
 $ node
 > var u = require('underscore')
 undefined
@@ -355,6 +450,13 @@ undefined
 [ 2, 4, 6, 8 ]
     </code></pre>
 
+  </section>
+
+  <section>
+    <h1>DEMO</h1>
+    <aside class="notes">
+      * But this is quite cubmersome if we had to install all the modules by hand every time we opened our project
+    </aside>
   </section>
 
   <section>
@@ -370,7 +472,7 @@ undefined
 {
   "name": "my-awesome-lib",
   "version": "0.0.1",
-  "description": "First exercise for server-side 
+  "description": "First exercise for server-side
                   scripting in node.js course",
   "private": true,
   "main": "index.js",
@@ -392,13 +494,15 @@ undefined
   <section>
     <h1><code>npm init</code></h1>
     <p>Generate a package.json</p>
-    <pre><code>$ npm init</code></pre>
+    <pre class="terminal--osx"><code class="bash">
+$ npm init
+    </code></pre>
   </section>
 
   <section>
     <h1>Save dependencies</h1>
 
-    <pre><code class="bash">
+    <pre class="terminal--osx"><code class="bash">
 $ npm install --save underscore
     </code></pre>
 
@@ -410,15 +514,15 @@ $ npm install --save underscore
 
   <section>
     <div class="protip">
-    #protip Don't put <code>node_modules</code> in version control, put <code>package.json</code> in version control instead.
+      Don't put <code>node_modules</code> in version control, put <code>package.json</code> in version control instead.
     </div>
   </section>
 
   <section>
     <div class="protip">
-    #protip Make sure you put <strong>all</strong> dependencies in package.json
+      Make sure you put all dependencies in <code>package.json</code>
     </div>
-  </section> 
+  </section>
 
   <section>
     <h1>Starting someone else's project</h1>
@@ -428,8 +532,152 @@ $ npm install --save underscore
       <li class="fragment"><code>npm install</code></li>
       <li class="fragment">That's it!</li>
     </ol>
-  </section> 
+  </section>
 </section>
+
+<section data-background="/assets/lesson1/break.gif">
+  <div class="fragment">
+    <h1>Coffebreak</h1>
+    <p>Back in 10 minutes</p>
+  </div>
+</section>
+
+
+<section>
+
+  <section>
+    <h1><img src="assets/lesson1/logo-js.svg" style="width: 50%; height: auto" /></h1>
+    <p>Quick overview</p>
+  </section>
+
+  <section>
+    <h1>Flow</h1>
+  </section>
+
+  <section>
+    <h1>if/else</h1>
+    <p>The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</p>
+    <pre><code class="javascript" data-trim>
+if (condition) {
+  // statement1 (condition is true)
+} else {
+  // statement2 (condition is false)
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>try{} catch(){}</h1>
+    <p>The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown.</p>
+    <pre><code class="javascript" data-trim>
+try {
+  throw "myException"; // generates an exception
+} catch (e) {
+  // statements to handle any exceptions
+  logMyErrors(e); // pass exception object to error handler
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>for(){}</h1>
+    <p>The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
+    <pre><code class="javascript" data-trim>
+for ([initialization]; [condition]; [final-expression]){
+  // statements
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim>
+for(var i=0; i < 10; i++){
+  // statements
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>while</h1>
+    <p>The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.</p>
+    <pre><code class="javascript" data-trim>
+while (condition) {
+  // statement
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>function(){}</h1>
+    <p>The function statement declares function with the specified parameters with an optional return value.</p>
+    <pre><code class="javascript" data-trim>
+function name([param,[, param,[..., param]]]) {
+  // statements
+  return true // optional
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Modules</h1>
+  </section>
+
+  <section>
+    <h1>What is a module?</h1>
+    <p>
+      A way to structure your project and share your code
+    </p>
+    <ul>
+      <li>A file (or a package)</li>
+      <li>It returns something</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Writing modules</h1>
+    <p>Node.js modules are flexible, they can return:</p>
+    <ul>
+      <li>Objects</li>
+      <li>Functions</li>
+      <li>Variables</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Example</h1>
+    <pre><code class="javascript" data-trim>
+// version.js
+module.exports = "1.0.0";
+    </code></pre>
+
+    <pre><code class="javascript" data-trim>
+// main.js
+var version = require("./version");
+console.log(version); // Outputs 1.0.0
+    </code></pre>
+
+
+  </section>
+
+  <section>
+    <h1>Example</h1>
+    <pre><code class="javascript" data-trim>
+// string-helpers.js
+var tools = {
+  capitalize : function(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+};
+module.exports = tools;
+    </code></pre>
+
+    <pre><code class="javascript" data-trim>
+// main.js
+var tools = require('tools');
+tools.capitalize("node FTW!"); // => Node FTW!
+    </code></pre>
+  </section>
+
+</section>
+
 
 <section>
   <section>
@@ -468,22 +716,23 @@ console.log("String 1: %s and Numer 2: %d", "string", 3);
 
   <section>
     <h1>Install node-inspector</h1>
-    <pre class="terminal-unix"><code data-trim class="bash">
+    <pre class="terminal--osx"><code data-trim class="bash">
 $ npm install -g node-inspector
 ...
 $ node-debug -v
 v0.7.4
-    </code></pre>  
+    </code></pre>
   </section>
 
   <section>
     <h1><code>debugger</code> statement</h1>
     <pre class="editor"><code data-trim class="javascript">
+// debugger.js
 var a = "bug!";
 function potentiallyBuggyCode(param) {
   var b = "another bug!";
   // do potentially buggy stuff to examine, step through, etc.
-  debugger;  
+  debugger;
 }
 potentiallyBuggyCode("thing");
     </code></pre>
@@ -491,18 +740,17 @@ potentiallyBuggyCode("thing");
 
   <section>
     <h1>Running node-inspector</h1>
-    <pre class="terminal-unix"><code data-trim class="bash">
-$ node-debug buggycode.js
+    <pre class="terminal--osx"><code data-trim class="bash">
+$ node-debug debugger.js
 Node Inspector is now available from http://localhost:8080/debug?port=5858
 Debugging `html/assets/lesson1/debugger.js`
 
 debugger listening on port 5858
-    </code></pre>  
-  </section>  
+    </code></pre>
+  </section>
 
   <section>
     <h1>node-inspector in action</h1>
-    <p>DEMO</p>
   </section>
 
   <section>
@@ -516,24 +764,25 @@ debugger listening on port 5858
 
   <section>
     <h1>Install JSHint</h1>
-    <pre class="terminal-unix"><code data-trim class="bash">
+    <pre class="terminal--osx"><code data-trim class="bash">
 $ npm install -g jshint
 ...
 $ jshint -v
 jshint v2.5.10
-    </code></pre>    
+    </code></pre>
   </section>
 
   <section>
     <h1>Using JSHint</h1>
-    <pre class="terminal-unix"><code data-trim class="bash">
+    <pre class="terminal--osx"><code data-trim class="bash">
 $ jshint &lt;filename&gt;
-    </code></pre>    
+    </code></pre>
   </section>
 
   <section>
     <h1>Using JSHint</h1>
     <pre class="editor"><code data-trim class="javascript">
+// faulty.js
 // Let's put in some syntax errors!
 var a = ;
 
@@ -542,11 +791,19 @@ if(a == true){
 }
     </code></pre>
 
-    <p>jshint html/assets/lesson1/faulty.js</p>
+    <aside class="notes">
+      jshint html/assets/lesson1/faulty.js
+    </aside>
   </section>
 
   <section>
-    TODO: you can also do this from your texteditor
+    <h1>From your texteditor</h1>
+    <p>Most text-editors have plugins/packages to run JSHint from there</p>
+
+    <aside class="notes">
+      * JSHint can be configured
+      * We will JSHint all submitted code in tests, you will fail immediately if it won't hint.
+    </aside>
   </section>
 
 </section>
@@ -554,148 +811,18 @@ if(a == true){
 <section>
 
   <section>
-    <h1>Javascript</h1>
-    <p>Quick overview</p>
+    <h1>Wrapping up</h1>
   </section>
 
   <section>
-    <h1>Flow</h1>
-  </section>
-
-  <section>
-    <h2>if/else</h2>
-    <p>The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed.</p>
-    <pre><code class="javascript" data-trim>
-if (condition) {
-  statement1  
-} else {
-  statement2
-}
-    </code></pre>
-  </section>
-
-  <section>
-    <h2>try{} catch(){}</h2>
-    <p>The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown.</p>
-    <pre class="javascript"><code>
-  try {
-    throw "myException"; // generates an exception
-  } catch (e) {
-    // statements to handle any exceptions
-    logMyErrors(e); // pass exception object to error handler
-  }</code></pre>
-  </section>
-
-  <section>
-    <h2>for(){}</h2>
-    <p>The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
-    <pre class="javascript"><code>
-  for ([initialization]; [condition]; [final-expression]) 
-    statements
-    </code></pre>
-
-    <pre><code class="javascript" data-trim>
-for(var i=0; i < 10; i++){
-  // ...
-}
-    </code></pre>
-  </section>
-  
-  <section>
-    <h2>while</h2>
-    <p>The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.</p>
-    <pre class="javascript"><code>
-  while (condition) { 
-    statement 
-  }
-    </code></pre>
-  </section>
-    
-  <section>
-    <h2>function(){}</h2>
-    <p>The function statement declares function with the specified parameters.</p>
-    <pre class="javascript"><code>
-  function name([param,[, param,[..., param]]]) { 
-    [statements] 
-  }
-    </code></pre>
-  </section>
-  
-  <section>
-    <h1>Modules</h1>
-  </section>
-
-  <section>
-    <h1>What is a module?</h1>
-    <p>
-      A way to structure your project and share your code
-    </p>
+    <h1>What we learned today</h1>
     <ul>
-      <li>A file (or a package)</li>
-      <li>It returns something</li>
+      <li class="fragment">Install node.js and using the REPL</li>
+      <li class="fragment">Installing and using NPM packages in combination with package.json</li>
+      <li class="fragment">Debugging with console.log, node-inspector and jshint</li>
+      <li class="fragment">Basic JS control flow</li>
+      <li class="fragment">Modules</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Write a module</h2>
-    <p>Javascript module are flexible, they can return:</p>
-    <ul>
-      <li>Objects</li>
-      <li>Functions</li>
-      <li>Variables</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Example module</h2>
-    <pre><code class="javascript" data-trim>
-// version.js
-module.exports = "1.0.0";
-    </code></pre>
-
-    <pre><code class="javascript" data-trim>
-// main.js
-var version = require("./version");
-console.log(version); // Outputs 1.0.0
-    </code></pre>
-
-
-  </section>
-
-  <section>
-    <h2>Example module</h2>
-    <pre><code class="javascript" data-trim>
-// string-helpers.js
-var tools = {
-  humanize : function(string){
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-};
-module.exports = tools;
-    </code></pre>    
-
-    <pre><code class="javascript" data-trim>
-// main.js
-var tools = require('tools');
-tools.humanize("node FTW!"); // => Node FTW!
-    </code></pre>
-  </section>
-
-</section>
-
-
-<section>
-
-  <section data-markdown>
-    <script type="text/template">
-    # What we learned today
-
-    * Install node.js and using the REPL
-    * Installing and using NPM packages in combination with package.json
-    * Debugging with console.log, node-inspector and jshint
-    * Basic JS control flow
-    * Modules
-    </script>
   </section>
 
 </section>
@@ -708,46 +835,36 @@ tools.humanize("node FTW!"); // => Node FTW!
 
   <section>
     <h1>Huiswerk: lezen</h1>
-    <p>Klaar voor werkcollege</p>
+
     <ul>
       <li>Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)</li>
       <li>Appendix A5 (p 363 t/m 366)</li>
       <li>Appendix B1 t/m B3.2 (p 367 t/m 371) </li>
     </ul>
 
-    <p>Waarom? Zodat je de opdrachten in 't werkcolelge kunt maken.</p>
+    <p>Klaar voor werkcollege</p>
+
+    <aside class="notes">
+      Waarom? Zodat je de opdrachten in 't werkcollege kunt maken.
+    </aside>
   </section>
 
   <section>
     <h1>Huiswerk: doen</h1>
-    <p>Klaar voor werkcollege</p>
     <ul>
       <li>Node.js installeren</li>
       <li>Terminal/Git/etc. werkend hebben</li>
+      <li>Github account aanmaken als je die nog niet hebt</li>
+      <li>Alvast spieken naar https://github.com/CMDA/sss-exercises</li>
     </ul>
+
+    <p>Klaar voor werkcollege</p>
+  </section>
+
+  <section data-background="/assets/lesson1/thatsall.gif">
   </section>
 
 </section>
-
-
-<div class="hidden">
-
-
-  * Node installeren
-
-  ## Opdrachten voor deze week in het werkcollege
-
-  * Je node installatie draait (node -v)
-  * Clone voorbeeldproject/set up project
-  * Maak een Hello World terminal voorbeeld
-  * Maak een hello_world functie in een los bestand en laad die in met `require()`
-  * Maak een hello world in je browser
-
-  ## Bronnen
-
-  ...
-
-</div>
       </div>
     </div>
 

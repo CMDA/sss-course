@@ -199,17 +199,9 @@ body {
   padding: 0.4em;
   position: relative;
 }
-.reveal .title .number {
-  position: absolute;
-  left: 50%;
-  bottom: 100%;
-  font-size: 8rem;
-  background: #250a33;
-  padding: 2rem;
-  transform: translate(-50%, 2rem);
-}
-.reveal .title img {
+.reveal h1 img {
   height: 1em;
+  margin: 0;
 }
 .reveal blockquote {
   font-style: normal;
@@ -240,24 +232,22 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-del {
-  display: inline-block;
-  text-decoration: none;
-  position: relative;
+.reveal code,
+.reveal pre {
+  font-family: monaco, monospace;
+}
+.reveal p code,
+.reveal h1 code,
+.reveal li code {
+  color: #00ff00;
+}
+.reveal strong {
+  padding: 0 0.2em;
+  background: rgba(255, 0, 98, 0.5);
 }
 
-del:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-del:before {
-  background: linear-gradient(to bottom right, transparent 0, transparent 45%, red 45%, red 55%, transparent 55%), linear-gradient(to bottom left, transparent 0, transparent 45%, red 45%, red 55%, transparent 55%);
+.reveal .subsection {
+  margin-top: 2em;
 }
 
 .credits-container {
@@ -287,26 +277,6 @@ del:before {
 
 .print-pdf .reveal h1 {
   margin-top: 1em;
-}
-
-.reveal button.big {
-  padding: 0.2em;
-  font-size: 2em;
-}
-
-.reveal .note {
-  font-size: 0.6em;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.reveal .slides section .line.current {
-  background: #f00;
-}
-.reveal .slides section .line.valid {
-  background: #090;
-}
-.reveal .slides section .line.invalid {
-  background: #900;
 }
 
 .hidden {
@@ -467,7 +437,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 .blinking-cursor:before {
   content: "|";
-  font-size: 80%;
   vertical-align: top;
 }
 
@@ -479,4 +448,57 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   50% {
     opacity: 1;
   }
+}
+.reveal .terminal--line,
+.terminal--line {
+  font-family: monaco, monospace;
+  color: #00ff00;
+}
+
+.reveal .terminal--powershell,
+.terminal--powershell {
+  border-top: 32px solid transparent;
+  border-right: 27px;
+  border-left: 9px;
+  border-bottom: 9px;
+  border-image: url(../images/terminal-border-powershell.png) 32 27 25 9 fill/32px 27px 25px 9px;
+  background: #101d58;
+}
+.reveal .terminal--powershell .hljs,
+.terminal--powershell .hljs {
+  background: transparent;
+}
+
+.reveal .terminal--osx,
+.terminal--osx {
+  border-top: 44px solid transparent;
+  border-right: 30px;
+  border-image: url(../images/terminal-border-osx.png) 76 36 12 121 fill/76px 36px 12px 121px;
+}
+
+.reveal .protip,
+.protip {
+  background: #000;
+  color: #00ff00;
+  padding: 1em;
+  font-family: monaco, monospace;
+  position: relative;
+}
+.reveal .protip:before,
+.protip:before {
+  content: "#protip";
+  color: #00ff00;
+  position: absolute;
+  z-index: 1;
+  border: 5px dotted #00ff00;
+  padding: 0.5em;
+  font-weight: bold;
+  background: #000;
+  bottom: 100%;
+  left: -1em;
+  transform: translateY(0.5em);
+}
+.reveal .protip code,
+.protip code {
+  color: #fff;
 }
