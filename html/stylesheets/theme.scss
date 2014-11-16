@@ -70,17 +70,17 @@ $linkColorHover: lighten( $linkColor, 20% );
 
 .reveal {
 
-  h1 { 
-    font-size: 2.2em; 
+  h1 {
+    font-size: 2.2em;
     text-shadow: none;
     margin-bottom: 0.5em;
   }
 
-  h2 { 
-    font-size: 1.3em; 
+  h2 {
+    font-size: 1.3em;
   }
 
-  ul { 
+  ul {
     margin-bottom: 1em;
   }
 
@@ -97,22 +97,13 @@ $linkColorHover: lighten( $linkColor, 20% );
 
   .title{
     background: rgba($backgroundColor, 0.7);
-    padding: 0.4em; 
-    position: relative; 
+    padding: 0.4em;
+    position: relative;
   }
 
-  .title .number{
-    position: absolute;
-    left: 50%;
-    bottom: 100%;
-    font-size: 8rem;
-    background: $backgroundColor;
-    padding: 2rem;
-    transform: translate(-50%, 2rem);
-  }
-
-  .title img{
+  h1 img{
     height: 1em;
+    margin: 0;
   }
 
   blockquote{
@@ -140,7 +131,7 @@ $linkColorHover: lighten( $linkColor, 20% );
   .side-by-side__content{
     margin-left: 1em;
     flex: 1 1 50%;
-  } 
+  }
 
   .side-by-side__content pre{
     margin: 0;
@@ -152,27 +143,28 @@ $linkColorHover: lighten( $linkColor, 20% );
     text-overflow: ellipsis;
   }
 
+  code,
+  pre{
+    font-family: monaco, monospace;
+  }
+
+  p code,
+  h1 code,
+  li code{
+    // padding: 0 0.1em;
+    // background: rgba(#fff, 0.2);
+    color: #00ff00;
+  }
+
+  strong{
+    padding: 0 0.2em;
+    background: rgba(#ff0062, 0.5);
+  }
+
 }
 
-del{
-  display: inline-block;
-  text-decoration: none;
-  position: relative;
-}
-
-del:before{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-del:before{
-  background: 
-    linear-gradient(to bottom right, transparent 0, transparent 45%, #f00 45%, #f00 55%, transparent 55% ),
-    linear-gradient(to bottom left, transparent 0, transparent 45%, #f00 45%, #f00 55%, transparent 55% );
+.reveal .subsection{
+  margin-top: 2em;
 }
 
 .credits-container{
@@ -205,34 +197,11 @@ del:before{
   margin-top: 1em;
 }
 
-.reveal button.big{
-  padding: 0.2em;
-  font-size: 2em;
-}
-
-.reveal .note{
-  font-size: 0.6em;
-  color: rgba(255,255,255,0.5);
-}
-
-.reveal .slides section{
-
-  .line.current{
-    background: #f00;
-  }
-
-  .line.valid{
-    background: #090;
-  }
-
-  .line.invalid{
-    background: #900;
-  }
-}
-
 .hidden{
   display: none;
 }
 
 @import "highlight-monokai";
 @import "elements/blinking-cursor";
+@import "elements/terminal";
+@import "elements/protip";

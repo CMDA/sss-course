@@ -1,0 +1,28 @@
+.reveal .terminal--line,
+.terminal--line{
+  font-family: monaco, monospace;
+  color: #00ff00;
+}
+
+
+.reveal .terminal--powershell,
+.terminal--powershell{
+  border-top: 32px solid transparent;
+  border-right: 27px;
+  border-left: 9px;
+  border-bottom: 9px;
+  border-image: url(../images/terminal-border-powershell.png) 32 27 25 9 fill / 32px 27px 25px 9px ;
+  background: #101d58;
+  // border-image-outset: 148px 0 0 0;
+
+  .hljs{
+    background: transparent;
+  }
+}
+
+.reveal .terminal--osx,
+.terminal--osx{
+  border-top: 44px solid transparent;
+  border-right: 30px;
+  border-image: url(../images/terminal-border-osx.png) 76 36 12 121 fill / 76px 36px 12px 121px;
+}

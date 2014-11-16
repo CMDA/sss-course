@@ -1,0 +1,28 @@
+.reveal .protip,
+.protip{
+  &{
+    background: #000;
+    color: #00ff00;
+    padding: 1em;
+    font-family: monaco, monospace;
+    position: relative;
+  }
+
+  &:before{
+    content: "#protip";
+    color: #00ff00;
+    position: absolute;
+    z-index: 1;
+    border: 5px dotted #00ff00;
+    padding: 0.5em;
+    font-weight: bold;
+    background: #000;
+    bottom: 100%;
+    left: -1em;
+    transform: translateY(0.5em);
+  }
+
+  code{
+    color: #fff;
+  }
+}
