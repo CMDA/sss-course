@@ -77,7 +77,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
   * Chapter 3, t/m 3.2.3 (p 27 t/m 58)
   * Appendix A5 (p 363 t/m 366)
   * Appendix B1 t/m B3.2 (p 367 t/m 371) 
-* [Opdracht 1](http://github.com/Digitpaint/server-side-scripting-in-nodejs-exercise1)
+* [Opdracht 1](https://github.com/CMDA/sss-exercises/tree/master/exercise1)
 
 ### Week 2
 1. Appserver
