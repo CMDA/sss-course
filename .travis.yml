@@ -1,8 +1,11 @@
 language: ruby
 before_script:
-  - git config --global user.email "travis-ci@sss-course"
-  - git config --global user.name "Travis-CI"
-script: bundle exec roger release
+- git config --global user.email "travis-ci@sss-course"
+- git config --global user.name "Travis-CI"
+script: bundle exec roger release > /dev/null 2>&1
 branches:
   only:
-    - master
+  - master
+env:
+  global:
+    secure: WOEq35XGwrp9ZnZ2uBI5+9zrh9AF/x7Qib1GrBo9+5tpJyPMOgGn8eGWf1eOCn6j8QFc3Xsj6P11R+fSd5TkLdrCTfbvlfc7pkPV8Oi0Wvcf3FMy5NIAbCjsc+GsGz0NCSU+RumDH90GJAYThr+s5Vj5vxkhleTHDNnJgphqHFI=
