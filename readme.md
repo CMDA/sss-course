@@ -66,6 +66,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 ## Weekoverzicht
 
 ### Week 1
+[Slides](http://cmda.github.io/sss-course/lesson1)
+
 1. Node installeren en REPL draaien
 1. NPM packages installeren en gebruik package.json
 1. Debugging met console.log/console.dir en debugger
