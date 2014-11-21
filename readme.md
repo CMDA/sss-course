@@ -112,7 +112,7 @@ In deze weken zal geen nieuwe stof behandeld worden. Tijdens het werkcollege in 
 ## Contactinformatie
 Als je vragen hebt kun je met de volgende gegevens contact met ons opnemen. Wel willen wij je vragen om voor algemene zaken [een issue](https://github.com/CMDA/sss-course/issues/new) hier op GitHub te maken. Het is handig om deze [pagina te volgen](https://github.com/CMDA/sss-course/subscription) zodat je op de hoogte blijft als er updates zijn.
 
-* Flurin Egger <[TODO]>
+* Flurin Egger  <[f.p.egger@hva.nl](mailto://f.p.egger@hva.nl)>
 * Edwin van der Graaf <[e.r.van.der.graaf@hva.nl](mailto://e.r.van.der.graaf@hva.nl)>
 * Vincent Vijn <[v.l.vijn@hva.nl](mailto://v.l.vijn@hva.nl)>
 
