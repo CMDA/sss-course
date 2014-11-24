@@ -30,7 +30,6 @@ Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er 
 * Terminal kennis (zie [Tools](#tools) voor extra resource)
 * Git en een GitHub-account
 
-
 ## Werkwijze
 Het programma bestaat uit een serie hoor- en werkcolleges. In de hoorcolleges behandelen we elke week alles rondom een bepaald onderwerp, in de werkcolleges werk je elke week aan een opdracht om je dat onderwerp verder eigen te maken. Er zijn in totaal drie deeltoetsen waarvan de eerste twee tijdens het practicum uitgevoerd moeten worden. De eindopdracht wordt thuis gemaakt en moet bij de docent worden ingeleverd.
 
@@ -46,18 +45,33 @@ Het programma bestaat uit een serie hoor- en werkcolleges. In de hoorcolleges be
 * Vragen stellen
 
 ### Huiswerk & opdrachten
-Het huiswerk wordt per week in het [weekoverzicht](#weekoverzicht) opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Tijdens de cursus zal github gebruikt worden om efficiënt code te kunnen delen. Enerzijds met je mede-studenten, maar ook met ons zodat wij snel jouw code kunnen zien en kunnen testen. 
+Het huiswerk wordt per week in het [weekoverzicht](#weekoverzicht) opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Wekelijks zal er een .zip worden geplaatst met hierin de opdrachten, of je kunt de code van GitHub gebruiken door een fork van de exercises repository te maken. 
 
 Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, verder kunnen jullie bij onduidelijkheden [de issues van dit project](https://github.com/CMDA/sss-course/issues) gebruiken. Daarnaast waarderen wij het enorm als je ons helpt het lesmateriaal te verbeteren door een pull-request te sturen.  
 
 
 #### Workflow
-[TODO]
-1. Fork 
-2. Clone
-3. Open project in IDE, modify, test, clone etc.
-4. Commit your changes
-5. To save ->  Push
+
+1. [Fork the exercise project repo](https://github.com/CMDA/sss-exercises/fork)
+2. [Clone it](http://git-scm.com/book/ch2-1.html#Cloning-an-Existing-Repository)
+3. Open project in your texteditor or IDE
+4. Commit your changes and push your changes
+
+
+##### Update your repository
+During the project, you can pull changes from [the upstream](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/). The upstream is the project from which you created the fork. Every week we will add extra exercises to this repository. 
+
+First we configure the [CDMA](https://github.com/CMDA/sss-exercises) repository as a remote in git. 
+
+```
+git remote add upstream git@github.com:CMDA/sss-exercises.git
+```
+
+To get the new changes into your fork.
+```
+git pull upstream master
+```
+
 
 ### Toetsing
 Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met een opbouwende moeilijkheidsgraad. In deze toetsen lost de student programmeerproblemen op met behulp van Node.js & Javascript. Beoordeling van en feedback op de gemaakte deeltoetsen worden tijdens de eerstvolgende practica gegeven, het is dus zaak dat studenten bij alle practica aanwezig zijn. Als alle toetsen voldoende zijn afgerond bestaat het eindcijfer uit het cijfer voor de eindopdracht. De eerste twee deeltoetsen worden alleen beoordeeld met voldoende/onvoldoende. Er is een algemene herkansing voor studenten die niet alle deeltoetsen voldoende hebben afgerond. Deze herkansing bestaat uit een praktijkgerichte opdracht die de totale stof uit alle deeltoetsen beslaat.
