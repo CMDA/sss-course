@@ -8,6 +8,19 @@ layout: "presentation"
   <p>Lesson 2</p>
 </section>
 
+<section>
+  <section>
+    <h1>Today</h1>
+    <ol>
+      <li>Introductie</li>
+      <li>Javascript: Async</li>
+      <li>App server</li>
+      <li>Templating</li>
+      <li>REST</li>
+      <li>Wrap up</li>
+    </ol>
+  </section>
+</section>
 
 <section>
   <section>
@@ -21,7 +34,7 @@ layout: "presentation"
   var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
   output(file); <span class="fragment">// ... and done</span>
   console.log("klaar");
-    </code></pre>        
+    </code></pre>
   </section>
 
   <section>
@@ -32,12 +45,13 @@ layout: "presentation"
     console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
   }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
   readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
-    </code></pre>        
+    </code></pre>
   </section>
 
 
   <section>
-    <h2>Async diagram</h2>
+    <h1>Async diagram</h1>
+    TODO
   </section>
 
   <section>
@@ -50,54 +64,199 @@ layout: "presentation"
 
 
   <section>
-    <h2>Callbacks</h2>
-      * Functie die aangeroepen wordt als iets "klaar" is. 
-      * Promises
+    <h1>Callbacks</h1>
+
+    <ul>
+      <li>A functioncall that get's called when your async operation is done</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Callback example</h1>
+    <pre><code class="javascript" data-trim>
+var callback = function(){
+  console.log("done");
+}
+setTimeout(callback, 2000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Callback example 2</h1>
+    <pre><code class="javascript" data-trim>
+var getJSON = require("./get-json");
+var _ = require("underscore");
+
+try{
+  getJSON("book.json", function(book){
+    _.each(book.chapterUrls, function(chapterUrl){
+      try{
+        getJSON(chapterURL, function(chapter){
+          _.each(chapter.pageUrls, function(pageURL){
+            try{
+              getJSON(pageURL, function(page){
+                console.log(page.content);
+              })
+            } catch (e) {
+              onsole.log("Couldn't get page with URL", pageURL);
+            }
+          });
+        });
+      } catch (e){
+        console.log("Couldn't get chapter with URL", chapterUrl)
+      }
+    });
+  })
+} catch (e){
+  console.log("Couldn't get book.json")
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <img src="/assets/lesson2/callback_hell.jpg" alt="Callback hell!">
+  </section>
+
+
+  <section>
+    <h1>Promises</h1>
+    <p>
+      Return the eventual outcome of an asynchronous operation.
+    </p>
+  </section>
+
+  <section>
+    TODO promise voorbeeld
   </section>
 
   <section>
     <h2>Events</h2>
-      * Event is iets waarnaar je kunt "luisteren" en dat kan één keer of meerdere keren voorkomen maar je weet niet wanneer.
-      * Denk aan jQuery click.
-      * TODO VOORBEELDJE
+    <ul>
+      <li>Something that can happen once or more times at at any time</li>
+    </ul>
+    <aside class="notes">
+      Denk aan jQuery click.
+    </aside>
+  </section>
+
+  <section>
+    <h1>Events example</h1>
+    TODO
   </section>
 
 </section>
 
+<section>
+
+  <section>
+    <h1>Express.js App server</h1>
+  </section>
+
+
+  <section>
+    * Client v.s. server diagram
+    * MVC
+    * Generate
+
+    * Most simple example .get("/", function(req, res){ res.send("..." )})
+    * Configuration
+    * Listen
+    * Parameteres
+    * Routers
+    * Named parameters /blog/:bla
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Templating</h1>
+  </section>
+
+  <section>
+    * M[V]C
+    * HTML
+    * voorbeeld suf string concatenation
+    * npm install ejs --save
+    * EJS templates ... hoe werkt dat... files klaarzetten, voorbeeld code.
+    * app.set('views', __dirname + '/views');
+    * Data klaarzetten voor view
+    * [JSON terug sturen]
+    "Beter logica in je views dan HTML in je code"
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Consuming API's</h1>
+  </section>
+
+  <section>
+    * request libarary
+    * ophalen van een github URL lijst + template
+  </section>
+</section>
+
+
+<section>
+
+  <section>
+    <h1>Wrapping up</h1>
+  </section>
+
+  <section>
+    <h1>What we learned today</h1>
+    <ul>
+      <li class="fragment"></li>
+    </ul>
+  </section>
+
+</section>
+
+<section>
+  DEELTOETS 1
+
+  - 5 vragen
+  - Op papier, zonder laptop
+  - 20 minuten in het werkcollege van volgende week.
+
+  * Voorbeeldvraag
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Werkcollege en huiswerk</h1>
+  </section>
+
+  <section>
+    <h1>Huiswerk: lezen</h1>
+
+    <ul>
+      <li>Hoodstuk 3, t/m 3.2.3 (p 37 t/m 58)</li>
+
+      -
+      - Minder belangrijk: "view caching"
+    </ul>
+
+    <p>Klaar voor werkcollege</p>
+  </section>
+
+  <section>
+    <h1>Huiswerk: doen</h1>
+    <ul>
+      <li></li>
+    </ul>
+
+    <p>Klaar voor werkcollege</p>
+  </section>
+
+  <section data-background="/assets/lesson2/thatsall.gif">
+  </section>
+
+</section>
 
 <div class="hidden">
-  ---
-
-  # JS
-
-  * DEMO
-
-
-
-  ## Hello World
-
-  * TODO voorbeeldje
-
-  
-  ## Huiswerk
-
-  * Lezen: 
-    Hoodstuk 3, t/m 3.2.3 (p 27 t/m 58)
-    Appendix A5 (p 363 t/m 366)
-    Appendix B1 t/m B3.2 (p 367 t/m 371) 
-
-  * Node installeren
-
-  ## Opdrachten voor deze week in het werkcollege
-
-  * Je node installatie draait (node -v)
-  * Clone voorbeeldproject/set up project
-  * Maak een Hello World terminal voorbeeld
-  * Maak een hello_world functie in een los bestand en laad die in met `require()`
-  * Maak een hello world in je browser
-
-  ## Bronnen
-
-  ...
-
+  * Static files
+  * Redirects
 </div>
