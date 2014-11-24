@@ -116,7 +116,7 @@ Object.keys(a); // ["name", "teachers"]
   <section>
     <h2>Synchronous code</h2>
     <pre><code class="javascript" data-noescape data-trim>
-// NOT REAL CODE    
+// NOT REAL CODE
 var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
 output(file); <span class="fragment">// ... and done</span>
 console.log("klaar");
@@ -163,9 +163,9 @@ readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code con
     <h1>Callbacks</h1>
 
     <p>A functioncall that get's called when your async operation is done</p>
-    
+
     <aside class="notes">
-      The difference is that with a callback you're either going to get an error or a result. Never both, and never more than one event. 
+      The difference is that with a callback you're either going to get an error or a result. Never both, and never more than one event.
     </aside>
   </section>
 
@@ -246,8 +246,50 @@ console.log('Server running at http://127.0.0.1:1337/');
 
   <section>
     <h1>Simplest Express example</h1>
+    <p>The barebone</p>
+    <pre><code class="javascript" data-trim>
+var express = require('express');
+var app = express();
+
+// Add a reponse route
+app.get('/', function(request, response){
+  res.send('Hello World!');
+});
+
+// Start the server
+var server = app.listen(3000, function () {
+  console.log('Example app listening at http://localhost:3000/');
+});
+    </code></pre>
+
   </section>
 
+  <section>
+    <h1>Structure</h1>
+    <pre class="terminal--osx"><code data-trim class="bash">
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+├── routes
+│   ├── index.js
+├── views
+│   └── index.ejs
+├── app.js
+└── package.json
+    </code></pre>
+    <p>Lets discuss these...</p>
+  </section>
+
+  <section>
+    <h1>Public dir</h1>
+    <p>
+      Storing content that isn't generated, also called static content, e.g.
+      images, javascripts (client-side) and stylesheets.
+    </p>
+  </section>
+
+</section>
 
   <section>
     <h1>MVC</h1>
@@ -307,7 +349,7 @@ console.log('Server running at http://127.0.0.1:1337/');
     <strong>M</strong>odel
     - <strong>V</strong>iew
     - <strong>C</strong>ontroller
-  </section>  
+  </section>
 
   <section>
     <h1>Templates (view)</h1>
@@ -338,27 +380,27 @@ console.log('Server running at http://127.0.0.1:1337/');
     <h1>Setting up views</h1>
     <ol>
       <li>
-        Install EJS 
-        <pre><code class="javascript" data-trim>        
+        Install EJS
+        <pre><code class="javascript" data-trim>
 TODO
         </code></pre>
       </li>
       <li>
         Tell express to use EJS:
-        <pre><code class="javascript" data-trim>        
+        <pre><code class="javascript" data-trim>
 TODO
         </code></pre>
       </li>
       <li>
         Tell express where to find the views:
-        <pre><code class="javascript" data-trim>        
+        <pre><code class="javascript" data-trim>
 app.set('views', __dirname + '/views');
         </code></pre>
-      </li>      
+      </li>
       <li>Create a view file</li>
       <li>
         Render the view:
-        <pre><code class="javascript" data-trim>        
+        <pre><code class="javascript" data-trim>
 TODO
         </code></pre>
       </li>
