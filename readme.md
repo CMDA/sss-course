@@ -1,6 +1,6 @@
 # Server side scripting in Node.js
 
-***See this README with a table of contents [here](http://google.com).***
+***See this README with a table of contents [here](http://cmda.github.io/sss-course/).***
 
 
 ## Introductie
