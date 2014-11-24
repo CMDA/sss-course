@@ -6,17 +6,19 @@ layout: "presentation"
 <section>
   <h1 class="title">Server Side Scripting in <img src="/assets/logo-nodejs.svg"></h1>
   <p>Lesson 2</p>
+  <p>http://cmda.github.io/sss-course/lesson1</p>
 </section>
 
 <section>
   <section>
     <h1>Today</h1>
     <ol>
-      <li>Introductie</li>
+      <li>Javascript: Strings, Arrays, Objects</li>
       <li>Javascript: Async</li>
       <li>App server</li>
       <li>Templating</li>
-      <li>REST</li>
+      <li>Consuming APIs</li>
+      <li>Deeltoets 1</li>
       <li>Wrap up</li>
     </ol>
   </section>
@@ -24,41 +26,135 @@ layout: "presentation"
 
 <section>
   <section>
-    <h1>Async</h1>
+    <h1>Javascript</h1>
+  </section>
+
+  <section>
+    <h1>Numbers</h1>
+    <pre><code class="javascript" data-trim>
+var a = 1; // Number!
+var b = 2.5; // Number! (it's a float)
+1/0;  // Infinity
+1/"a"; // NaN
+(0.1 + 0.2 == 0.3) // = false
+    </code></pre>
+  </section>
+
+
+  <section>
+    <h1>Strings</h1>
+    <pre><code class="javascript" data-trim>
+var a = 'this is a string';
+var b = 'this is another string';
+var c = a + ' ' + b // 'this is a string this is another string'
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Arrays</h1>
+    <pre><code class="javascript" data-trim>
+var a = []; // Empty Array
+var b = [1, 2, 3]; // Arary of numbers
+b.push(4); // Add to array: [1,2,3,4]
+b.pop(); // 4 [1,2,3]
+b.forEach(function(value){ console.log(value); }); // Iterate
+b.map(function(value){ return value + 1 }); // [2,3,4]
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Objects</h1>
+    <pre><code class="javascript" data-trim>
+var a = {}; // Empty object
+a.name = "SSS"; // {name : "SSS"}
+a["teachers"] = ["Edwin", "Flurin"]; // {name : "SSS", teachers : [...]}
+a.pass = function(){ return true; };
+a.pass(); // true
+
+Object.keys(a); // ["name", "teachers"]
+    </code></pre>
+  </section>
+
+  <section>
+    <div class="protip">
+      Google "Javascript MDN [function_or_object]", or use MDN directly: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>
+    </div>
+  </section>
+
+  <section>
+    <h1>Learn javascript!</h1>
+    <ul>
+      <li>
+        <a href="http://javascriptissexy.com/how-to-learn-javascript-properly/">Codeacademy</a> (http://javascriptissexy.com/how-to-learn-javascript-properly/)
+      </li>
+    </ul>
+    <aside class="notes">
+      Ja, je moet dit kunnen.
+    </aside>
+  </section>
+
+  <section>
+    <div class="protip">
+      USE THE REPL
+    </div>
+  </section>
+
+  <section data-background="/assets/lesson2/psychedelic.jpg">
+    <h1 style="font-size: 10rem; background: rgba(255,0,0,0.8); padding: 2rem;">
+      USE THE REPL
+    </h1>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h1>Javascript: Async</h1>
     <p>An aspect of node.js is it asynchronously, making it very fast.</p>
   </section>
 
   <section>
     <h2>Synchronous code</h2>
-    <pre class="javascript"><code data-noescape>
-  var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
-  output(file); <span class="fragment">// ... and done</span>
-  console.log("klaar");
+    <pre><code class="javascript" data-noescape data-trim>
+// NOT REAL CODE    
+var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
+output(file); <span class="fragment">// ... and done</span>
+console.log("klaar");
     </code></pre>
   </section>
 
   <section>
     <h2>Asynchronous code</h2>
-    <pre class="javascript"><code data-noescape>
-  readfile("bestand.txt", function(file){
-    output(file);
-    console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
-  }); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
-  readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
+    <pre><code class="javascript" data-noescape data-trim>
+// NOT REAL CODE
+readfile("bestand.txt", function(file){
+  output(file);
+  console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
+}); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
+readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
     </code></pre>
   </section>
 
 
   <section>
-    <h1>Async diagram</h1>
-    TODO
+    <h1>Sync v.s. Async</h1>
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <h2>Sync</h2>
+        <img src="/assets/lesson2/sync.svg" alt="Sync"</div>
+      </div>
+      <div class="side-by-side__content">
+        <h2>Async</h2>
+        <img src="/assets/lesson2/async.svg" alt="Async"</div>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h1>Working with asynchronous calls</h1>
+    <h1>Asynchronous calls</h1>
     <ul>
-      <li>Callbacks</li>
-      <li>Events</li>
+      <li class="fragment">Callbacks</li>
+      <li class="fragment">Events</li>
     </ul>
   </section>
 
@@ -66,9 +162,11 @@ layout: "presentation"
   <section>
     <h1>Callbacks</h1>
 
-    <ul>
-      <li>A functioncall that get's called when your async operation is done</li>
-    </ul>
+    <p>A functioncall that get's called when your async operation is done</p>
+    
+    <aside class="notes">
+      The difference is that with a callback you're either going to get an error or a result. Never both, and never more than one event. 
+    </aside>
   </section>
 
   <section>
@@ -82,67 +180,28 @@ setTimeout(callback, 2000);
   </section>
 
   <section>
-    <h1>Callback example 2</h1>
+    <h1>Callback example</h1>
     <pre><code class="javascript" data-trim>
-var getJSON = require("./get-json");
-var _ = require("underscore");
-
-try{
-  getJSON("book.json", function(book){
-    _.each(book.chapterUrls, function(chapterUrl){
-      try{
-        getJSON(chapterURL, function(chapter){
-          _.each(chapter.pageUrls, function(pageURL){
-            try{
-              getJSON(pageURL, function(page){
-                console.log(page.content);
-              })
-            } catch (e) {
-              onsole.log("Couldn't get page with URL", pageURL);
-            }
-          });
-        });
-      } catch (e){
-        console.log("Couldn't get chapter with URL", chapterUrl)
-      }
-    });
-  })
-} catch (e){
-  console.log("Couldn't get book.json")
-}
+var request = require("request");
+var url = "http://api.openweathermap.org/data/2.5/weather?q=Amsterdam,nl";
+request("url", function(error, response, body){
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Print the google web page.
+  }
+});
     </code></pre>
-  </section>
 
-  <section>
-    <img src="/assets/lesson2/callback_hell.jpg" alt="Callback hell!">
-  </section>
-
-
-  <section>
-    <h1>Promises</h1>
-    <p>
-      Return the eventual outcome of an asynchronous operation.
-    </p>
-  </section>
-
-  <section>
-    TODO promise voorbeeld
   </section>
 
   <section>
     <h2>Events</h2>
-    <ul>
-      <li>Something that can happen once or more times at at any time</li>
-    </ul>
+    <p>Something that can happen once or more times at at any time</p>
+
     <aside class="notes">
       Denk aan jQuery click.
     </aside>
   </section>
 
-  <section>
-    <h1>Events example</h1>
-    TODO
-  </section>
 
 </section>
 
@@ -152,19 +211,85 @@ try{
     <h1>Express.js App server</h1>
   </section>
 
+  <section>
+    <h1>Client &lt;-&gt; (http)server</h1>
+    <img src="/assets/lesson2/client-server.png" alt="Server <-- http --> Client" />
+  </section>
 
   <section>
-    * Client v.s. server diagram
-    * MVC
-    * Generate
+    <h1>A server</h1>
+    <pre><code class="javascript" data-trim>
+var http = require('http');
 
-    * Most simple example .get("/", function(req, res){ res.send("..." )})
-    * Configuration
-    * Listen
-    * Parameteres
-    * Routers
-    * Named parameters /blog/:bla
+var server = http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+})
+
+server.listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+    </code></pre>
   </section>
+
+  <section data-background="/assets/lesson2/godno.gif">
+  </section>
+
+  <section>
+    <h1>Express</h1>
+    <p>
+      Fast, unopinionated, minimalist web framework for Node.js
+    </p>
+    <p>
+      <a href="#">http://expressjs.com/</a>
+    </p>
+  </section>
+
+  <section>
+    <h1>Simplest Express example</h1>
+  </section>
+
+
+  <section>
+    <h1>MVC</h1>
+    <span class="fragment"><strong>M</strong>odel</span>
+    <span class="fragment">- <strong>V</strong>iew</span>
+    <span class="fragment">- <strong>C</strong>ontroller</span>
+  </section>
+
+  <section>
+    <h1>Router (Controller)</h1>
+    <ul>
+      <li>URL structure</li>
+      <li>HTTP request handling</li>
+      <li>HTTP response generation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>URLs</h1>
+    <img src="/assets/lesson2/url.svg" alt="An URL explained" style="width: 100%"/>
+  </section>
+
+  <section>
+    <h1>Router example</h1>
+    ...
+  </section>
+
+  <section>
+    <h1>Using the router</h1>
+    ...
+  </section>
+
+  <section>
+    <h1>Query string</h1>
+    ...
+  </section>
+
+  <section>
+    <h1>Parameters</h1>
+    ...
+  </section>
+
 </section>
 
 <section>
@@ -173,15 +298,82 @@ try{
   </section>
 
   <section>
-    * M[V]C
-    * HTML
-    * voorbeeld suf string concatenation
-    * npm install ejs --save
-    * EJS templates ... hoe werkt dat... files klaarzetten, voorbeeld code.
-    * app.set('views', __dirname + '/views');
-    * Data klaarzetten voor view
-    * [JSON terug sturen]
-    "Beter logica in je views dan HTML in je code"
+    <h1>Up until now...</h1>
+    ....
+  </section>
+
+  <section>
+    <h1>MVC</h1>
+    <strong>M</strong>odel
+    - <strong>V</strong>iew
+    - <strong>C</strong>ontroller
+  </section>  
+
+  <section>
+    <h1>Templates (view)</h1>
+    <ul>
+      <li>Put HTML (or whatever) in separate files</li>
+      <li>Pass data to the template</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>EJS</h1>
+    <p>Embedded javascript</p>
+
+    <pre><code class="ejs" data-trim>
+<h1><%%= name %> </h1>
+<p>Test results:</p>
+<p>
+  <%% if(passed){ %>
+    Yay, you passed!
+  <%% } else { %>
+    FAIL!
+  <%% } %>
+</p>
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Setting up views</h1>
+    <ol>
+      <li>
+        Install EJS 
+        <pre><code class="javascript" data-trim>        
+TODO
+        </code></pre>
+      </li>
+      <li>
+        Tell express to use EJS:
+        <pre><code class="javascript" data-trim>        
+TODO
+        </code></pre>
+      </li>
+      <li>
+        Tell express where to find the views:
+        <pre><code class="javascript" data-trim>        
+app.set('views', __dirname + '/views');
+        </code></pre>
+      </li>      
+      <li>Create a view file</li>
+      <li>
+        Render the view:
+        <pre><code class="javascript" data-trim>        
+TODO
+        </code></pre>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h1>Setup data</h1>
+    ...
+  </section>
+
+  <section>
+    <div class="protip">
+      Don't put logic in your templates or HTML in your code.
+    </div>
   </section>
 </section>
 
