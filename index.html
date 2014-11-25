@@ -41,7 +41,7 @@
     <!-- {% if page.url == site.baseurl %} active{% endif %} -->
     <a class="sidebar-nav-item" href="/">Home</a>
 
-    <!-- <a class="sidebar-nav-item" href="/lesson1">Slides lecture 1</a> -->
+    <a class="sidebar-nav-item" href="lesson1.html">Slides lecture 1</a>
     <!-- <a class="sidebar-nav-item" href="/about">About</a> -->
 
     <a class="sidebar-nav-item" href="https://github.com/DigitPaint/server-side-scripting-in-nodejs-course">GitHub project</a>
@@ -159,7 +159,7 @@
 
 <h1 id="server-side-scripting-in-node.js">Server side scripting in Node.js</h1>
 
-<p><strong><em>See this README with a table of contents <a href="http://google.com">here</a>.</em></strong></p>
+<p><strong><em>See this README with a table of contents <a href="http://cmda.github.io/sss-course/">here</a>.</em></strong></p>
 
 <h2 id="introductie">Introductie</h2>
 
@@ -219,18 +219,33 @@
 
 <h3 id="huiswerk-&amp;-opdrachten">Huiswerk &amp; opdrachten</h3>
 
-<p>Het huiswerk wordt per week in het <a href="#weekoverzicht">weekoverzicht</a> opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Tijdens de cursus zal github gebruikt worden om efficiënt code te kunnen delen. Enerzijds met je mede-studenten, maar ook met ons zodat wij snel jouw code kunnen zien en kunnen testen. </p>
+<p>Het huiswerk wordt per week in het <a href="#weekoverzicht">weekoverzicht</a> opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Wekelijks zal er een .zip worden geplaatst met hierin de opdrachten, of je kunt de code van GitHub gebruiken door een fork van de exercises repository te maken. </p>
 
 <p>Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, verder kunnen jullie bij onduidelijkheden <a href="https://github.com/CMDA/sss-course/issues">de issues van dit project</a> gebruiken. Daarnaast waarderen wij het enorm als je ons helpt het lesmateriaal te verbeteren door een pull-request te sturen.  </p>
 
 <h4 id="workflow">Workflow</h4>
 
-<p>[TODO]
-1. Fork 
-2. Clone
-3. Open project in IDE, modify, test, clone etc.
-4. Commit your changes
-5. To save -&gt;  Push</p>
+<ol>
+<li><a href="https://github.com/CMDA/sss-exercises/fork">Fork the exercise project repo</a></li>
+<li><a href="http://git-scm.com/book/ch2-1.html#Cloning-an-Existing-Repository">Clone it</a></li>
+<li>Open project in your texteditor or IDE</li>
+<li>Commit your changes and push your changes</li>
+</ol>
+
+<h5 id="update-your-repository">Update your repository</h5>
+
+<p>During the project, you can pull changes from <a href="https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/">the upstream</a>. The upstream is the project from which you created the fork. Every week we will add extra exercises to this repository. </p>
+
+<p>First we configure the <a href="https://github.com/CMDA/sss-exercises">CDMA</a> repository as a remote in git. </p>
+
+<p><code>
+git remote add upstream git@github.com:CMDA/sss-exercises.git
+</code></p>
+
+<p>To get the new changes into your fork.
+<code>
+git pull upstream master
+</code></p>
 
 <h3 id="toetsing">Toetsing</h3>
 
@@ -239,6 +254,8 @@
 <h2 id="weekoverzicht">Weekoverzicht</h2>
 
 <h3 id="week-1">Week 1</h3>
+
+<p><a href="http://cmda.github.io/sss-course/lesson1">Slides</a></p>
 
 <ol>
 <li>Node installeren en REPL draaien</li>
@@ -309,7 +326,7 @@
 <p>Als je vragen hebt kun je met de volgende gegevens contact met ons opnemen. Wel willen wij je vragen om voor algemene zaken <a href="https://github.com/CMDA/sss-course/issues/new">een issue</a> hier op GitHub te maken. Het is handig om deze <a href="https://github.com/CMDA/sss-course/subscription">pagina te volgen</a> zodat je op de hoogte blijft als er updates zijn.</p>
 
 <ul>
-<li>Flurin Egger &lt;[TODO]&gt;</li>
+<li>Flurin Egger  &lt;<a href="mailto://f.p.egger@hva.nl">f.p.egger@hva.nl</a>&gt;</li>
 <li>Edwin van der Graaf &lt;<a href="mailto://e.r.van.der.graaf@hva.nl">e.r.van.der.graaf@hva.nl</a>&gt;</li>
 <li>Vincent Vijn &lt;<a href="mailto://v.l.vijn@hva.nl">v.l.vijn@hva.nl</a>&gt;</li>
 </ul>

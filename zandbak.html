@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Zandbak - Server Side Scriptin in Node.js</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Flurin Egger">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="stylesheets/theme.css" id="theme" />
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      if(window.location.search.match( /print-/gi )){
+        document.write( '<link rel="stylesheet" href="/vendor/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css">' );        
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/vendor/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
+  <p>Zandbak (sheets not used for the moment)</p>
+</section>
+
+<section>
+  <section>
+    <h1>Generate an application</h1>
+    <h2>Step 1.</h2>
+    <pre class="terminal--osx"><code data-trim class="bash">
+$ npm install express-generator -g
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Generate an application (2)</h1>
+    <pre class="terminal--osx"><code data-trim class="bash">
+$ express -h
+
+Usage: express [options] [dir]
+
+Options:
+
+  -h, --help          output usage information
+  -V, --version       output the version number
+  -e, --ejs           add ejs engine support (defaults to jade)
+      --hbs           add handlebars engine support
+  -H, --hogan         add hogan.js engine support
+  -c, --css <engine>  add stylesheet <engine> support (less|stylus|compass) (defaults to plain css)
+  -f, --force         force on non-empty directory
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Generate an application (3)</h1>
+    <pre class="terminal--osx"><code data-trim class="bash">
+$ express -e 'project_name'
+    </code></pre>
+    <p>Pass the <code>-e</code> option to tell express to use EJS templates, more on that later.</p>
+  </section>
+
+</section>
+
+<div class="hidden">
+  * Static files
+  * Redirects
+</div>
+      </div>
+    </div>
+
+    <script src="vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="vendor/highlightjs/highlight.pack.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        width: 1000,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>

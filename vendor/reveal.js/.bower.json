@@ -10,5 +10,6 @@
   },
   "_source": "git://github.com/hakimel/reveal.js.git",
   "_target": "~2.6.2",
-  "_originalSource": "reveal.js"
+  "_originalSource": "reveal.js",
+  "_direct": true
 }
