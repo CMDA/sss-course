@@ -20,8 +20,8 @@ mockup.release do |r|
   r.cleanup "**/stylesheets/src"
 
   if ENV["GH_TOKEN"]
-    r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "#{ENV["GH_TOKEN"]}@github.com:CMDA/sss-course.git"
+    r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "https://#{ENV["GH_TOKEN"]}@github.com/CMDA/sss-course.git"
   else
-    r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
+   #  r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
   end
 end
