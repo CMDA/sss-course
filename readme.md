@@ -103,8 +103,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 
 #### Opdracht
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
-  ** Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)
-  ** Hoodstuk 8, t/m 8.3 (p 176 t/m 193), minder relevant: "view caching"
+  * Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)
+  * Hoodstuk 8, t/m 8.3 (p 176 t/m 193), minder relevant: "view caching"
 * [Opdracht 2](http://cl.ly/0u2p1x3k1H15) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise2/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
 
 ### Week 3
