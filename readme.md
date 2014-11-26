@@ -96,6 +96,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 * [Opdracht 1](https://github.com/CMDA/sss-exercises/tree/master/exercise1)
 
 ### Week 2
+[Slides](http://cmda.github.io/sss-course/lesson2)
+
 1. Appserver
 1. Templating
 1. Async, callbacks en events
