@@ -4,7 +4,7 @@
 
 
 ## Introductie
-Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er natuurlijk ook taken die je beter op de server kunt uitvoeren: data opslaan, gebruikers accounts, data uitwisselen met externe diensten, etc. In het server-side scripting leer je hoe je in JavaScript met Node.js een applicatie kunt maken voor het server side werk. Aangezien je vaak moet werken met databases om data op te kunnen slaan is het verstandig om naast dit vak ook te kiezen voor het profileringsvak Storage. 
+Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er natuurlijk ook taken die je beter op de server kunt uitvoeren: data opslaan, gebruikers accounts, data uitwisselen met externe diensten, etc. In het server-side scripting leer je hoe je in JavaScript met Node.js een applicatie kunt maken voor het server side werk. Aangezien je vaak moet werken met databases om data op te kunnen slaan is het verstandig om naast dit vak ook te kiezen voor het profileringsvak Storage.
 
 ### Lesstof
 * Werken met een Node.js server
@@ -26,7 +26,7 @@ Hoewel je als Frontend developer je vooral met client-side bezig houdt, zijn er 
 
 
 ## Benodigde voorkennis
-* Basis javascript kennis, 
+* Basis javascript kennis,
 * Terminal kennis (zie [Tools](#tools) voor extra resource)
 * Git en een GitHub-account
 
@@ -45,9 +45,9 @@ Het programma bestaat uit een serie hoor- en werkcolleges. In de hoorcolleges be
 * Vragen stellen
 
 ### Huiswerk & opdrachten
-Het huiswerk wordt per week in het [weekoverzicht](#weekoverzicht) opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Wekelijks zal er een .zip worden geplaatst met hierin de opdrachten, of je kunt de code van GitHub gebruiken door een fork van de exercises repository te maken. 
+Het huiswerk wordt per week in het [weekoverzicht](#weekoverzicht) opgenomen. Het huiswerk zal bestaan uit het lezen van het boek als voorbereiding op de stof van het werkcollege of het volgende werkcollege, en een aantal opdrachten waarmee je gedurende de cursus zal leren om een server-side application te ontwikkelen. Het maken van de opdrachten zorgt ervoor dat je een goede voorbereiden hebt voor de deeltoetsen en eindopdracht. Wekelijks zal er een .zip worden geplaatst met hierin de opdrachten, of je kunt de code van GitHub gebruiken door een fork van de exercises repository te maken.
 
-Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, verder kunnen jullie bij onduidelijkheden [de issues van dit project](https://github.com/CMDA/sss-course/issues) gebruiken. Daarnaast waarderen wij het enorm als je ons helpt het lesmateriaal te verbeteren door een pull-request te sturen.  
+Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, verder kunnen jullie bij onduidelijkheden [de issues van dit project](https://github.com/CMDA/sss-course/issues) gebruiken. Daarnaast waarderen wij het enorm als je ons helpt het lesmateriaal te verbeteren door een pull-request te sturen.
 
 
 #### Workflow
@@ -59,9 +59,9 @@ Als je vragen hebt kun je deze natuurlijk aan ons stellen tijdens de colleges, v
 
 
 ##### Update your repository
-During the project, you can pull changes from [the upstream](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/). The upstream is the project from which you created the fork. Every week we will add extra exercises to this repository. 
+During the project, you can pull changes from [the upstream](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/). The upstream is the project from which you created the fork. Every week we will add extra exercises to this repository.
 
-First we configure the [CDMA](https://github.com/CMDA/sss-exercises) repository as a remote in git. 
+First we configure the [CDMA](https://github.com/CMDA/sss-exercises) repository as a remote in git.
 
 ```
 git remote add upstream git@github.com:CMDA/sss-exercises.git
@@ -92,7 +92,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
   * Chapter 3, t/m 3.2.3 (p 27 t/m 58)
   * Appendix A5 (p 363 t/m 366)
-  * Appendix B1 t/m B3.2 (p 367 t/m 371) 
+  * Appendix B1 t/m B3.2 (p 367 t/m 371)
 * [Opdracht 1](https://github.com/CMDA/sss-exercises/tree/master/exercise1)
 
 ### Week 2
@@ -111,18 +111,19 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 
 ### Week 3
 1. Forms
+1. Basic validations
 1. Sessions
-1. Security XSS
 
 ### Week 4
-1. Validaties
-1. Unittesten
+1. Advanced routers
+1. Files
+1. Uploads
+1. Testing
 
 ### Week 5
 1. Databases
 1. MySQL
 1. Security (injection)
-1. Files
 
 ### Week 6
 1. Realtime
@@ -141,7 +142,7 @@ Als je vragen hebt kun je met de volgende gegevens contact met ons opnemen. Wel 
 
 ## Bronnen
 
-Het boek: [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/) zal als belangrijke leidraad van deze cursus worden gebruikt. Wekelijks zullen diverse hoofdstukken hieruit worden behandeld. 
+Het boek: [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/) zal als belangrijke leidraad van deze cursus worden gebruikt. Wekelijks zullen diverse hoofdstukken hieruit worden behandeld.
 
 ### Voorkennis
 
