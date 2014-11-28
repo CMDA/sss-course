@@ -148,6 +148,16 @@ $linkColorHover: lighten( $linkColor, 20% );
     font-family: monaco, monospace;
   }
 
+  code mark,
+  pre mark{
+    &,
+    & .hljs-string,
+    & .hljs-tag,
+    & .hljs-value{
+      color: #000;
+    }
+  }
+
   p code,
   h1 code,
   li code{

@@ -23,11 +23,202 @@ layout: "presentation"
 
 <section>
   <section>
-    <h1>Forms</h1>
+    <h1>Req / Res</h1>
 
+    <style>
+      .hl-red .hljs-params{
+        font-weight: bold;
+        color: #f00;
+      }
+
+      .hl-green .hljs-params{
+        font-weight: bold;
+        color: #0f0;
+      }
+
+    </style>
+
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <img src="/assets/lesson3/request-response.png">
+      </div>
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim data-noescape>
+app.get('/', function(<span class="hl-red">req</span>, <span class="hl-green">res</span>){
+  ...
+});
+        </code></pre>
+
+        <h2 style="margin-top: 1em">Request</h2>
+        <pre><code class="javascript" data-trim data-noescape>
+req.params // Parameters
+req.query // Query string
+        </code></pre>   
+
+        <h2 style="margin-top: 1em">Response</h2>
+        <pre><code class="javascript" data-trim data-noescape>
+req.send("...") // Send string
+req.render("template", {..}) // Render template
+        </code></pre>   
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Routes v.s. Routers</h1>
+
+    <h2>Route</h2>
+    <pre><code class="javascript" data-trim data-noescape>
+app.get("/", function(req, res){..});
+app.use("/", router);
+router.get("/weather", function(req, res){..});
+router.get("/weather/:location", function(req, res){..});
+    </code></pre>
+
+    <h2>Router</h2>
+    <pre><code class="javascript" data-trim data-noescape>
+var router = express.Router();
+    </code></pre>    
+  </section>
+
+  <section>
+    <h1>Router</h1>
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <img src="/assets/lesson3/router.svg" alt="Router schema">
+      </div>    
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim data-noescape>
+var weatherRouter = express.Router();
+var forecastRouter = express.Router();
+
+app.use("/weather", weatherRouter);
+
+weatherRouter.get("/", ...);
+weatherRouter.get("/:location", ...);
+weatherRouter.get("/:location/temperature", ...);
+
+weatherRouter.use("/forecast", forecastRouter);
+
+forecastRouter.get("/", ...);
+forecastRouter.get("/24-hours", ...);
+forecastRouter.get("/5-days", ...);
+        </code></pre>
+      </div>
+
+    </div>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h1>Forms</h1>
+  </section>
+
+  <section>
+    <h1>A form</h1>
+    <pre><code class="html" data-trim>
+<form action="/weather" method="post">
+  <label for="field_location">Location: </label>
+  <input type="text" id="field_location" name="location" value="">
+  <button type="submit">Go!</button>
+</form>
+    </code></pre>
+  </section>
+
+  <section>
+      <h1>Handling form input</h1>
+
+      <h2>Form</h2>
+      <div class="side-by-side__content">
+        <pre><code class="html" data-trim data-noescape>
+&lt;form action=&quot;<mark>/weather</mark>&quot; method=&quot;<mark>post</mark>&quot;&gt;
+  &lt;label for=&quot;field_location&quot;&gt;Location: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_location&quot; name=&quot;location&quot; value=&quot;&quot;&gt;
+  &lt;button type=&quot;submit&quot;&gt;Go!&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+      </div>
+
+      <h2>App</h2>
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim data-noescape>
+router.<mark>post</mark>(<mark>"/"</mark>, function(req, res){
+  // ...
+});
+        </code></pre>
+      </div>
+  </section>
+
+  <section>
+    <h1>HTTP</h1>
+    <ul>
+      <li>GET</li>
+      <li>POST</li>
+      <li>PUT</li>
+      <li>DELETE</li>
+      <li>HEAD</li>
+      <li>OPTIONS</li>
+      <li>...</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>HTTP GET</h1>
+    <img src="/assets/lesson3/get.svg" alt="HTTP GET" style="width: 100%">
+  </section>
+
+  <section>
+    <h1>HTTP POST</h1>
+    <img src="/assets/lesson3/post.svg" alt="HTTP POST" style="width: 100%">
+  </section>
+
+
+  <section>
+    <h1>Form</h1>
+
+    <pre><code class="html" data-trim data-noescape>
+&lt;form action=&quot;<mark>/weather</mark>&quot; method=&quot;<mark>post</mark>&quot;&gt;
+  &lt;label for=&quot;field_location&quot;&gt;Location: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_location&quot; name=&quot;<mark>location</mark>&quot; value=&quot;&quot;&gt;
+  &lt;button type=&quot;submit&quot;&gt;Go!&lt;/button&gt;
+&lt;/form&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Body parser</h1>
+
+    <ol>
+      <li><code>$ npm install --save body-parser</code></li>
+      <li>
+        <pre><code class="javascript" data-trim data-noescape>
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+
+app.use(bodyParser.urlencoded({extended: true}));
+        </code></pre>
+      </li>
+      <li>
+        Profit!
+      </li>
+    </ol>
+  </section>
+
+  <section>
     * POST
     * HTTP request variant van get en post (header + path + body)
+
+    * Body parser
+    npm install --save body-parser
+
     * Form body
+    * Redirect
+    req.baseUrl
+
     * GET
   </section>
 </section>
@@ -49,7 +240,11 @@ layout: "presentation"
 
   * Onthouden van data (zolang browser open staat)
 
+
   * Session initializen
+  npm install --save express-session
+
+  * secret
 
   * Je locatie onthouden
 
