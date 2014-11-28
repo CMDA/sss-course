@@ -194,6 +194,7 @@ router.<mark>post</mark>(<mark>"/"</mark>, function(req, res){
     <ol>
       <li><code>$ npm install --save body-parser</code></li>
       <li>
+        Using it
         <pre><code class="javascript" data-trim data-noescape>
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -209,13 +210,39 @@ app.use(bodyParser.urlencoded({extended: true}));
   </section>
 
   <section>
-    * POST
-    * HTTP request variant van get en post (header + path + body)
+    <h1>Handling form input</h1>
 
-    * Body parser
-    npm install --save body-parser
+    <pre><code class="javascript" data-trim data-noescape>
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
 
-    * Form body
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.post("/", function(req, res){
+  var location = req.body.location;
+})
+      </code></pre>
+
+  </section>
+
+  <section>
+    <h1>Redirect</h1>
+    <p>Send someone to another URL after post so people won't post again.</p>
+    <p>This is always a GET</p>
+
+    <pre><code class="javascript" data-trim data-noescape>
+// ...
+app.post("/", function(req, res){
+  res.redirect("/")
+})
+      </code></pre>
+
+  </section>
+
+  <section>
+
+
     * Redirect
     req.baseUrl
 
