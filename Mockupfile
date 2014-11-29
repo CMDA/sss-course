@@ -13,7 +13,10 @@ mockup.serve do |s|
 end
 
 mockup.release do |r|
-   r.use(:sass)
+  r.use(:sass)
+  r.use(:url_relativizer,
+        url_attributes: %w{src href action data-background}
+  )
 
   r.cleanup "**/.DS_Store"
   r.cleanup "**/.sass-cache"
