@@ -1,10 +1,12 @@
 language: ruby
+rvm:
+  - 2.1.5
 before_script:
 - git config --global user.email "travis-ci@sss-course"
 - git config --global user.name "Travis-CI"
 - npm install
 - bower install
-script: bundle exec roger release
+script: bundle exec roger release > /dev/null 2>&1
 branches:
   only:
   - master
