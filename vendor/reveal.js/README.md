@@ -404,10 +404,11 @@ transition: linear
     <h2>This slide will override the presentation transition and zoom!</h2>
 </section></p>
 
-<p><section data-transition-speed="fast">
+<section data-transition-speed="fast">
     <h2>Choose from three transition speeds: default, fast or slow!</h2>
 </section>
-```</p>
+
+<p>```</p>
 
 <p>Note that this does not work with the page and cube transitions.</p>
 

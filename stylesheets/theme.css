@@ -236,6 +236,13 @@ body {
 .reveal pre {
   font-family: monaco, monospace;
 }
+.reveal code mark, .reveal code mark .hljs-string, .reveal code mark .hljs-tag, .reveal code mark .hljs-value,
+.reveal pre mark,
+.reveal pre mark .hljs-string,
+.reveal pre mark .hljs-tag,
+.reveal pre mark .hljs-value {
+  color: #000;
+}
 .reveal p code,
 .reveal h1 code,
 .reveal li code {
