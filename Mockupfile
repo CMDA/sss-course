@@ -7,6 +7,8 @@ Sass::Plugin.options[:template_location] = {
   "./html/vendor/revealjs/css/theme/template" => "./html/vendor/revealjs/css/theme/template",
 }
 
+mockup.project.options[:verbose] = true;
+
 mockup.serve do |s|
   s.use Sass::Plugin::Rack
   s.use Roger::Rack::Sleep
@@ -19,9 +21,11 @@ mockup.release do |r|
   r.cleanup "**/.sass-cache"
   r.cleanup "**/stylesheets/src"
 
-  if ENV["GH_TOKEN"]
-   # r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "https://#{ENV["GH_TOKEN"]}@github.com/CMDA/sss-course.git"
-  else
-   r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
-  end
+  # r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
+
+  # if ENV["GH_TOKEN"]
+  #  # r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "https://#{ENV["GH_TOKEN"]}@github.com/CMDA/sss-course.git"
+  # else
+  #  r.finalize Roger::Release::Finalizers::GitBranch, :branch => "gh-pages", :remote => "git@github.com:CMDA/sss-course.git"
+  # end
 end
