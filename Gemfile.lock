@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/edwinvdgraaf/roger.git
-  revision: a8b543f4e13e9517c55029677f3357e2b543a1e4
+  revision: 69318ca2e6d050d1210e4d31a6085e75952a53c0
   branch: gh-pages-for-travis
   specs:
     roger (0.12.4)
@@ -23,7 +23,7 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
-    redcarpet (3.1.2)
+    redcarpet (3.2.1)
     roger_sass (1.0.1)
       roger (>= 0.11.0)
       sass
