@@ -509,3 +509,28 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .protip code {
   color: #fff;
 }
+
+.reveal .warning,
+.warning {
+  background: #f00;
+  color: #fff;
+  animation: 1s pulseRedBg ease infinite;
+  display: inline-block;
+  padding: 1em;
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+@keyframes "pulseRedBg" {
+  from {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+
+  80% {
+    background-color: red;
+  }
+
+  to {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}
