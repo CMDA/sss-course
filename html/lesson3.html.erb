@@ -13,8 +13,9 @@ layout: "presentation"
   <section>
     <h1>Today</h1>
     <ol>
+      <li>Requests &amp; Routers</li>
       <li>Forms</li>
-      <li>Basic validations</li>
+      <li>Redirects</li>
       <li>Sessions</li>
       <li>Wrap up</li>
     </ol>
@@ -22,6 +23,9 @@ layout: "presentation"
 </section>
 
 <section>
+  <section>
+    <h1>Requests &amp; Routers</h1>
+  </section>
   <section>
     <h1>Req / Res</h1>
 
@@ -53,13 +57,13 @@ app.get('/', function(<span class="hl-red">req</span>, <span class="hl-green">re
         <pre><code class="javascript" data-trim data-noescape>
 req.params // Parameters
 req.query // Query string
-        </code></pre>   
+        </code></pre>
 
         <h2 style="margin-top: 1em">Response</h2>
         <pre><code class="javascript" data-trim data-noescape>
 req.send("...") // Send string
 req.render("template", {..}) // Render template
-        </code></pre>   
+        </code></pre>
 
       </div>
     </div>
@@ -79,7 +83,7 @@ router.get("/weather/:location", function(req, res){..});
     <h2>Router</h2>
     <pre><code class="javascript" data-trim data-noescape>
 var router = express.Router();
-    </code></pre>    
+    </code></pre>
   </section>
 
   <section>
@@ -87,7 +91,7 @@ var router = express.Router();
     <div class="side-by-side">
       <div class="side-by-side__content">
         <img src="/assets/lesson3/router.svg" alt="Router schema">
-      </div>    
+      </div>
       <div class="side-by-side__content">
         <pre><code class="javascript" data-trim data-noescape>
 var weatherRouter = express.Router();
@@ -136,7 +140,7 @@ forecastRouter.get("/5-days", ...);
         <pre><code class="html" data-trim data-noescape>
 &lt;form action=&quot;<mark>/weather</mark>&quot; method=&quot;<mark>post</mark>&quot;&gt;
   &lt;label for=&quot;field_location&quot;&gt;Location: &lt;/label&gt;
-  &lt;input type=&quot;text&quot; id=&quot;field_location&quot; name=&quot;location&quot; value=&quot;&quot;&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_location&quot; name=&quot;<mark>location</mark>&quot; value=&quot;&quot;&gt;
   &lt;button type=&quot;submit&quot;&gt;Go!&lt;/button&gt;
 &lt;/form&gt;
         </code></pre>
@@ -146,7 +150,7 @@ forecastRouter.get("/5-days", ...);
       <div class="side-by-side__content">
         <pre><code class="javascript" data-trim data-noescape>
 router.<mark>post</mark>(<mark>"/"</mark>, function(req, res){
-  // ...
+  // req.body contains our form data!
 });
         </code></pre>
       </div>
@@ -175,6 +179,10 @@ router.<mark>post</mark>(<mark>"/"</mark>, function(req, res){
     <img src="/assets/lesson3/post.svg" alt="HTTP POST" style="width: 100%">
   </section>
 
+  <section>
+    <h1>HTTP response</h1>
+    <img src="/assets/lesson3/response.svg" alt="HTTP response" style="width: 100%">
+  </section>
 
   <section>
     <h1>Form</h1>
@@ -210,7 +218,7 @@ app.use(bodyParser.urlencoded({extended: true}));
   </section>
 
   <section>
-    <h1>Handling form input</h1>
+    <h1>Handling form input with POST</h1>
 
     <pre><code class="javascript" data-trim data-noescape>
 var express = require('express');
@@ -222,42 +230,93 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.post("/", function(req, res){
   var location = req.body.location;
 })
-      </code></pre>
-
+    </code></pre>
   </section>
 
   <section>
-    <h1>Redirect</h1>
-    <p>Send someone to another URL after post so people won't post again.</p>
-    <p>This is always a GET</p>
+    <h1>Handling form input with GET</h1>
 
-    <pre><code class="javascript" data-trim data-noescape>
-// ...
-app.post("/", function(req, res){
-  res.redirect("/")
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <pre><code class="html" data-trim data-noescape>
+&lt;form action=&quot;/&quot; method=&quot;<mark>get</mark>&quot;&gt;
+  &lt;label for=&quot;field_location&quot;&gt;Location: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_location&quot; name=&quot;<mark>location</mark>&quot; value=&quot;&quot;&gt;
+  &lt;button type=&quot;submit&quot;&gt;Go!&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+      </div>
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim data-noescape>
+app.<mark>get</mark>("/", function(req, res){
+  var location = <mark>req.query.location</mark>;
 })
-      </code></pre>
-
+        </code></pre>
+      </div>
+    </div>
   </section>
 
   <section>
+    <div class="protip">
+      All paramteres are shown in the URL when using GET. So never use GET for form submission unless you specifically want it!
+    </div>
+  </section>
 
-
-    * Redirect
-    req.baseUrl
-
-    * GET
+  <section data-background="/assets/stop.jpg">
+    <div class="warning">
+      User input is NEVER to be trusted!
+    </div>
   </section>
 </section>
 
 <section>
   <section>
-    <h1>Basic validations</h1>
+    <h1>Redirect</h1>
+    <p class="fragment">
+      A redirect tells the client to go to another URL.
+    </p>
+    <p class="fragment">
+      One use case is to redirect the client away after form submission.
+    </p>
   </section>
 
-  * Filteren van input
-  * Return en foutmelding geven
-  * Foutmelding per veld geven
+  <section>
+    <h1>Redirect</h1>
+
+    <pre><code class="javascript" data-trim data-noescape>
+app.post("/", function(req, res){
+  res.redirect("/")
+})
+app.get("/", function(req, res){
+  res.send("You've been redirected!";)
+})
+    </code></pre>
+
+    <p>A redirect is always a GET</p>
+  </section>
+
+  <section>
+    <h1>Redirect within router</h1>
+    <p>Your router does not know on what route it is used</p>
+
+    <pre><code class="javascript" data-trim data-noescape>
+// The weather router has this route: app.use("/weather", weatherRouter)
+weatherRouter.post("/", function(req, res){
+  // res.redirect("/") would not go to "/weather" but to "/"
+  res.redirect(<mark>req.baseURL</mark> + "/");
+})
+weatherRouter.get("/", function(req, res){
+  res.send("You've been redirected!";)
+})
+    </code></pre>
+  </section>
+</section>
+
+<section data-background="/assets/lesson3/break.gif">
+  <div class="fragment">
+    <h1>Coffebreak</h1>
+    <p>Back in 10 minutes</p>
+  </div>
 </section>
 
 <section>
@@ -265,25 +324,239 @@ app.post("/", function(req, res){
     <h1>Sessions</h1>
   </section>
 
-  * Onthouden van data (zolang browser open staat)
+  <section>
+    <h1>What's a session?</h1>
+    <ul>
+      <li class="fragment">
+        <strong>Literally:</strong> the time the client is using your application.
+      </li>
+      <li class="fragment">
+        <strong>Practically:</strong> a way to temporarily store user specific data while the client is using your application
+      </li>
+    </ul>
+
+    <p class="fragment">
+      <strong>Important!</strong> session data is local to the user</p>
+    </p>
+
+  </section>
+
+  <section>
+    <h1>What can you use it for?</h1>
+    <ul>
+      <li>Store wether or not a user is logged in</li>
+      <li>Store temporary settings</li>
+      <li>Store shopping cart items</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Sessions in Express</h1>
+
+    <ol>
+      <li><code>$ npm install --save express-session</code></li>
+      <li>
+        Configuring it
+        <pre><code class="javascript" data-trim data-noescape>
+var express = require('express');
+var session = require('express-session');
+var app = express();
+
+app.use(session({
+  secret: "...", // Customize this string for security!
+  resave: false,
+  saveUninintialized: true
+}))
+
+        </code></pre>
+      </li>
+    </ol>
+  </section>
+
+    <section>
+      <h1>Sessions in Express</h1>
+
+      <ol start="3">
+        <li>
+          Using it
+          <pre><code class="javascript" data-trim data-noescape>
+app.get("/", function(req, res){
+  req.session.name = "my namee"; // Setting values
+  req.session.name; // Getting values
+})
+          </code></pre>
+        </li>
+        <li>
+          Profit!
+        </li>
+      </ol>
+    </section>
+
+  <section>
+    <h1>The session secret</h1>
+    <p>
+      To prevent manipulation the secret is used to check if the data has been tampered with
+    </p>
+  </section>
 
 
-  * Session initializen
-  npm install --save express-session
+  <section>
+    <h1>Example: Remember location</h1>
+  </section>
 
-  * secret
+  <section>
+    <h1>Example: location</h1>
+    <h2>Check if we have the location</h2>
+    <pre><code class="javascript" data-trim>
+// routes/weather.js
+router.get("/", function(req, res){
+  if(req.session.location){
+    res.redirect(req.baseUrl + "/" + req.session.location);
+  } else {
+    var data = { req: req }
+    res.render("weather/index", data);
+  }
+});
+    </code></pre>
+  </section>
 
-  * Je locatie onthouden
+  <section>
+    <h1>Example: location</h1>
+    <h2>Store the location</h2>
+    <pre><code class="javascript" data-trim>
+// routes/weather.js
+router.post("/", function(req, res){
+  var location = req.body.location;
+  if(location){
+    req.session.location = location;
+    res.redirect(req.baseUrl + "/" + location);
+  } else {
+    var data = { req: req }
+    res.render("weather/index", data);
+  }
+});
+    </code></pre>
+  </section>
 
-  * Inloggen
+  <section>
+    <h1>Example: Login</h1>
+    <h2>Check if user is logged in</h2>
+    <pre><code class="javascript" data-trim data-noescape>
+// routes/user.js
+router.get("/", function(req, res){
+  if(req.session.username){
+    res.send("Welcome, " + req.session.username);
+  } else {
+    res.redirect(req.baseUrl + "/" + "login")
+  }
+});
+    </code>
+  </section>
 
-  * Security XSS
+  <section>
+    <h1>Example: Login</h1>
+    <h2>Show login form</h2>
+    <pre><code class="javascript" data-trim data-noescape>
+// routes/user.js
+router.get("/login", function(req, res){
+  var data = { req: req }
+  res.render("user/login", data);
+});
+    </code></pre>
 
-  * niet GET
+    <pre><code class="erb" data-trim>
+&lt;!-- views/user/login.ejs --&gt;
+&lt;form action=&quot;&lt;%= req.baseUrl + &quot;/login&quot; %&gt;&quot; method=&quot;post&quot;&gt;
+  &lt;label for=&quot;field_username&quot;&gt;Username: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_username&quot; name=&quot;username&quot; value=&quot;&quot;&gt;
 
+  &lt;label for=&quot;field_password&quot;&gt;Password: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_password&quot; name=&quot;password&quot; value=&quot;&quot;&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Login!&lt;/button&gt;
+&lt;/form&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Example: Login</h1>
+    <h2>Handle login</h2>
+    <pre><code class="javascript" data-trim>
+// routes/user.js
+router.post("/login", function(req, res){
+  var username = req.body.username;
+  var password = req.body.password;
+
+  if(username && username == "flurin" &&
+     password && password == "qwedsa"){
+    req.session.username = username;
+    res.redirect(req.baseUrl + "/");
+  }
+});
+    </code>
+  </section>
+
+  <section>
+    <h1>Example: Login</h1>
+    <h2>Handle login failure</h2>
+    <pre><code class="javascript" data-trim>
+// routes/user.js
+router.post("/login", function(req, res){
+  var username = req.body.username;
+  var password = req.body.password;
+
+  if(username && username == "flurin" &&
+     password && password == "qwedsa"){
+    req.session.username = username;
+    res.redirect(req.baseUrl + "/");
+  } else {
+    var data = {
+      username: username,
+      req: req,
+      error: "Username and password do not match."
+    }
+
+    res.render("user/login", data);
+  }
+});
+    </code>
+  </section>
+
+  <section>
+    <h1>Example: Login</h1>
+    <h2>Login form with error</h2>
+    <pre><code class="erb" data-trim>
+&lt;!-- views/user/login.ejs --&gt;
+&lt;% if(error){ %&gt;
+  &lt;div style=&quot;color: #f00&quot;&gt;&lt;%= error %&gt;&lt;/div&gt;
+&lt;% } %&gt;
+
+&lt;form action=&quot;&lt;%= req.baseUrl + &quot;/login&quot; %&gt;&quot; method=&quot;post&quot;&gt;
+  &lt;label for=&quot;field_username&quot;&gt;Username: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_username&quot; name=&quot;username&quot; value=&quot;&lt;%= username || &quot;&quot; %&gt;&quot;&gt;
+
+  &lt;label for=&quot;field_password&quot;&gt;Password: &lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;field_password&quot; name=&quot;password&quot; value=&quot;&quot;&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Login!&lt;/button&gt;
+&lt;/form&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Example: Login</h1>
+    <p>We need to fix the <code>login</code> route, but that is something you should be able to do yourself.</p>
+  </section>
 </section>
 
 <section>
+
+  <section>
+    <h1>Live code</h1>
+    <p>
+      <a href="https://github.com/flurin/sss-course-livecode-2014">https://github.com/flurin/sss-course-livecode-2014</a>
+    </p>
+  </section>
 
   <section>
     <h1>Werkcollege en huiswerk</h1>
@@ -293,19 +566,25 @@ app.post("/", function(req, res){
     <h1>Huiswerk: lezen</h1>
 
     <ul>
-      <li>...</li>
+      <li>
+        Hoofdstuk 4.1, 4.2 en 4.4 (p. 71 t/m 80 &amp; p. 87 t/m 94);
+      <li>
+        Hoofdstuk 11.1 en 11.2 (p. 264 t/m 275);
+      </li>
+      <li>
+        Manage session using Node.js and Express 4; <a href="http://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/">http://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/</a>
+      </li>
     </ul>
-
-    <p>Klaar voor werkcollege</p>
+    <p><small>
+      In hoofdstuk 4 wordt gebruik gemaakt van de http-module van Node.js zelf. Omdat wij tijdens deze cursus gebruik maken van Express, is het minder van belang dat je de code uit het boek helemaal begrijpt. Wel wordt verwacht dat je de concepten begrijpt.
+    </small></p>
   </section>
 
   <section>
     <h1>Huiswerk: doen</h1>
     <ul>
-      <li>...</li>
+      <li>Voorbereiden voor deeltoets 1</li>
     </ul>
-
-    <p>Klaar voor werkcollege</p>
   </section>
 
   <section data-background="/assets/thatsall.gif">

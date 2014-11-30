@@ -1,0 +1,28 @@
+.reveal .warning,
+.warning{
+  &{
+    background: #f00;
+    color: #fff;
+    animation: 1s pulseRedBg ease infinite;
+    display: inline-block;
+    padding: 1em;
+    font-size: 2em;
+    line-height: 1.2;
+  }
+}
+
+@keyframes "pulseRedBg" {
+  from {
+    background-color: rgba(#f00, 0.5);
+
+  }
+
+  80% {
+    background-color: rgba(#f00, 1);
+  }
+
+  to {
+    background-color: rgba(#f00, 0.5);
+  }
+
+}
