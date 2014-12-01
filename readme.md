@@ -94,6 +94,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
   * Appendix A5 (p 363 t/m 366)
   * Appendix B1 t/m B3.2 (p 367 t/m 371)
 * [Opdracht 1](https://github.com/CMDA/sss-exercises/tree/master/exercise1)
+* [Opdracht 1 (met uitwerkingen)](https://gitprint.com/CMDA/sss-exercises/blob/feature-answers/exercise1/README.md)
 
 ### Week 2
 [Slides](http://cmda.github.io/sss-course/lesson2)
@@ -108,6 +109,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
   * Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)
   * Hoodstuk 8, t/m 8.3 (p 176 t/m 193), minder relevant: "view caching"
 * [Opdracht 2](http://cl.ly/3l0r160k1k0P) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise2/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
+* [Opdracht 2 (met uitwerkingen)](https://gitprint.com/CMDA/sss-exercises/blob/feature-answers/exercise2/README.md)
 
 ### Week 3
 1. Forms
