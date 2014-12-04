@@ -120,7 +120,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
   * Hoofdstuk 4.1, 4.2 en 4.4 (p. 71 t/m 80 & p. 87 t/m 94);
   * Hoofdstuk 11.1 en 11.2 (p. 264 t/m 275);
-  * Manage session using Node.js and Express 4; http://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/
+  * [Manage session using Node.js and Express 4](http://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/)
   * In hoofdstuk 4 wordt gebruik gemaakt van de http-module van Node.js zelf. Omdat wij tijdens deze cursus gebruik maken van Express, is het minder van belang dat je de code uit het boek helemaal begrijpt. Wel wordt verwacht dat je de concepten begrijpt.
  
 * [Opdracht 3](http://cl.ly/0u3W0D3k0d07) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise3/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
