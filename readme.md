@@ -112,6 +112,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 * [Opdracht 2 (met uitwerkingen)](https://gitprint.com/CMDA/sss-exercises/blob/feature-answers/exercise2/README.md)
 
 ### Week 3
+[Slides](http://cmda.github.io/sss-course/lesson3)
+
 1. Forms
 1. Basic validations
 1. Sessions
@@ -127,10 +129,16 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 
 
 ### Week 4
+[Slides](http://cmda.github.io/sss-course/lesson4)
+
 1. Advanced routers
 1. Files
 1. Uploads
 1. Testing
+
+* Express.js Middleware Demystified; https://blog.safaribooksonline.com/2014/03/10/express-js-middleware-demystified/
+* [Opdracht 4](http://cl.ly/0Y2F2A1M1x18) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise4/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
+
 
 ### Week 5
 1. Databases
