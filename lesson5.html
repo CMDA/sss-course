@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 5 - Server Side Scripting in Node.js</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Flurin Egger">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="stylesheets/theme.css" id="theme" />
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      if(window.location.search.match( /print-/gi )){
+        document.write( '<link rel="stylesheet" href="/vendor/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css">' );        
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/vendor/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
+  <p>Lesson 5</p>
+  <p>http://cmda.github.io/sss-course/lesson5</p>
+</section>
+
+<section>
+  <section>
+    <h1>Today</h1>
+    <ol>
+      <li>The big picture</li>
+      <li>Databases</li>
+      <li>Basic SQL</li>
+      <li>MySQL + Node.js</li>
+      <li>Wrap up</li>
+    </ol>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>The big picture</h1>
+  </section>
+
+
+  <section>
+    <img src="assets/lesson4/data-flow-covered.svg" alt="App data flow covered in lessons" style="height: 100%" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Databases</h1>
+  </section>
+
+  <section>
+    <h1>Why?</h1>
+
+    <ul>
+      <li>Persist data</li>
+      <li>Make data queryable</li>
+      <li>Relate data</li>
+      <li>Constrain data</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>MySQL</h1>
+
+    <ul>
+      <li>It's free</li>
+      <li>It's fast</li>
+      <li>It's easy to set up</li>
+      <li>It's most commonly used</li>
+    </ul>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Basic SQL</h1>
+  </section>
+
+  <section>
+    <h1>Tables &map; Records</h1>
+
+    <img src="assets/lesson5/table-users.svg" alt="User table" />
+  </section>
+
+  <section>
+    <h1>Relationships</h1>
+
+    <img src="assets/lesson5/table-users-locations.svg" alt="User table" />
+  </section>
+
+  <section>
+    <h1>SQL</h1>
+
+    <p>
+      <span class="fragmen"><strong>S</strong>tructured</span>
+      <span class="fragmen"><strong>Q</strong>uery</span>
+      <span class="fragmen"><strong>L</strong>anguage</span>
+    </p>
+  </section>
+
+  <section>
+    <h1>Getting records from a table</h1>
+
+    <pre><code class="sql">
+SELECT fieldname,fieldname FROM table;
+SELECT * FROM table;
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>
+  </section>
+
+  <section>
+    <h1>Getting some records from a table</h1>
+
+    <pre><code class="sql">
+SELECT fieldname1,fieldname2 FROM table
+  WHERE fieldname1 = 'value1' OR fieldname1 = 'value2';
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Joining records from multiple tables</h1>
+
+    <pre><code class="sql">
+SELECT table1.fieldname,table2.fieldname FROM table1
+  JOIN table2 ON table1.id = table2.id
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Left joining records from multiple tables</h1>
+
+    <pre><code class="sql">
+SELECT table1.fieldname,table2.fieldname FROM table1
+  LEFT JOIN table2 ON table1.id = table2.table_id
+    </code></pre>
+  </section>
+
+
+  <section>
+    <h1>Adding new records</h1>
+    <pre><code class="sql">
+INSERT INTO table (fieldname1, fieldname2) VALUES (value1, value2);
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Changing existing records</h1>
+
+    <pre><code class="sql">
+UPDATE table SET fieldname1=value1, fieldname2=value=2 WHERE fieldname3=value3;
+    </code></pre>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>MySQL + Node.js</h1>
+  </section>
+
+  <section>
+    <h1>Getting started</h1>
+
+    <ol>
+      <li><code>$ npm install --save mysql</code></li>
+      <li>
+        Using it
+        <pre><code class="javascript" data-trim data-noescape>
+var mysql = require('mysql');
+
+// Setup connection
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : ''
+});
+
+// Select database to use
+connection.query('USE sss');
+        </code></pre>
+      </li>
+      <li>
+        Profit!
+      </li>
+    </ol>
+  </section>
+</section>
+
+
+<section>
+  <section>
+    <h1>What we learned today</h1>
+    <ul>
+      <li></li>
+    </ul>
+  </section>
+</section>
+
+<section>
+
+  <section>
+    <h1>Live code</h1>
+    <p>
+      <a href="https://github.com/flurin/sss-course-livecode-2014">https://github.com/flurin/sss-course-livecode-2014</a>
+    </p>
+  </section>
+
+
+  <section>
+    <h1>Werkcollege en huiswerk</h1>
+  </section>
+
+  <section>
+    <h1>Installeer MySQL + MySQL Workbench</h1>
+
+    <ul>
+      <li>
+        Werk met z'n tweeen, vindt iemand die het vak Storage doet.
+      </li>
+      <li>
+        Werk met iemand met 't zelfde system (Mac/Windows)
+        </li>
+      <li>
+        Zorg er voor dat je <strong>MySQL</strong> + <strong>MySQL Workbench</strong> geïnstalleerd hebt
+        </li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Huiswerk: lezen</h1>
+
+    <ul>
+      <li>
+        Express.js Middleware Demystified
+        https://blog.safaribooksonline.com/2014/03/10/express-js-middleware-demystified/
+      </li>
+    </ul>
+
+    <p>Klaar voor werkcollege</p>
+  </section>
+
+  <section>
+    <h1>Huiswerk: doen</h1>
+    <p>Opdracht van voorgaande weken:</p>
+    <ul>
+      <li>
+        https://github.com/CMDA/sss-exercises/tree/master/exercise2
+      </li>
+      <li>
+        https://github.com/CMDA/sss-exercises/tree/master/exercise3
+      </li>
+    </ul>
+
+    <p>Klaar voor werkcollege</p>
+  </section>
+
+  <section data-background="assets/thatsall.gif">
+  </section>
+
+</section>
+      </div>
+    </div>
+
+    <script src="vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="vendor/highlightjs/highlight.pack.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        width: 1000,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
