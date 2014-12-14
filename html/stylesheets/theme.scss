@@ -71,7 +71,7 @@ $linkColorHover: lighten( $linkColor, 20% );
 .reveal {
 
   h1 {
-    font-size: 2.2em;
+    font-size: 2.0em;
     text-shadow: none;
     margin-bottom: 0.5em;
   }
@@ -105,6 +105,29 @@ $linkColorHover: lighten( $linkColor, 20% );
     height: 1em;
     margin: 0;
   }
+
+  .full{
+    width: 100%;
+  }
+
+  .full-vertical{
+    height: 100%;
+  }
+
+  .toggle-fragments{
+    position: relative;
+    width: 100%;
+    margin-top: 1em;
+    min-height: 5em;
+
+    & > .fragment{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
 
   blockquote{
     font-style: normal;
