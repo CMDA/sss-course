@@ -175,7 +175,7 @@ body {
 }
 
 .reveal h1 {
-  font-size: 2.2em;
+  font-size: 2.0em;
   text-shadow: none;
   margin-bottom: 0.5em;
 }
@@ -202,6 +202,24 @@ body {
 .reveal h1 img {
   height: 1em;
   margin: 0;
+}
+.reveal .full {
+  width: 100%;
+}
+.reveal .full-vertical {
+  height: 100%;
+}
+.reveal .toggle-fragments {
+  position: relative;
+  width: 100%;
+  margin-top: 1em;
+  min-height: 5em;
+}
+.reveal .toggle-fragments > .fragment {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 .reveal blockquote {
   font-style: normal;
