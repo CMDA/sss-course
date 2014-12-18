@@ -145,6 +145,19 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 1. MySQL
 1. Security (injection)
 
+#### Opdracht
+* [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
+    -  Boek: 5.2 t/m 5.2.1 (pagina 102 t/m 110)
+*  http://www.mysqltutorial.org
+    -  [MySQL SELECT](http://www.mysqltutorial.org/mysql-select-statement-query-data.aspx)
+    -  [MySQL INNER JOIN](http://www.mysqltutorial.org/mysql-inner-join.aspx)
+    -  [MySQL LEFT JOIN](http://www.mysqltutorial.org/mysql-left-join.aspx)
+    -  [MySQL INSERT](http://www.mysqltutorial.org/mysql-insert-statement.aspx)
+    -  [MySQL UPDATE](http://www.mysqltutorial.org/mysql-update-data.aspx)
+    -  [MySQL DELETE](http://www.mysqltutorial.org/mysql-delete-statement.aspx)
+* [Opdracht 5](http://cl.ly/1e1s2K1n2l2o) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise5/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
+
+
 ### Week 6
 1. Realtime
 
