@@ -125,7 +125,7 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
   * [Manage session using Node.js and Express 4](http://codeforgeek.com/2014/09/manage-session-using-node-js-express-4/)
   * In hoofdstuk 4 wordt gebruik gemaakt van de http-module van Node.js zelf. Omdat wij tijdens deze cursus gebruik maken van Express, is het minder van belang dat je de code uit het boek helemaal begrijpt. Wel wordt verwacht dat je de concepten begrijpt.
  
-* [Opdracht 3](http://cl.ly/0u3W0D3k0d07) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise3/README.md) [[Code]](https://github.com/CMDA/sss-exercises)
+* [Opdracht 3](http://cl.ly/0u3W0D3k0d07) [[PDF]](https://gitprint.com/CMDA/sss-exercises/blob/master/exercise3/README.md) [[Code]](https://github.com/CMDA/sss-exercises) [[Antwoorden](http://gitprint.com/CMDA/sss-exercises/blob/feature-answers/exercise3/README.md)]
 
 
 ### Week 4
