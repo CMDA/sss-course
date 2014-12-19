@@ -180,6 +180,7 @@ Het boek: [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 20
 ### Voorkennis
 
 ### Aanbevolen literatuur
+* [Uitgebreid overzicht node.js resources](http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js)
 
 ### Tools
 * Command line
