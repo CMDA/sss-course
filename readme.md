@@ -141,6 +141,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 
 
 ### Week 5
+[Slides](http://cmda.github.io/sss-course/lesson5)
+
 1. Databases
 1. MySQL
 1. Security (injection)
@@ -159,6 +161,8 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 
 
 ### Week 6
+[Slides](http://cmda.github.io/sss-course/lesson6)
+
 1. Realtime
 
 #### Opdracht
