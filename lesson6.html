@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 6 - Server Side Scripting in Node.js</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Flurin Egger">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="vendor/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="stylesheets/theme.css" id="theme" />
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      if(window.location.search.match( /print-/gi )){
+        document.write( '<link rel="stylesheet" href="/vendor/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css">' );        
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/vendor/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
+  <p>Lesson 6</p>
+  <p>http://cmda.github.io/sss-course/lesson6</p>
+</section>
+
+<section>
+  <section>
+    <h1>Today</h1>
+    <ol>
+      <li>Practice exam</li>
+      <li>Realtime</li>
+      <li>Wrap up</li>
+    </ol>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Practice exam</h1>
+    <p>https://github.com/CMDA/sss-exercises/tree/master/practice-exam1</p>
+  </section>
+</section>
+
+<section data-background="assets/lesson3/break.gif">
+  <div class="fragment">
+    <h1>Coffebreak</h1>
+    <p>Back in 10 minutes</p>
+  </div>
+</section>
+
+
+<section>
+
+  <section>
+    <h1>Realtime</h1>
+  </section>
+
+  <section>
+    <h1>Examples</h1>
+    <ul>
+      <li>Chat</li>
+      <li>Statistics</li>
+      <li>Games</li>
+      <li>Stock ticker</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Why?</h1>
+
+    <ul>
+      <li>Push v.s. Pull</li>
+      <li>From clientside javscript to the server</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Socket.io</h1>
+
+    <blockquote>
+      Socket.IO enables <strong>real-time bidirectional event-based communication</strong>.
+      It works on every platform, browser or device, focusing equally on reliability and speed.
+    </blockquote>
+  </section>
+
+  <section>
+    <h1>What does Socket.io do?</h1>
+
+    <ul>
+      <li>Provides client and server code</li>
+      <li>Provides client to server event system</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>How does it work?</h1>
+
+    <img src="assets/lesson6/socket-clients.svg" alt="Socket.io clients" />
+
+  </section>
+
+  <section>
+    <h1>The Socket.io event system</h1>
+
+    <img src="assets/lesson6/socket-events.svg" alt="Socket.io events" />
+
+  </section>
+
+  <section>
+    <h1>Setting up Socket.io</h1>
+
+    <ol>
+      <li><code>$ npm install --save socket.io</code></li>
+      <li>
+        Requiring it
+        <pre><code class="javascript" data-trim data-noescape>
+var socketIo = require('socket.io');
+        </code></pre>
+      </li>
+      <li>
+        And then...
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h1>Up until now</h1>
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim>
+var express = require('express');
+
+var app = express();
+
+// ... middleware & routes
+
+app.listen(3000);
+        </code></pre>
+
+      </div>
+      <div class="side-by-side__content">
+        <img src="assets/lesson6/request-flow-express.svg" alt="Request flow Express only" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>With Socket.io</h1>
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim>
+var express = require('express');
+var http = require('http');
+var socketIo = require('socket.io');
+
+var app = express();
+var server = http.Server(app);
+
+var io = socketIo(server);
+
+// ... middleware & routes
+
+// ... socket.io events
+
+server.listen(3000);
+        </code></pre>
+
+      </div>
+      <div class="side-by-side__content">
+        <img src="assets/lesson6/request-flow-express-socket.svg" alt="Request flow Express only" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Server side</h1>
+    <pre><code class="javascript" data-trim>
+// ...
+io.on("connection", function(socket){
+  // New connection!
+  socket.emit("welcome", "Hello!");
+
+  socket.on("message", function(data){
+    console.log("Message received:", data);
+    io.emit("message", data)
+  });
+
+  socket.on("disconnect", function(){
+    console.log("Disconnect")
+  })
+})
+// ...
+    </code></pre>
+
+  </section>
+
+  <section>
+    <h1>Client side</h1>
+
+    <pre><code class="html" data-trim>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect("/");
+
+socket.on("connect", function(){
+  console.log("Connected!");
+  socket.emit("message", {message: "Yay!", level: "important"})
+})
+
+socket.on("welcome", function(msg){
+  console.log("Welcome:", msg);
+})
+
+socket.on("message", function(data){
+  console.log("Message", data);
+})
+</script>
+    </code></pre>
+
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h1>What we learned today</h1>
+    <ul>
+      <li>
+        How to make an exam!
+      </li>
+      <li>
+        Making real time applications with Socket.io
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Deeltoets 2</h1>
+    <ul>
+      <li>Werkcollege van 8 januari</li>
+      <li>In code, op je laptop</li>
+      <li>45 minuten</li>
+      <li>Inleveren op Moodle</li>
+      <li>Automatisch nagekeken</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Doel</h1>
+    <p>
+      Doel van de toets is het laten zien dat je Node.js + Express snapt en zelf routes, routers, templats, etc. kunt schrijven en bijbehorende problemen kunt oplossen.
+    </p>
+  </section>
+
+  <section>
+    <h1>Onderwerpen</h1>
+
+    <ul>
+      <li>Routing (Routes en Routers)</li>
+      <li>Templates</li>
+      <li>Files</li>
+      <li>Forms</li>
+      <li>Uploads</li>
+      <li>Session</li>
+      <li>Middleware</li>
+      <li>Externe API's met request</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Hoe gaat het werken?</h1>
+
+    <ul>
+      <li>
+        Je downloadt de toets met daarin:
+        <ul>
+          <li>Lege bestanden</li>
+          <li>Opdrachten</li>
+          <li>Automatische tests</li>
+        </ul>
+      </li>
+      <li>
+        Je maakt de opdrachten (ca. 4-6)
+      </li>
+      <li>
+        Je draait de tests en als alles groen is is het goed
+      </li>
+      <li>
+        Je zipt je antwoorden en uploadt ze naar Moodle
+      </li>
+    </ul>
+  </section>
+
+</section>
+
+<section>
+
+  <section>
+    <h1>Extra bijspijkeruurtje</h1>
+
+    <ul>
+      <li>Di. 6 januari, 8:45 - 10:15</li>
+      <li>Di. 6 januari, 10:30 - 12:00</li>
+      <li>Do. 6 januari, 8:45 - 10:15</li>
+      <li>Do. 6 januari, 10:30 - 12:00</li>
+    </ul>
+
+    <p>
+      Max 8. leeringen per groep. Aanmelden per mail naar <a href="mailto:e.r.van.der.graaf@hva.nl">e.r.van.der.graaf@hva.nl</a>
+    </p>
+  </section>
+
+  <section>
+    <h1>Live code</h1>
+    <p>
+      <a href="https://github.com/flurin/sss-course-livecode-2014">https://github.com/flurin/sss-course-livecode-2014</a>
+    </p>
+  </section>
+
+  <section>
+    <h1>Huiswerk: doen</h1>
+    <p>Voorbereiden toets</p>
+  </section>
+
+
+  <section data-background="assets/thatsall.gif">
+  </section>
+
+</section>
+      </div>
+    </div>
+
+    <script src="vendor/reveal.js/js/reveal.min.js"></script>
+    <script src="vendor/highlightjs/highlight.pack.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        width: 1000,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'javascripts/reveal/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
