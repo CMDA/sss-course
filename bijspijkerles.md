@@ -41,10 +41,10 @@
     <tr><th>Do. 8 januari, 8:45 - 10:15</th></tr>
     <tr><td>
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>500689134</li>
+        <li>500692195</li>
+        <li>500684628</li>
+        <li>500685808</li>
         <li></li>
         <li></li>
         <li></li>
@@ -59,10 +59,10 @@
     <tr><th>Do. 8 januari, 10:30 - 12:00</th></tr>
     <tr><td>
       <ul>
-        <li>500689134</li>
-        <li>500692195</li>
-        <li>500684628</li>
-        <li>500685808</li>
+        <li>500668970</li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
