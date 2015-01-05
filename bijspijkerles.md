@@ -5,8 +5,8 @@
     <tr><th>Di. 6 januari, 8:45 - 10:15</th></tr>
     <tr><td>
       <ul>
-        <li></li>
-        <li></li>
+        <li>500659750</li>
+        <li>500681106</li>
         <li></li>
         <li></li>
         <li></li>
