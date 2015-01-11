@@ -23,8 +23,8 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #250A33;
-  background-color: #250A33;
+  background: #250a33;
+  background-color: #250a33;
 }
 
 .reveal {
@@ -32,12 +32,12 @@ body {
   font-size: 45px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: #eee;
+  color: #eeeeee;
 }
 
 ::selection {
-  color: #fff;
-  background: #FF5E99;
+  color: white;
+  background: #ff5e99;
   text-shadow: none;
 }
 
@@ -51,7 +51,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #fff;
+  color: white;
   font-family: "arvoweb", serif;
   line-height: 1em;
   letter-spacing: 0.02em;
@@ -67,7 +67,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #FF0062;
+  color: #ff0062;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -93,7 +93,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #eee;
+  border: 4px solid #eeeeee;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
@@ -104,7 +104,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #FF0062;
+  border-color: #ff0062;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
@@ -113,22 +113,22 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #FF0062;
+  border-right-color: #ff0062;
 }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #FF0062;
+  border-left-color: #ff0062;
 }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #FF0062;
+  border-bottom-color: #ff0062;
 }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #FF0062;
+  border-top-color: #ff0062;
 }
 
 .reveal .controls div.navigate-left.enabled:hover {
@@ -155,7 +155,7 @@ body {
 }
 
 .reveal .progress span {
-  background: #FF0062;
+  background: #ff0062;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -167,7 +167,7 @@ body {
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: #FF0062;
+  color: #ff0062;
 }
 
 .reveal pre code {
@@ -466,9 +466,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 }
 
 @keyframes "blink" {
-  from,to {
+  from, to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
@@ -542,9 +543,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   from {
     background-color: rgba(255, 0, 0, 0.5);
   }
+
   80% {
     background-color: red;
   }
+
   to {
     background-color: rgba(255, 0, 0, 0.5);
   }
