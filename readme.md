@@ -169,7 +169,9 @@ Gedurende het programma worden in de werkcolleges 2 deeltoetsen aangeboden met e
 * Er zijn geen opdrachten in deze week. In deze week maken we de tweede deeltoets.
 
 ### Week 7 & 8
-In deze weken zal geen nieuwe stof behandeld worden. Tijdens het werkcollege in week 7 zal er een samenvatting van de voor de eindopdracht belangrijke stof plaats vinden.
+[Slides](http://cmda.github.io/sss-course/lesson7)
+
+In deze weken zal geen nieuwe stof behandeld worden. In het hoorcollege wordt de eindopdracht uitgelegd. In de werkcolleges is er tijd om aan de eindopdracht te werken en vragen te stellen.
 
 
 ## Contactinformatie
