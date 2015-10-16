@@ -1,35 +1,31 @@
-GIT
-  remote: https://github.com/edwinvdgraaf/roger.git
-  revision: 958b1d6119ee2d149be1737338cc37101d755330
-  branch: gh-pages-for-travis
-  specs:
-    roger (0.12.4)
-      hpricot (>= 0.6.4)
-      mime-types (~> 2.2)
-      rack (>= 1.0.0)
-      redcarpet (>= 3.1.1)
-      thor (~> 0.16.0)
-      tilt (~> 2.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.0)
-    hpricot (0.8.6)
+    hpricot (0.8.4)
     method_source (0.8.2)
-    mime-types (2.4.3)
-    pry (0.9.12.3)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
+    mime-types (2.6.2)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.5.2)
-    redcarpet (3.2.1)
+    rack (1.6.4)
+    redcarpet (3.2.2)
+    roger (1.4.6)
+      hpricot (= 0.8.4)
+      mime-types (~> 2.2)
+      rack (>= 1.0.0)
+      redcarpet (>= 3.1.1)
+      test_construct (~> 2.0)
+      thor (~> 0.19.0)
+      tilt (~> 2.0.1)
     roger_sass (1.0.1)
       roger (>= 0.11.0)
       sass
-    sass (3.3.12)
-    slop (3.4.6)
-    thor (0.16.0)
+    sass (3.4.9)
+    slop (3.6.0)
+    test_construct (2.0.1)
+    thor (0.19.1)
     tilt (2.0.1)
 
 PLATFORMS
@@ -38,5 +34,8 @@ PLATFORMS
 DEPENDENCIES
   pry
   redcarpet
-  roger!
+  roger
   roger_sass
+
+BUNDLED WITH
+   1.10.6
