@@ -1,0 +1,50 @@
+.reveal {
+  .plan{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .plan td,
+  .plan th{
+    border: 1px solid #fff;
+    padding: 0.5em;
+    font-size: 0.5em;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .plan thead td{
+    text-align: center;
+  }
+
+  .plan tbody th{
+    width: 14%;
+    font-weight: bold;
+  }
+
+  .plan tbody td{
+    width: 7%;
+    font-size: 0.3em;
+  }
+
+  .plan tbody .cell--vakantie{
+    width: 2%;
+  }
+
+  .cell--hc{
+    background: #ff0;
+  }
+
+  .cell--wc{
+    background: #0f0;
+    color: #000;
+  }
+
+  .cell--toets{
+    background: #00f;
+  }
+
+  .cell--vakantie{
+    background: #aaa;
+  }
+}
