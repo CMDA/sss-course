@@ -44,293 +44,283 @@
   <section>
     <h1>Today</h1>
     <ol>
-      <li>Javascript: Strings, Arrays, Objects</li>
-      <li>Javascript: Async</li>
-      <li>App server</li>
-      <li>Templating</li>
-      <li>Consuming APIs</li>
-      <li>Deeltoets 1</li>
-      <li>Wrap up</li>
+      <li>Templates</li>
+      <li>URL</li>
+      <li>Routes</li>
+      <li>Routers</li>
     </ol>
   </section>
 </section>
 
-<section>
-  <section>
-    <h1>Javascript</h1>
-  </section>
-
-  <section>
-    <h1>Numbers</h1>
-    <pre><code class="javascript" data-trim>
-var a = 1; // Number!
-var b = 2.5; // Number! (it's a float)
-1/0;  // Infinity
-1/"a"; // NaN
-(0.1 + 0.2 == 0.3) // = false
-    </code></pre>
-  </section>
-
-
-  <section>
-    <h1>Strings</h1>
-    <pre><code class="javascript" data-trim>
-var a = 'this is a string';
-var b = 'this is another string';
-var c = a + ' ' + b // 'this is a string this is another string'
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Arrays</h1>
-    <pre><code class="javascript" data-trim>
-var a = []; // Empty Array
-var b = [1, 2, 3]; // Arary of numbers
-b.push(4); // Add to array: [1,2,3,4]
-b.pop(); // 4 [1,2,3]
-b.forEach(function(value){ console.log(value); }); // Iterate
-b.map(function(value){ return value + 1 }); // [2,3,4]
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Objects</h1>
-    <pre><code class="javascript" data-trim>
-var a = {}; // Empty object
-a.name = "SSS"; // {name : "SSS"}
-a["teachers"] = ["Edwin", "Flurin"]; // {name : "SSS", teachers : [...]}
-a.pass = function(){ return true; };
-a.pass(); // true
-
-Object.keys(a); // ["name", "teachers"]
-    </code></pre>
-  </section>
-
-  <section>
-    <div class="protip">
-      Google "Javascript MDN [function_or_object]", or use MDN directly: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>
-    </div>
-  </section>
-
-  <section>
-    <h1>Learn JavaScript</h1>
-    <p>
-      <a href="http://www.codecademy.com/tracks/javascript">Codeacademy</a> <br> (http://www.codecademy.com/tracks/javascript)
-    </p>
-    <aside class="notes">
-      Ja, je moet dit kunnen.
-    </aside>
-  </section>
-
-  <section>
-    <div class="protip">
-      USE THE REPL
-    </div>
-  </section>
-
-  <section data-background="assets/lesson2/psychedelic.jpg">
-    <h1 style="font-size: 10rem; background: rgba(255,0,0,0.8); padding: 2rem;">
-      USE THE REPL
-    </h1>
-  </section>
-
-</section>
 
 <section>
   <section>
-    <h1>Javascript: Async</h1>
-    <p>An aspect of node.js is it asynchronously, making it very fast.</p>
+    <h1>Templating</h1>
   </section>
 
   <section>
-    <h2>Synchronous code</h2>
-    <pre><code class="javascript" data-noescape data-trim>
-// NOT REAL CODE
-var file = readFile("file.txt"); <span class="fragment">// Executions blocks here...</span>
-output(file); <span class="fragment">// ... and done</span>
-console.log("klaar");
-    </code></pre>
-  </section>
-
-  <section>
-    <h2>Asynchronous code</h2>
-    <pre><code class="javascript" data-noescape data-trim>
-// NOT REAL CODE
-readfile("bestand.txt", function(file){
-  output(file);
-  console.log("klaar"); <span data-fragment-index="2" class="fragment">// Done with bestand.txt...</span>
-}); <span data-fragment-index="0" class="fragment">// Read file asynchronous</span>
-readfile(..., fn) <span data-fragment-index="1" class="fragment">// Our code continues...</span>
-    </code></pre>
-  </section>
-
-
-  <section>
-    <h1>Sync v.s. Async</h1>
-    <div class="side-by-side">
-      <div class="side-by-side__content">
-        <h2>Sync</h2>
-        <img src="assets/lesson2/sync.svg" alt="Sync" />
-      </div>
-      <div class="side-by-side__content">
-        <h2>Async</h2>
-        <img src="assets/lesson2/async.svg" alt="Async" />
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h1>Asynchronous calls</h1>
-    <ul>
-      <li class="fragment">Callbacks</li>
-      <li class="fragment">Events</li>
-    </ul>
-  </section>
-
-
-  <section>
-    <h1>Callbacks</h1>
-
-    <p>A function that gets called when the async operation is done</p>
-
-    <aside class="notes">
-      The difference is that with a callback you're either going to get an error or a result. Never both, and never more than one event.
-    </aside>
-  </section>
-
-  <section>
-    <h1>Callback example</h1>
+    <h1>Not a good idea...</h1>
     <pre><code class="javascript" data-trim>
-var callback = function(){
-  console.log("done");
-}
-setTimeout(callback, 2000);
-    </code></pre>
-  </section>
+// app.js
+// ...
 
-  <section>
-    <h1>Callback example</h1>
-    <pre><code class="javascript" data-trim>
-var request = require("request");
-var url = "http://api.openweathermap.org/data/2.5/weather?q=Amsterdam,nl";
-request(url, function(error, response, body){
-  if (!error && response.statusCode == 200) {
-    console.log(body) // Print the weather.
-  }
+app.get('/hello', function(req, res){
+  var output = '&lt;html>&lt;head><title>HW</title>&lt;/head>&lt;body>';
+  output += '<h1>Hello</h1>';
+  output += '<p>world!</p>';
+  output += '&lt;/body>&lt;/html>';
+
+  res.send(output)
 });
-    </code></pre>
 
-  </section>
-
-  <section>
-    <h2>Events</h2>
-    <p>Something that can happen once or more times at at any time</p>
-
-    <aside class="notes">
-      Denk aan jQuery click.
-    </aside>
-  </section>
-
-
-</section>
-
-<section>
-
-  <section>
-    <h1>Express.js App server</h1>
-  </section>
-
-  <section>
-    <h1>Client &lt;-&gt; (http)server</h1>
-    <img src="assets/lesson2/client-server.png" alt="Server <-- http --> Client" />
-  </section>
-
-  <section>
-    <h1>A server</h1>
-    <pre><code class="javascript" data-trim>
-var http = require('http');
-
-var server = http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-})
-
-server.listen(1337, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:1337/');
-    </code></pre>
-  </section>
-
-  <section data-background="assets/lesson2/godno.gif">
-  </section>
-
-  <section>
-    <h1>Express</h1>
-    <p>
-      Fast, unopinionated, minimalist web framework for Node.js
-    </p>
-    <p>
-      <a href="#">http://expressjs.com/</a>
-    </p>
-  </section>
-
-  <section>
-    <h1>MVC</h1>
-    <span class="fragment"><strong>M</strong>odel</span>
-    <span class="fragment">- <strong>V</strong>iew</span>
-    <span class="fragment">- <strong>C</strong>ontroller</span>
-  </section>
-
-  <section>
-    <h1>Install it</h1>
-    <pre class="terminal--osx"><code data-trim class="bash">
-$ npm install --save express
+// ...
     </code></pre>
   </section>
 
   <section>
-    <h1>Simplest Express example</h1>
+    <h1>Templates</h1>
+    <p>to put HTML in separate files</p>
+  </section>
+
+    <section>
+      <pre><code class="javascript" data-trim>
+// app.js
+// ...
+
+app.get('/hello', function(req, res){
+  res.render('hello');
+});
+     </code></pre>
+    </section>
+
+  <section>
     <pre><code class="javascript" data-trim>
 // app.js
 var express = require('express');
 var app = express();
 
-// Add a reponse route
-app.get('/', function(req, res){
-  res.send('Hello World!');
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+// Add a reponse
+app.get('/hello', function(req, res){
+  res.render('hello');
 });
 
 // Start the server
 app.listen(3000, function () {
   console.log('Started!');
 });
-    </code></pre>
 
-  </section>
-
-  <section>
-    <h1>Run it</h1>
-    <pre class="terminal--osx"><code data-trim class="bash">
-$ node app.js
+// Go to: http://IPADDRESS:3000/hello
     </code></pre>
   </section>
 
   <section>
-    <h1>Router <sup>*</sup></h1>
+    <h1>Template file</h1>
+
+    <pre><code class="html" data-trim>
+&lt;html>
+  &lt;head>
+    <title>HW</title>
+  &lt;/head>
+  &lt;body>
+    <h1>Hello</h1>
+    <p>world!</p>
+  &lt;/body>
+&lt;/html>
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Template language</h1>
+    <p>EJS: Embedded javascript</p>
+
+    <pre><code class="html" data-trim>
+&lt;html>
+  &lt;head>
+    <title>HW</title>
+  &lt;/head>
+  &lt;body>
+    <h1>Hello</h1>
+    <p><%= name %></p>
+    <% if(location && location !== "") { %>
+     <p>How is the weather in <%= location %>?</p>
+    <% } %>
+  &lt;/body>
+&lt;/html>
+    </code></pre>
+  </section>
+
+
+  <section>
+    <h1>Passing data</h1>
+
+    <h2>Server</h2>
+    <pre><code class="javascript" data-trim>
+router.get("/", function(req, res, next){
+  res.locals.name = "Dr. Evil";
+  res.locals.location = "Secret Lair";
+  res.render("index");
+})
+    </code></pre>
+
+    <h2>Template</h2>
+    <pre><code class="html" data-trim>
+Hello, &lt;%= name %> from &lt;%= location>
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Partials</h1>
+    ...
+  </section>
+
+  <section>
+    <div class="protip">
+      Don't put logic in your templates or HTML in your code.
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Routes</h1>
+  </section>
+
+  <section>
+    <h1>Client &lt;-&gt; server</h1>
+    <img src="assets/lesson3/request-response.png" />
+  </section>
+
+
+  <section>
+    <h1>Request via Routes</h1>
+  </section>
+
+  <section>
+    <h1>Response via template</h1>
+  </section>
+
+  <section>
+    <h1>What is a route?</h1>
+    <p>A function that responds to part of an URL</p>
+  </section>
+
+  <section>
+    <h1>URL</h1>
+    <img src="assets/lesson2/url.svg" alt="An URL explained" style="width: 100%" />
+  </section>
+
+  <section>
+    <h1>URL</h1>
+    <img src="assets/lesson2/url-handlers.svg" alt="URL handling" style="width: 100%" />
+  </section>
+
+
+  <section>
+    <h1>Route</h1>
+
+    <pre><code class="javascript" data-trim data-noescape>
+app.get(<strong>'/hello/amsterdam'</strong>, function(req, res){
+  res.locals.name = "You";
+  res.locals.location = "Amsterdam";
+  res.render('hello');
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>Route + Parameter</h1>
+
+    <pre><code class="javascript" data-trim>
+app.get('/hello/:location', function(req, res){
+  res.locals.name = "You";
+  res.locals.location = req.params.location;
+  res.render('hello');
+});
+    </code></pre>
+  </section>
+
+    <section>
+      <h1>Query string</h1>
+      <pre><code class="javascript" data-trim>
+  // routes/weather.js
+  var express = require('express');
+  var router = express.Router();
+
+  router.get('/', function(req, res){
+    var location = req.query.location;
+    res.send('Who is the weather in ' + location + '?');
+  });
+
+  module.exports = router;
+      </code></pre>
+
+      <aside class="notes">
+       http://expressjs.com/4x/api.html#req.query
+      </aside>
+    </section>
+
+  <section>
+    <h1>Req / Res</h1>
+
+    <style>
+      .hl-red .hljs-params{
+        font-weight: bold;
+        color: #f00;
+      }
+
+      .hl-green .hljs-params{
+        font-weight: bold;
+        color: #0f0;
+      }
+
+    </style>
+
+    <div class="side-by-side">
+      <div class="side-by-side__content">
+        <img src="assets/lesson3/request-response.png" />
+      </div>
+      <div class="side-by-side__content">
+        <pre><code class="javascript" data-trim data-noescape>
+app.get('/', function(<span class="hl-red">req</span>, <span class="hl-green">res</span>){
+  ...
+});
+        </code></pre>
+
+        <h2 style="margin-top: 1em">Request</h2>
+        <pre><code class="javascript" data-trim data-noescape>
+req.params // Parameters
+req.query // Query string
+        </code></pre>
+
+        <h2 style="margin-top: 1em">Response</h2>
+        <pre><code class="javascript" data-trim data-noescape>
+req.send("...") // Send string
+req.render("template", {..}) // Render template
+        </code></pre>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>Routers</h1>
+  </section>
+
+  <section>
+    <h1>Router</h1>
     <ul>
       <li>URL structure</li>
       <li>HTTP request handling</li>
       <li>HTTP response generation</li>
     </ul>
-
-    <p>
-      <sup>*</sup> Controller.
-    </p>
   </section>
 
-  <section>
-    <h1>URLs</h1>
-    <img src="assets/lesson2/url.svg" alt="An URL explained" style="width: 100%" />
-  </section>
+
 
   <section>
     <h1>Router example</h1>
@@ -379,45 +369,8 @@ app.listen(3000);
    </code></pre>
  </section>
 
-  <section>
-    <h1>Query string</h1>
-    <pre><code class="javascript" data-trim>
-// routes/weather.js
-var express = require('express');
-var router = express.Router();
 
-router.get('/', function(req, res){
-  var location = req.query.location;
-  res.send('Who is the weather in ' + location + '?');
-});
 
-module.exports = router;
-    </code></pre>
-
-    <aside class="notes">
-     http://expressjs.com/4x/api.html#req.query
-    </aside>
-  </section>
-
-  <section>
-    <h1>Parameters</h1>
-    <pre><code class="javascript" data-trim>
-// routes/weather.js
-var express = require('express');
-var router = express.Router();
-
-router.get('/', function(req, res){
-  res.send('This is the weather service!')
-});
-
-router.get('/location/:location', function(req, res){
-  var location = req.params.location;
-  res.send('Who is the weather in ' + location + '?');
-});
-
-module.exports = router;
-    </code></pre>
-  </section>
 
 </section>
 
