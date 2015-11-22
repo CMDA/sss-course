@@ -35,7 +35,7 @@
     <div class="reveal">
       <div class="slides">
         <section>
-  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" /></h1>
+  <h1 class="title">Server Side Scripting in <img src="assets/logo-nodejs.svg" alt="NodeJs" /></h1>
   <p>Lesson 2</p>
   <p>http://cmda.github.io/sss-course/lesson2</p>
 </section>
@@ -65,9 +65,9 @@
 // ...
 
 app.get('/hello', function(req, res){
-  var output = '&lt;html>&lt;head><title>HW</title>&lt;/head>&lt;body>';
-  output += '<h1>Hello</h1>';
-  output += '<p>world!</p>';
+  var output = '&lt;html>&lt;head>&lt;title>HW&lt;/title>&lt;/head>&lt;body>';
+  output += '&lt;h1>Hello&lt;/h1>';
+  output += '&lt;p>world!&lt;/p>';
   output += '&lt;/body>&lt;/html>';
 
   res.send(output)
@@ -120,13 +120,14 @@ app.listen(3000, function () {
     <h1>Template file</h1>
 
     <pre><code class="html" data-trim>
+&lt;!-- hello.ejs -->
 &lt;html>
   &lt;head>
-    <title>HW</title>
+    &lt;title>HW&lt;/title>
   &lt;/head>
   &lt;body>
-    <h1>Hello</h1>
-    <p>world!</p>
+    &lt;h1>Hello&lt;/h1>
+    &lt;p>world!&lt;/p>
   &lt;/body>
 &lt;/html>
     </code></pre>
@@ -136,28 +137,29 @@ app.listen(3000, function () {
     <h1>Template language</h1>
     <p>EJS: Embedded javascript</p>
 
-    <pre><code class="html" data-trim>
+    <pre><code class="html" data-trim data-noescape>
+&lt;!-- hello.ejs -->
 &lt;html>
   &lt;head>
-    <title>HW</title>
+    &lt;title>HW&lt;/title>
   &lt;/head>
   &lt;body>
-    <h1>Hello</h1>
-    <p><%= name %></p>
-    <% if(location && location !== "") { %>
-     <p>How is the weather in <%= location %>?</p>
-    <% } %>
+    &lt;h1>Hello&lt;/h1>
+    &lt;p><mark><%= name %></mark>&lt;/p>
+    <mark><% if(location && location !== "") { %></mark>
+     &lt;p>How is the weather in <mark><%= location %></mark>?&lt;/p>
+    <mark><% } %></mark>
   &lt;/body>
 &lt;/html>
     </code></pre>
   </section>
-
 
   <section>
     <h1>Passing data</h1>
 
     <h2>Server</h2>
     <pre><code class="javascript" data-trim>
+// app.js
 router.get("/", function(req, res, next){
   res.locals.name = "Dr. Evil";
   res.locals.location = "Secret Lair";
@@ -166,19 +168,65 @@ router.get("/", function(req, res, next){
     </code></pre>
 
     <h2>Template</h2>
-    <pre><code class="html" data-trim>
-Hello, &lt;%= name %> from &lt;%= location>
+    <pre><code class="html" data-trim data-noescape>
+&lt;!-- index.ejs -->
+Hello, <mark>&lt;%= name %></mark> from <mark>&lt;%= location></mark>
     </code></pre>
   </section>
 
+    <section>
+      <h1>Not a good idea</h1>
+      <pre><code class="html" data-trim data-noescape>
+&lt;!-- hello.ejs -->
+<mark>&lt;html>
+  &lt;head>
+    &lt;title>HW&lt;/title>
+  &lt;/head>
+  &lt;body></mark>
+    &lt;h1>Hello&lt;/h1>
+    &lt;p><%= name %>&lt;/p>
+    <% if(location && location !== "") { %>
+     &lt;p>How is the weather in <%= location %>?&lt;/p>
+    <% } %>
+  <mark>&lt;/body>
+&lt;/html></mark>
+      </code></pre>
+    </section>
+
   <section>
     <h1>Partials</h1>
-    ...
+    <pre><code class="html" data-trim data-noescape>
+&lt;!-- hello.ejs -->
+<mark>&lt;%- include('head.ejs') %></mark>
+  &lt;h1>Hello&lt;/h1>
+  &lt;p><%= name %>&lt;/p>
+  <% if(location && location !== "") { %>
+   &lt;p>How is the weather in <%= location %>?&lt;/p>
+  <% } %>
+<mark>&lt;%- include('foot.ejs') %></mark>
+    </code></pre>
+
+    <pre><code class="html" data-trim data-noescape>
+&lt;!-- head.ejs -->
+&lt;html>
+  &lt;head>
+    &lt;title>HW&lt;/title>
+  &lt;/head>
+  &lt;body>
+    </code></pre>
+
+    <pre><code class="html" data-trim data-noescape>
+&lt;!-- foot.ejs -->
+&lt;/body>
+&lt;/html>
+    </code></pre>
+
   </section>
 
   <section>
     <div class="protip">
-      Don't put logic in your templates or HTML in your code.
+     Everything between <code><% ... %></code> is just
+     JavaScript
     </div>
   </section>
 </section>
@@ -190,21 +238,29 @@ Hello, &lt;%= name %> from &lt;%= location>
 
   <section>
     <h1>Client &lt;-&gt; server</h1>
-    <img src="assets/lesson3/request-response.png" />
-  </section>
-
-
-  <section>
-    <h1>Request via Routes</h1>
+    <img src="assets/lesson3/request-response.png" alt="client - server" />
   </section>
 
   <section>
-    <h1>Response via template</h1>
+    <h1>Response</h1>
+    <p>through template</p>
+  </section>
+
+  <section>
+    <h1>Request</h1>
+    <p>through routing</p>
   </section>
 
   <section>
     <h1>What is a route?</h1>
     <p>A function that responds to part of an URL</p>
+
+    <pre><code class="javascript" data-trim data-noescape>
+// app.js
+app.get('<mark>/hello</mark>', <mark style="background: #a00;">function(req, res){
+  // ...
+}</mark>);
+     </code></pre>
   </section>
 
   <section>
@@ -222,8 +278,7 @@ Hello, &lt;%= name %> from &lt;%= location>
     <h1>Route</h1>
 
     <pre><code class="javascript" data-trim data-noescape>
-app.get(<strong>'/hello/amsterdam'</strong>, function(req, res){
-  res.locals.name = "You";
+app.get(<mark>'/hello/amsterdam'</mark>, function(req, res){
   res.locals.location = "Amsterdam";
   res.render('hello');
 });
@@ -231,36 +286,29 @@ app.get(<strong>'/hello/amsterdam'</strong>, function(req, res){
   </section>
 
   <section>
+    <h1>Route + Query string</h1>
+    <pre><code class="javascript" data-trim data-noescape>
+app.get('<mark>/hello</mark>', function(req, res){
+  res.locals.location = <mark>req.query.location</mark>;
+  res.render('hello');
+});
+    </code></pre>
+
+    <aside class="notes">
+     http://expressjs.com/4x/api.html#req.query
+    </aside>
+  </section>
+
+  <section>
     <h1>Route + Parameter</h1>
 
-    <pre><code class="javascript" data-trim>
-app.get('/hello/:location', function(req, res){
-  res.locals.name = "You";
-  res.locals.location = req.params.location;
+    <pre><code class="javascript" data-trim data-noescape>
+app.get('<mark>/hello/:location</mark>', function(req, res){
+  res.locals.location = <mark>req.params.location</mark>;
   res.render('hello');
 });
     </code></pre>
   </section>
-
-    <section>
-      <h1>Query string</h1>
-      <pre><code class="javascript" data-trim>
-  // routes/weather.js
-  var express = require('express');
-  var router = express.Router();
-
-  router.get('/', function(req, res){
-    var location = req.query.location;
-    res.send('Who is the weather in ' + location + '?');
-  });
-
-  module.exports = router;
-      </code></pre>
-
-      <aside class="notes">
-       http://expressjs.com/4x/api.html#req.query
-      </aside>
-    </section>
 
   <section>
     <h1>Req / Res</h1>
@@ -280,11 +328,11 @@ app.get('/hello/:location', function(req, res){
 
     <div class="side-by-side">
       <div class="side-by-side__content">
-        <img src="assets/lesson3/request-response.png" />
+        <img src="assets/lesson3/request-response.png" alt="Client/server" />
       </div>
       <div class="side-by-side__content">
         <pre><code class="javascript" data-trim data-noescape>
-app.get('/', function(<span class="hl-red">req</span>, <span class="hl-green">res</span>){
+app.get('/hello', function(<span class="hl-red">req</span>, <span class="hl-green">res</span>){
   ...
 });
         </code></pre>
@@ -297,8 +345,8 @@ req.query // Query string
 
         <h2 style="margin-top: 1em">Response</h2>
         <pre><code class="javascript" data-trim data-noescape>
-req.send("...") // Send string
-req.render("template", {..}) // Render template
+res.send("...") // Send string
+res.render("template", {..}) // Render template
         </code></pre>
 
       </div>
@@ -312,25 +360,40 @@ req.render("template", {..}) // Render template
   </section>
 
   <section>
+    <h1>Not a good idea</h1>
+    <pre><code class="javascript" data-trim data-noescape>
+// app.js
+app.get('/', function(req, res){  });
+
+app.get('/cars', function(req, res){  });
+app.get('/cars/:brand', function(req, res){  });
+
+app.get('/weather', function(req, res){  });
+app.get('/weather/:location', function(req, res){  });
+    </code></pre>
+
+  </section>
+
+  <section>
     <h1>Router</h1>
     <ul>
+      <li>Project structure (Modules!)</li>
       <li>URL structure</li>
-      <li>HTTP request handling</li>
-      <li>HTTP response generation</li>
+      <li>Request handling</li>
+      <li>Response generation</li>
     </ul>
   </section>
 
 
-
   <section>
-    <h1>Router example</h1>
+    <h1>Router module</h1>
     <pre><code class="javascript" data-trim>
-// routes/weather.js
+// routes/hello.js
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res){
-  res.send('Hello world (from router)!');
+router.get('/hello', function(req, res){
+  res.send('... you say goodbye, and I say hello!');
 });
 
 module.exports = router;
@@ -339,33 +402,65 @@ module.exports = router;
 
   <section>
     <h1>Using the router</h1>
-    <pre><code class="javascript" data-trim>
+    <pre><code class="javascript" data-trim data-noescape>
 // app.js
-var express = require('express');
-var app = express();
-var weatherRouter = require('./routes/weather');
+var helloRouter = require('./routes/hello');
 
-app.use('/weather', weatherRouter);
-
-// Start the server
-app.listen(3000);
+app.<mark>use</mark>('/hello', helloRouter);
     </code></pre>
   </section>
+
+ <section>
+  <h1>Go to ...</h1>
+  <p>http://localhost:3000<mark>/hello/hello</mark></p>
+ </section>
+
+<section>
+  <h1>What happened?</h1>
+
+  <ol style="display: block">
+    <li>Start with the <code>app</code></li>
+    <li><mark>/hello</mark>/hello &rarr; <code>app.use('/hello', helloRouter)</code></li>
+    <li>Continue in <code>router</code></li>
+    <li>/hello<mark>/hello</mark> &rarr; <code>router.get('/hello', ...)</code></li>
+  </ol>
+</section>
+
+  <section>
+    <h1>Just /hello</h1>
+    <pre><code class="javascript" data-trim>
+// routes/hello.js
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function(req, res){
+  res.send('Hi!');
+});
+
+module.exports = router;
+    </code></pre>
+  </section>
+
+<section>
+  <h1>What happened?</h1>
+
+  <ol style="display: block">
+    <li>Start with the <code>app</code></li>
+    <li><mark>/hello</mark> &rarr; <code>app.use('/hello', helloRouter)</code></li>
+    <li>Continue in <code>router</code></li>
+    <li>/hello &rarr; <code>router.get('/', ...)</code></li>
+  </ol>
+</section>
 
  <section>
    <h1>Using multiple routers</h1>
    <pre><code class="javascript" data-trim>
 // app.js
-var express = require('express');
-var app = express();
-var weatherRouter = require('./routes/weather');
-var indexRouter = require('./routes/index');
+var helloRouter = require('./routes/hello');
+var carRouter = require('./routes/cars');
 
-app.use('/', indexRouter);
-app.use('/weather', weatherRouter);
-
-// Start the server
-app.listen(3000);
+app.use('/hello', helloRouter);
+app.use('/cars', carRouter);
    </code></pre>
  </section>
 
@@ -373,176 +468,6 @@ app.listen(3000);
 
 
 </section>
-
-
-<section data-background="assets/lesson2/break.gif">
-  <div class="fragment">
-    <h1>Coffebreak</h1>
-    <p>Back in 10 minutes</p>
-  </div>
-</section>
-
-<section>
-  <section>
-    <h1>Templating</h1>
-  </section>
-
-  <section>
-    <h1>Up until now...</h1>
-    <pre><code class="javascript" data-trim>
-// routes/weather.js
-// ...
-
-router.get('/', function(req, res){
-  var output = '&lt;html>&lt;head><title>Weather</title>&lt;/head>&lt;body>\n';
-  output += '<h1>Welcome!</h1>\n';
-  output += '<p>This is the weather service</p>';
-  output += '&lt;/body>&lt;/html>';
-
-  res.send(output)
-});
-
-// ...
-    </code></pre>
-  </section>
-
-  <section data-background="assets/lesson2/barf.gif">
-  </section>
-
-  <section>
-    <h1>MVC</h1>
-    <strong>M</strong>odel
-    - <strong>V</strong>iew
-    - <strong>C</strong>ontroller
-  </section>
-
-  <section>
-    <h1>Templates (view)</h1>
-    <ul>
-      <li>Put HTML (or whatever) in separate files</li>
-      <li>Pass data to the template</li>
-    </ul>
-  </section>
-
-  <section>
-    <h1>EJS</h1>
-    <p>Embedded javascript</p>
-
-    <pre><code class="ejs" data-trim>
-<h1><%= name %> </h1>
-<p>Test results:</p>
-<p>
-  <% if(passed){ %>
-    Yay, you passed!
-  <% } else { %>
-    FAIL!
-  <% } %>
-</p>
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Setting up views</h1>
-    <ol>
-      <li>
-        Install EJS
-        <pre><code class="javascript" data-trim>
-$ npm install --save ejs
-        </code></pre>
-      </li>
-      <li>
-        Tell express to use EJS:
-        <pre><code class="javascript" data-trim>
-app.set('view engine', 'ejs');
-        </code></pre>
-      </li>
-      <li>
-        Tell express where to find the views:
-        <pre><code class="javascript" data-trim>
-app.set('views', __dirname + '/views');
-        </code></pre>
-      </li>
-      <li>Create a view file</li>
-      <li>
-        Render the view:
-        <pre><code class="javascript" data-trim>
-router.get("/", function(req, res){
-  res.render("index");
-})
-        </code></pre>
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h1>Setup data</h1>
-    <pre><code class="javascript" data-trim>
-router.get("/", function(req, res){
-  res.render("index", {
-    name : "Dr. Evil",
-    location : "Secret Lair"
-  });
-})
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Using data</h1>
-    <pre><code class="javascript" data-trim>
-Hello, &lt;%= name %> from &lt;%= location>
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Includes</h1>
-    <pre><code class="javascript" data-trim>
-&lt;% include partials/header %>
-... my template ...
-&lt;% include partials/footer %>
-    </code></pre>
-  </section>
-
-  <section>
-    <div class="protip">
-      Don't put logic in your templates or HTML in your code.
-    </div>
-  </section>
-</section>
-
-<section>
-  <section>
-    <h1>Consuming APIs</h1>
-  </section>
-
-  <section>
-    <h1>Request</h1>
-    <p>
-      <a href="https://www.npmjs.org/package/request">https://www.npmjs.org/package/request</a>
-    </p>
-  </section>
-
-  <section>
-    <h1>Installing Request</h1>
-    <pre class="terminal--osx"><code data-trim class="bash">
-$ npm install --save request
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Example</h1>
-    <pre><code class="javascript" data-trim>
-var request = require("request");
-var url = "http://api.openweathermap.org/data/2.5/weather?q=Amsterdam,nl";
-request(url, function(error, response, body){
-  if (!error && response.statusCode == 200) {
-    console.log(body) // Print the weather.
-  }
-});
-    </code></pre>
-  </section>
-
-</section>
-
 
 <section>
 
@@ -553,115 +478,22 @@ request(url, function(error, response, body){
   <section>
     <h1>What we learned today</h1>
     <ul>
-      <li class="fragment">Javascript strings, objects, arrays</li>
-      <li class="fragment">How to learn more about javascript</li>
-      <li class="fragment">Node.js asynchronous operations and callbacks</li>
-      <li class="fragment">Setting up Express.js app</li>
-      <li class="fragment">Writing routers with params</li>
-      <li class="fragment">Doing templating with EJS and using includes</li>
-      <li class="fragment">Get stuff from the internet with "request"</li>
+      <li class="fragment">Templates</li>
+      <li class="fragment">Partials in templates</li>
+      <li class="fragment">Request / Response</li>
+      <li class="fragment">Routes: URL, params, query string</li>
+      <li class="fragment">Routers</li>
     </ul>
   </section>
 
 </section>
 
-<section>
-  <section>
-    <h1>Deeltoets 1</h1>
-
-    <ul>
-      <li>Werkcollege van 4 december</li>
-      <li>Op papier, zonder laptop</li>
-      <li>20 minuten</li>
-    </ul>
-  </section>
-
-  <section>
-    <h1>Doel</h1>
-    <p>
-      Doel van de toets is het begrijpen van JavaScript en de concepten
-      zoals behandeld in de hoor- en werkcolleges.
-    </p>
-  </section>
-
-  <section>
-    <h1>Voorbeeld 1</h1>
-    <pre><code class="javascript" data-trim>
-//  moetikeenjasaan.js
-var moetIkEenJasAan = function(temp, regen){
-  if(temp > 15 && !regen){
-    return 'Nee, dat is niet nodig';
-  } else if(temp > 15 && regen){
-    return 'Je kunt ook een paraplu meenemen';
-  } else {
-    return 'Ja, dat is wel verstandig.';
-  }
-};
-
-// Vraag:
-// Wat is de uitkomst van moetIkEenJarAan(10, true)
-    </code></pre>
-  </section>
-
-  <section>
-    <h1>Voorbeeld 2</h1>
-    <pre><code class="javascript" data-trim>
-var calculate = function(expenses){
-  var calculate = {};
-  expenses.forEach(function(expense){
-    if(calculate[expense.type]){
-      calculate[expense.type] += expense.kosten;
-    } else {
-      calculate[expense.type] = expense.kosten;
-    }
-  });
-
-  return calculate;
-};
-
-var uitgaven = [
-  {name: 'Collegeld', type: 'studiekosten', kosten: 1800},
-  {name: 'Snowboard', type: 'vakantie', kosten: 350},
-  {name: 'Snowboardschoenen', type: 'vakantie', kosten: 200},
-  {name: 'Studieboek', type: 'studiekosten', kosten: 250},
-  {name: 'Kaas', type: 'boodschappen', kosten: 4},
-  {name: 'Collegeklapper', type: 'studiekosten', kosten: 2},
-  {name: 'Brood', type: 'boodschappen', kosten: 2},
-  {name: 'Melk', type: 'boodschappen', kosten: 1},
-];
-
-calculate(uitgaven);
-    </code></pre>
-  </section>
-
-</section>
 
 <section>
 
   <section>
     <h1>Werkcollege en huiswerk</h1>
-  </section>
-
-  <section>
-    <h1>Huiswerk: lezen</h1>
-
-    <ul>
-      <li>Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)</li>
-      <li>Hoodstuk 8, t/m 8.3 (p 176 t/m 193)</li>
-      <li>Minder belangrijk: "view caching"</li>
-    </ul>
-
-    <p>Klaar voor werkcollege</p>
-  </section>
-
-  <section>
-    <h1>Huiswerk: doen</h1>
-    <ul>
-      <li>Doe de oefeningen uit codeacademy</li>
-      <li>Begin met de exercises</li>
-    </ul>
-
-    <p>Klaar voor werkcollege</p>
+    <p>Zie moodle</p>
   </section>
 
   <section data-background="assets/thatsall.gif">
@@ -669,10 +501,6 @@ calculate(uitgaven);
 
 </section>
 
-<div class="hidden">
-  * Static files
-  * Redirects
-</div>
       </div>
     </div>
 
